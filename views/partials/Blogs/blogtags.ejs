@@ -1,0 +1,13 @@
+<div class="widget bg-secondary mt-1-9 wow fadeIn" data-wow-delay="200ms">
+    <div class="section-title-01 mb-1-9">
+      <span
+        class="text-primary font-weight-600 text-uppercase letter-spacing-1 position-relative ps-2">Tags</span>
+    </div>
+    <div class="blog-tags mt-n2">
+      <% blogDetails.seoDetails.tags.forEach(tag=> { %>
+        <a href="javascript:void(0)">
+          <%= tag %>
+        </a>
+        <% }) %>
+    </div>
+  </div>

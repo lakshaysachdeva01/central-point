@@ -1,0 +1,333 @@
+<%- include('header') %>
+
+
+  <!-- PAGE TITLE
+        ================================================== -->
+        <section class="page-title-section top-position1 bg-img cover-background left-overlay-secondary" data-overlay-dark="85" data-background="/assets/img/banner/page-title-01.jpg">
+            <div class="container">                
+                <h1>Industry Focus</h1>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li>Industry Focus</li>
+                </ul>                
+            </div>
+        </section>
+
+        <!-- INDUSTRIAL APPLICATIONS PORTFOLIO
+        ================================================== -->
+        
+        <!-- CATEGORY FILTER TABS -->
+        <section style=" padding: 50px 0; margin-bottom: 30px;">
+            <div class="container">
+                <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; max-width: 1200px; margin: 0 auto;">
+                    <button onclick="filterIndustry('all')" class="industry-tab active" data-filter="all" style="padding: 0px 14px; background: var(--primary-color); border: 2px solid var(--primary-color); border-radius: 25px; color: white; text-decoration: none; font-weight: 500; font-size: 14px; height:40px; transition: all 0.3s ease; cursor: pointer;">All</button>
+                    <button onclick="filterIndustry('steel-industry')" class="industry-tab" data-filter="steel-industry" style="padding: 0px 14px; background: white; border: 2px solid #e9ecef; border-radius: 25px; color: #6c757d; text-decoration: none; font-weight: 500; font-size: 14px; height:40px; transition: all 0.3s ease; cursor: pointer;">Steel Industry</button>
+                    <button onclick="filterIndustry('power-plants')" class="industry-tab" data-filter="power-plants" style="padding: 0px 14px; background: white; border: 2px solid #e9ecef; border-radius: 25px; color: #6c757d; text-decoration: none; font-weight: 500; font-size: 14px; height:40px; transition: all 0.3s ease; cursor: pointer;">Power Plants</button>
+                </div>
+            </div>
+        </section>
+        
+        <section style="padding-top: 0px;">
+            <div class="container">
+                
+                <div class="event-grid row portfolio-gallery mt-n1-9">
+                    <!-- Steel Industry Items -->
+                    <div class="col-sm-6 col-xl-3 mt-1-9 wow fadeIn steel-industry" data-wow-delay="200ms" data-src="/assets/img/portfolio/portfolio-01.jpg" data-sub-html="<h4 class='text-white'>Sponge Iron (DRI)</h4>">
+                        <div class="portfolio-style-01 position-relative overflow-hidden rounded">
+                            <img src="/assets/img/portfolio/portfolio-01.jpg" alt="Sponge Iron (DRI)" class="rounded">
+                            <div class="portfolio-body">
+                                <div class="content">
+                                    <h3 class="title mb-1-6 pb-4 h4 pe-2 pe-xxl-0"><a href="/industry/sponge-iron">Sponge Iron (DRI)</a></h3>
+                                    <p class="mb-0 w-90">Engineered rotary kiln refractories ensuring peak efficiency and longer life.</p>
+                                </div>
+                                <div class="portfolio-btn">
+                                    <a href="/industry/sponge-iron" class="font-weight-700 portfolio-link">Read More<i class="fa-solid fa-arrow-right ms-3"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-6 col-xl-3 mt-1-9 wow fadeIn steel-industry" data-wow-delay="200ms" data-src="/assets/img/portfolio/portfolio-02.jpg" data-sub-html="<h4 class='text-white'>Pellet Plants</h4>">
+                        <div class="portfolio-style-01 position-relative overflow-hidden rounded">
+                            <img src="/assets/img/portfolio/portfolio-02.jpg" alt="Pellet Plants" class="rounded">
+                            <div class="portfolio-body">
+                                <div class="content">
+                                    <h3 class="title mb-1-6 pb-4 h4 pe-2 pe-xxl-0"><a href="/industry/pellet-plants">Pellet Plants</a></h3>
+                                    <p class="mb-0 w-90">Durable castables and anchors crafted to resist extreme pelletizing heat.</p>
+                                </div>
+                                <div class="portfolio-btn">
+                                    <a href="/industry/pellet-plants" class="font-weight-700 portfolio-link">Read More<i class="fa-solid fa-arrow-right ms-3"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-6 col-xl-3 mt-1-9 wow fadeIn steel-industry" data-wow-delay="200ms" data-src="/assets/img/portfolio/portfolio-03.jpg" data-sub-html="<h4 class='text-white'>Induction Furnace (SMS)</h4>">
+                        <div class="portfolio-style-01 position-relative overflow-hidden rounded">
+                            <img src="/assets/img/portfolio/portfolio-03.jpg" alt="Induction Furnace (SMS)" class="rounded">
+                            <div class="portfolio-body">
+                                <div class="content">
+                                    <h3 class="title mb-1-6 pb-4 h4 pe-2 pe-xxl-0"><a href="/industry/induction-furnace">Induction Furnace (SMS)</a></h3>
+                                    <p class="mb-0 w-90">Tailored refractory systems improving heat retention, safety, and sustainability.</p>
+                                </div>
+                                <div class="portfolio-btn">
+                                    <a href="/industry/induction-furnace" class="font-weight-700 portfolio-link">Read More<i class="fa-solid fa-arrow-right ms-3"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-6 col-xl-3 mt-1-9 wow fadeIn steel-industry" data-wow-delay="200ms" data-src="/assets/img/portfolio/portfolio-04.jpg" data-sub-html="<h4 class='text-white'>Rolling Mills</h4>">
+                        <div class="portfolio-style-01 position-relative overflow-hidden rounded">
+                            <img src="/assets/img/portfolio/portfolio-04.jpg" alt="Rolling Mills" class="rounded">
+                            <div class="portfolio-body">
+                                <div class="content">
+                                    <h3 class="title mb-1-6 pb-4 h4 pe-2 pe-xxl-0"><a href="/industry/rolling-mills">Rolling Mills</a></h3>
+                                    <p class="mb-0 w-90">High-efficiency hearth linings ensuring durability, performance, and cost savings.</p>
+                                </div>
+                                <div class="portfolio-btn">
+                                    <a href="/industry/rolling-mills" class="font-weight-700 portfolio-link">Read More<i class="fa-solid fa-arrow-right ms-3"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-6 col-xl-3 mt-1-9 wow fadeIn steel-industry" data-wow-delay="200ms" data-src="/assets/img/portfolio/portfolio-01.jpg" data-sub-html="<h4 class='text-white'>Ductile Iron Pipe (DIP)</h4>">
+                        <div class="portfolio-style-01 position-relative overflow-hidden rounded">
+                            <img src="/assets/img/portfolio/portfolio-01.jpg" alt="Ductile Iron Pipe (DIP)" class="rounded">
+                            <div class="portfolio-body">
+                                <div class="content">
+                                    <h3 class="title mb-1-6 pb-4 h4 pe-2 pe-xxl-0"><a href="/industry/ductile-iron-pipe">Ductile Iron Pipe (DIP)</a></h3>
+                                    <p class="mb-0 w-90">Precision refractories delivering consistent casting, durability, and energy efficiency.</p>
+                                </div>
+                                <div class="portfolio-btn">
+                                    <a href="/industry/ductile-iron-pipe" class="font-weight-700 portfolio-link">Read More<i class="fa-solid fa-arrow-right ms-3"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Power Plants Items -->
+                    <div class="col-sm-6 col-xl-3 mt-1-9 wow fadeIn power-plants" data-wow-delay="200ms" data-src="/assets/img/portfolio/portfolio-02.jpg" data-sub-html="<h4 class='text-white'>Waste Heat Recovery Boilers (WHRB)</h4>">
+                        <div class="portfolio-style-01 position-relative overflow-hidden rounded">
+                            <img src="/assets/img/portfolio/portfolio-02.jpg" alt="Waste Heat Recovery Boilers (WHRB)" class="rounded">
+                            <div class="portfolio-body">
+                                <div class="content">
+                                    <h3 class="title mb-1-6 pb-4 h4 pe-2 pe-xxl-0"><a href="/industry/waste-heat-recovery-boilers">Waste Heat Recovery Boilers (WHRB)</a></h3>
+                                    <p class="mb-0 w-90">Energy-saving refractory linings maximizing recovery and minimizing harmful emissions.</p>
+                                </div>
+                                <div class="portfolio-btn">
+                                    <a href="/industry/waste-heat-recovery-boilers" class="font-weight-700 portfolio-link">Read More<i class="fa-solid fa-arrow-right ms-3"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-6 col-xl-3 mt-1-9 wow fadeIn power-plants" data-wow-delay="200ms" data-src="/assets/img/portfolio/portfolio-03.jpg" data-sub-html="<h4 class='text-white'>Thermal Power Plants</h4>">
+                        <div class="portfolio-style-01 position-relative overflow-hidden rounded">
+                            <img src="/assets/img/portfolio/portfolio-03.jpg" alt="Thermal Power Plants" class="rounded">
+                            <div class="portfolio-body">
+                                <div class="content">
+                                    <h3 class="title mb-1-6 pb-4 h4 pe-2 pe-xxl-0"><a href="/industry/thermal-power-plants">Thermal Power Plants</a></h3>
+                                    <p class="mb-0 w-90">High-performance materials ensuring durability, reliability, and thermal efficiency.</p>
+                                </div>
+                                <div class="portfolio-btn">
+                                    <a href="/industry/thermal-power-plants" class="font-weight-700 portfolio-link">Read More<i class="fa-solid fa-arrow-right ms-3"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-6 col-xl-3 mt-1-9 wow fadeIn power-plants" data-wow-delay="200ms" data-src="/assets/img/portfolio/portfolio-04.jpg" data-sub-html="<h4 class='text-white'>CFBC Boilers</h4>">
+                        <div class="portfolio-style-01 position-relative overflow-hidden rounded">
+                            <img src="/assets/img/portfolio/portfolio-04.jpg" alt="CFBC Boilers" class="rounded">
+                            <div class="portfolio-body">
+                                <div class="content">
+                                    <h3 class="title mb-1-6 pb-4 h4 pe-2 pe-xxl-0"><a href="/industry/cfbc-boilers">CFBC Boilers</a></h3>
+                                    <p class="mb-0 w-90">Advanced refractories built to withstand extreme heat and pressure.</p>
+                                </div>
+                                <div class="portfolio-btn">
+                                    <a href="/industry/cfbc-boilers" class="font-weight-700 portfolio-link">Read More<i class="fa-solid fa-arrow-right ms-3"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-6 col-xl-3 mt-1-9 wow fadeIn power-plants" data-wow-delay="200ms" data-src="/assets/img/portfolio/portfolio-01.jpg" data-sub-html="<h4 class='text-white'>AFBC Boilers</h4>">
+                        <div class="portfolio-style-01 position-relative overflow-hidden rounded">
+                            <img src="/assets/img/portfolio/portfolio-01.jpg" alt="AFBC Boilers" class="rounded">
+                            <div class="portfolio-body">
+                                <div class="content">
+                                    <h3 class="title mb-1-6 pb-4 h4 pe-2 pe-xxl-0"><a href="/industry/afbc-boilers">AFBC Boilers</a></h3>
+                                    <p class="mb-0 w-90">Optimized refractory systems promoting steady combustion and superior heat distribution.</p>
+                                </div>
+                                <div class="portfolio-btn">
+                                    <a href="/industry/afbc-boilers" class="font-weight-700 portfolio-link">Read More<i class="fa-solid fa-arrow-right ms-3"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<style>
+/* Industry Portfolio Card Styles */
+.event-grid .portfolio-style-01 {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.event-grid .portfolio-style-01:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.event-grid .portfolio-style-01 img {
+    width: 100%;
+    height: 410px;
+    object-fit: cover;
+}
+
+.event-grid .portfolio-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    min-height: 120px;
+}
+
+.event-grid .portfolio-body .content {
+    padding: 10px;
+    padding-bottom: 80px;
+    flex-grow: 1;
+}
+
+.event-grid .portfolio-style-01:hover .portfolio-body .content {
+    padding-bottom: 10px;
+}
+
+.event-grid .portfolio-body .content h3.title {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    padding-bottom: 0;
+    line-height: 1.3;
+}
+
+.event-grid .portfolio-body .content p {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+    margin-top: 10px;
+    font-size: 0.95rem;
+    color: #bab9b9;
+}
+
+.event-grid .portfolio-style-01:hover .portfolio-body .content p {
+    max-height: 100px;
+    opacity: 1;
+}
+
+/* Ensure consistent card heights in the grid */
+.event-grid .col-sm-6.col-xl-3 {
+    display: flex;
+    margin-bottom: 30px;
+}
+
+/* Filter Button Styles - Match Products Page */
+.industry-tab {
+    transition: all 0.3s ease;
+}
+
+.industry-tab:hover {
+    background: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+    color: white !important;
+    transform: translateY(-2px);
+}
+
+.industry-tab.active {
+    background: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+    color: white !important;
+}
+
+/* Filter Animation */
+.event-grid > div {
+    transition: all 0.3s ease;
+}
+
+.event-grid > div.filter-hidden {
+    display: none !important;
+}
+</style>
+
+<script>
+function filterIndustry(filter, updateURL = true) {
+    const industryTabs = document.querySelectorAll('.industry-tab');
+    const portfolioItems = document.querySelectorAll('.event-grid > div');
+    
+    // Update URL with query parameter
+    if (updateURL) {
+        const url = new URL(window.location);
+        if (filter === 'all') {
+            url.searchParams.delete('tab');
+        } else {
+            url.searchParams.set('tab', filter);
+        }
+        window.history.pushState({}, '', url);
+    }
+    
+    // Update active button
+    industryTabs.forEach(tab => {
+        if (tab.getAttribute('data-filter') === filter) {
+            tab.classList.add('active');
+            tab.style.background = 'var(--primary-color)';
+            tab.style.borderColor = 'var(--primary-color)';
+            tab.style.color = 'white';
+        } else {
+            tab.classList.remove('active');
+            tab.style.background = 'white';
+            tab.style.borderColor = '#e9ecef';
+            tab.style.color = '#6c757d';
+        }
+    });
+    
+    // Filter items
+    portfolioItems.forEach(item => {
+        if (filter === 'all') {
+            // Show all items
+            item.classList.remove('filter-hidden');
+        } else {
+            // Show/hide based on filter
+            if (item.classList.contains(filter)) {
+                item.classList.remove('filter-hidden');
+            } else {
+                item.classList.add('filter-hidden');
+            }
+        }
+    });
+}
+
+// Check URL on page load and apply filter
+document.addEventListener('DOMContentLoaded', function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const tab = urlParams.get('tab');
+    
+    if (tab && (tab === 'steel-industry' || tab === 'power-plants')) {
+        filterIndustry(tab, false);
+    } else {
+        filterIndustry('all', false);
+    }
+});
+</script>
+
+<%- include('footer') %>

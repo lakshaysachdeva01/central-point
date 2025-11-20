@@ -1,0 +1,20 @@
+<% if (products && products.length > 0) { %>
+   
+                <% products.forEach((item, index) => { %>
+                  <div class="card card-style01 rounded border-0 mt-3 bg-transparent" onclick="window.location.href='/product/<%= item.seoDetails.slug %>'">
+
+                          <% if (item.arrays && item.arrays.arrayOne && item.arrays.arrayOne[0]) { %>
+                              <img src="<%= process.env.S3_BASE_URL + item.arrays.arrayOne[0] %>" alt="<%= item.title || 'Product Image' %>" class="rounded-top">
+                          <% } else { %>
+                              <div style="width: 100%; height: 200px; background-color: rgba(198, 164, 70, 0.1); display: flex; align-items: center; justify-content: center; border-radius: 8px 8px 0 0;">
+                                  <i class="fa-solid fa-image" style="font-size: 40px; color: #c6a446;"></i>
+                              </div>
+                          <% } %>
+                      
+                          <h3 class="mb-0 h5"><a href="/product/<%= item.seoDetails.slug %>"><%= item.title %></a></h3>
+                      </div>
+             <% }) %>
+            
+          
+     
+      <% } %>

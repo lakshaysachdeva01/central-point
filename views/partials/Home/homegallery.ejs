@@ -1,0 +1,155 @@
+<% 
+    // Filter only IMAGE type albums and get latest 4
+    const imageAlbums = gallery
+        .filter(album => album.mediaDetails.mediaType === "IMAGE" && album.mediaDetails.images && album.mediaDetails.images.length > 0)
+        .slice().reverse()
+        .slice(0, 4);
+    
+    const albumCount = imageAlbums.length;
+    let columnClass = 'col-lg-3'; // Default for 4 items
+    
+    if (albumCount === 1) {
+        columnClass = 'col-lg-12';
+    } else if (albumCount === 2) {
+        columnClass = 'col-lg-6';
+    } else if (albumCount === 3) {
+        columnClass = 'col-lg-4';
+    }
+    
+    const baseImageUrl = 'https://technolitics-s3-bucket.s3.ap-south-1.amazonaws.com/websitebuilder-s3-bucket/';
+%>
+
+<section class="offers2">
+    <div class="container" style="max-width: 100%;">
+        <% if (albumCount > 0) { %>
+            <div class="row gx-0">
+                <% imageAlbums.forEach((album, index) => { %>
+                    <% const filterValue = album.title.toLowerCase(); %>
+                    <div class="<%= columnClass %>">
+                        <a href="/gallery/<%= filterValue %>" class="item" 
+                           data-tab="home-tab-<%= index + 1 %>"
+                           data-album-index="<%= index %>"
+                           data-filter="<%= filterValue %>">
+                            <h5><%= album.title %></h5>
+                        </a>
+                    </div>
+                <% }); %>
+            </div>
+        <% } else { %>
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p>No gallery images available.</p>
+                </div>
+            </div>
+        <% } %>
+    </div>
+    <div class="glry-img">
+        <% if (albumCount > 0) { %>
+            <% imageAlbums.forEach((album, index) => { %>
+                <% 
+                    const images = album.mediaDetails.images || [];
+                %>
+                <% images.forEach((image, imgIndex) => { %>
+                    <% 
+                        const isFirstImage = index === 0 && imgIndex === 0;
+                        const currentClass = isFirstImage ? 'current' : '';
+                    %>
+                    <img id="home-tab-<%= index + 1 %>-<%= imgIndex %>" 
+                         src="<%= baseImageUrl + image %>" 
+                         alt="<%= album.title %>" 
+                         class="tab-img <%= currentClass %>"
+                         data-tab="home-tab-<%= index + 1 %>"
+                         data-album-index="<%= index %>"
+                         data-img-index="<%= imgIndex %>">
+                <% }); %>
+            <% }); %>
+        <% } %>
+    </div>
+</section>
+
+<% if (albumCount > 1) { %>
+<style>
+    .offers2 .row .col-lg-3:not(:last-of-type) a,
+    .offers2 .row .col-lg-4:not(:last-of-type) a,
+    .offers2 .row .col-lg-6:not(:last-of-type) a {
+        border-right: 1px solid rgba(255, 255, 255, 0.2);
+    }
+</style>
+<% } %>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const galleryTabs = document.querySelectorAll('.offers2 .item');
+    let activeSlideInterval = null;
+    const totalAlbumCount = <%= albumCount %>;
+    
+    // Function to switch preview on hover/click (original behavior)
+    function switchPreview(tabElement) {
+        const tabIndex = tabElement.getAttribute('data-tab');
+        const albumIndex = tabElement.getAttribute('data-album-index');
+        
+        // Stop any existing slideshow
+        if (activeSlideInterval) {
+            clearInterval(activeSlideInterval);
+            activeSlideInterval = null;
+        }
+        
+        // Remove current class from all items
+        galleryTabs.forEach(tab => {
+            tab.classList.remove('current');
+        });
+        
+        // Add current class to hovered/clicked tab
+        tabElement.classList.add('current');
+        
+        // Hide all images (using opacity/transform for smooth transition)
+        const allImages = document.querySelectorAll('.offers2 .tab-img');
+        allImages.forEach(img => {
+            img.classList.remove('current');
+        });
+        
+        // Show first image of selected album (using CSS transition)
+        const albumImages = Array.from(allImages).filter(img => 
+            img.getAttribute('data-album-index') === albumIndex
+        );
+        
+        if (albumImages.length > 0) {
+            // Show first image
+            albumImages[0].classList.add('current');
+            
+            // Start slideshow ONLY if there's ONE folder AND multiple images
+            if (totalAlbumCount === 1 && albumImages.length > 1) {
+                let currentImgIndex = 0;
+                activeSlideInterval = setInterval(function() {
+                    albumImages[currentImgIndex].classList.remove('current');
+                    
+                    currentImgIndex = (currentImgIndex + 1) % albumImages.length;
+                    
+                    albumImages[currentImgIndex].classList.add('current');
+                }, 3000);
+            }
+        }
+    }
+    
+    // Add hover event listeners (hover only, click will redirect)
+    galleryTabs.forEach(tab => {
+        tab.addEventListener('mouseenter', function() {
+            switchPreview(this);
+        });
+        
+        // Allow click to navigate (don't prevent default)
+        tab.addEventListener('click', function(e) {
+            // Let the link navigate normally - don't prevent default
+            // Just update preview briefly before navigation
+            switchPreview(this);
+        }, true); // Use capture phase to handle before other handlers
+    });
+    
+    // Start with first tab on load
+    const firstTab = galleryTabs[0];
+    if (firstTab) {
+        switchPreview(firstTab);
+    }
+});
+</script>
+

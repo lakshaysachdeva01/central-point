@@ -1,0 +1,26 @@
+<% if (latestblog && latestblog.length> 0) { %>
+    <div class="widget bg-secondary mt-1-9 wow fadeIn" data-wow-delay="200ms">
+      <div class="section-title-01 mb-1-9">
+        <span
+          class="text-primary font-weight-600 text-uppercase letter-spacing-1 position-relative ps-2">Recent
+          Posts</span>
+      </div>
+      <% latestblog.forEach(item=> { %>
+        <div class="d-flex mb-4" onclick="window.location.href='/blog-details/<%= item.seoDetails.slug %>'">
+          <div class="flex-shrink-0 me-3">
+            <img src="<%= process.env.S3_BASE_URL + item.coverImage %>" alt="...">
+          </div>
+          <div class="flex-grow-1">
+            <h4 class="mb-2 h6"><a href="/blog-details/<%= item.seoDetails.slug %>"
+                class="text-white text-white-hover-light">
+                <%= item.title %>
+              </a></h4>
+            <span class="text-white opacity8 small">
+              <%= item.postDate %>
+            </span>
+          </div>
+        </div>
+
+    </div>
+    <% }) %>
+      <% } %>

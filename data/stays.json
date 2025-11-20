@@ -1,0 +1,508 @@
+[
+  {
+    "id": 1,
+    "slug": "royal-suite",
+    "tagline": "LUXURY SUITE",
+    "title": "Royal Suite",
+    "description": "Indulge in an exclusive retreat featuring an in-room private pool, elegant dining space, and premium interiors designed for unmatched comfort. Perfect for celebrations, intimate gatherings, and VIP stays.",
+    "image": "/assets/img/rooms/01.jpg",
+    "icon": "/assets/img/logo.png",
+    "link": "/stay/royal-suite",
+    "bannerImage": "/assets/img/rooms/01.jpg",
+    "bannerVideo": "https://duruthemes.com/demo/html/rixos/video2.mp4",
+    "detailImages": [
+      "/assets/img/rooms/a.jpg",
+      "/assets/img/rooms/b.jpg",
+      "/assets/img/rooms/c.jpg",
+      "/assets/img/rooms/d.jpg",
+      "/assets/img/rooms/e.jpg",
+      "/assets/img/rooms/f.jpg"
+    ],
+    "listDescription": "Indulge in an exclusive retreat featuring an in-room private pool, elegant dining space, and premium interiors.",
+    "detailDescription": "The Royal Suite is designed for guests who desire an extraordinary stay, blending elegance, privacy, and complete indulgence. From warm lighting to spacious interiors and refined décor, every corner elevates the sense of luxury. The private in-room swimming pool adds an exclusive touch, making the suite perfect for romantic getaways, VIP guests, small celebrations, or high-profile corporate stays.\n\nA separate dining area, balcony, and premium furnishings create a serene environment to relax or entertain. Whether you're celebrating an occasion or enjoying a premium work-and-relax retreat, the Royal Suite delivers an unforgettable experience with the finest comfort and privacy.",
+    "stayDetails": {
+      "roomSize": "900 sq. ft.",
+      "bedType": "Luxury King-Size Bed",
+      "occupancy": "2 Guests",
+      "bathroom": "Premium Bathroom",
+      "breakfast": "Complimentary Breakfast"
+    },
+    "price": "$500",
+    "priceUnit": "/ night",
+    "roomFeatures": [
+      {
+        "icon": "fa-thin fa-user",
+        "text": "1-2 Persons"
+      },
+      {
+        "icon": "fa-thin fa-expand",
+        "text": "900 sqft room"
+      },
+      {
+        "icon": "fa-thin fa-bed-front",
+        "text": "King Bed"
+      },
+      {
+        "icon": "fa-thin fa-mug-saucer",
+        "text": "Breakfast"
+      }
+    ],
+    "features": [
+      {
+        "icon": "fa-light fa-water-ladder",
+        "text": "Private In-Room Swimming Pool"
+      },
+      {
+        "icon": "fa-light fa-utensils",
+        "text": "Separate Dining Area"
+      },
+      {
+        "icon": "fa-light fa-home",
+        "text": "Private Balcony"
+      },
+      {
+        "icon": "fa-light fa-air-conditioner",
+        "text": "Individual Climate-Control AC"
+      },
+      {
+        "icon": "fa-light fa-tv",
+        "text": "LED TV"
+      },
+      {
+        "icon": "fa-light fa-mug-saucer",
+        "text": "Tea/Coffee Maker"
+      },
+      {
+        "icon": "fa-light fa-lock",
+        "text": "Safety Locker"
+      },
+      {
+        "icon": "fa-light fa-pump-soap",
+        "text": "Toiletry Kit"
+      },
+      {
+        "icon": "fa-light fa-dryer",
+        "text": "Hair Dryer"
+      },
+      {
+        "icon": "fa-light fa-shaving-razor",
+        "text": "Dental & Shaving Kit"
+      },
+      {
+        "icon": "fa-light fa-shoe-prints",
+        "text": "Cotton Slippers"
+      },
+      {
+        "icon": "fa-light fa-weight-scale",
+        "text": "Weighing Scale"
+      },
+      {
+        "icon": "fa-light fa-iron",
+        "text": "Iron & Iron Board (on request)"
+      },
+      {
+        "icon": "fa-light fa-phone",
+        "text": "Wake-Up Call Service"
+      }
+    ],
+    "paidServices": [
+      "In-Room Dining",
+      "Laundry & Dry Cleaning",
+      "Photocopy / Printouts",
+      "Direct Dialing Facility"
+    ],
+    "checkIn": {
+      "title": "Check-in",
+      "items": [
+        "Check-in from 9:00 AM - anytime",
+        "Early check-in subject to availability"
+      ]
+    },
+    "checkOut": {
+      "title": "Check-out",
+      "items": [
+        "Check-out before noon",
+        "Express check-out"
+      ]
+    },
+    "specialInstructions": "Guests will receive an email 5 days before arrival with check-in instructions; front desk staff will greet guests on arrival. For more details, please contact the property using the information on the booking confirmation.",
+    "childrenExtraBeds": "Children are welcome! Kids stay free. Children stay free when using existing bedding; children may not be eligible for complimentary breakfast. Rollaway/extra beds are available for $10 per day.",
+    "faqs": [
+      {
+        "question": "Do you have any discount code?",
+        "answer": "Yes, we offer seasonal discount codes. Please check our website or contact our reservation team for current promotions and special offers."
+      },
+      {
+        "question": "How can I get in touch with my hotel?",
+        "answer": "You can contact us directly through our front desk at any time, via email at reservations@hotel.com, or through our 24/7 customer service hotline. Our staff is always ready to assist you."
+      },
+      {
+        "question": "Can I cancel my reservation?",
+        "answer": "Yes, reservations can be cancelled according to our cancellation policy. Free cancellation is available up to 48 hours before check-in. Late cancellations may incur fees as per the booking terms."
+      },
+      {
+        "question": "Do you have hotels with a spa?",
+        "answer": "Yes, our Royal Suite includes access to premium spa facilities. We offer a range of wellness services including massages, facials, and relaxation treatments to enhance your stay experience."
+      }
+    ],
+    "imagePosition": "left"
+  },
+  {
+    "id": 2,
+    "slug": "family-room",
+    "tagline": "FAMILY ACCOMMODATION",
+    "title": "Family Room",
+    "description": "Spacious, bright guestrooms with tasteful furnishing, wooden floor and panoramic windows from the ceiling to the floor. Perfect for families seeking comfort and space.",
+    "image": "/assets/img/rooms/02.jpg",
+    "icon": "/assets/img/logo.png",
+    "link": "/stay/family-room",
+    "bannerImage": "/assets/img/rooms/02.jpg",
+    "bannerVideo": "https://duruthemes.com/demo/html/rixos/video2.mp4",
+    "detailImages": [
+      "/assets/img/rooms/d.jpg",
+      "/assets/img/rooms/e.jpg",
+      "/assets/img/rooms/f.jpg",
+      "/assets/img/rooms/a.jpg",
+      "/assets/img/rooms/b.jpg",
+      "/assets/img/rooms/c.jpg"
+    ],
+    "listDescription": "Spacious, bright guestrooms with tasteful furnishing, wooden floor and panoramic windows from the ceiling to the floor.",
+    "detailDescription": "The Family Room is designed for guests traveling with family, offering spacious accommodations and thoughtful amenities. The room features tasteful furnishings, wooden floors, and panoramic windows that extend from ceiling to floor, creating a bright and airy atmosphere.\n\nThe room provides ample space for families to relax and move around comfortably. With separate sleeping areas and a cozy seating space, families can enjoy both togetherness and privacy. The modern amenities and family-friendly features ensure a comfortable and memorable stay for guests of all ages.",
+    "stayDetails": {
+      "roomSize": "240 sq. ft.",
+      "bedType": "Twin Beds",
+      "occupancy": "2-3 Guests",
+      "bathroom": "Full Bathroom",
+      "breakfast": "Complimentary Breakfast"
+    },
+    "price": "$200",
+    "priceUnit": "/ night",
+    "roomFeatures": [
+      {
+        "icon": "fa-thin fa-user",
+        "text": "2-3 Persons"
+      },
+      {
+        "icon": "fa-thin fa-expand",
+        "text": "240 sqft room"
+      },
+      {
+        "icon": "fa-thin fa-bed-front",
+        "text": "Twin Bed"
+      },
+      {
+        "icon": "fa-thin fa-wifi",
+        "text": "Free Wifi"
+      }
+    ],
+    "features": [
+      {
+        "icon": "fa-light fa-wifi",
+        "text": "Free Wi-Fi"
+      },
+      {
+        "icon": "fa-light fa-tv",
+        "text": "Cable TV"
+      },
+      {
+        "icon": "fa-light fa-baby-carriage",
+        "text": "Free Baby Bed"
+      },
+      {
+        "icon": "fa-light fa-bed",
+        "text": "Comfortable Beds"
+      },
+      {
+        "icon": "fa-light fa-martini-glass",
+        "text": "Mini-bar"
+      },
+      {
+        "icon": "fa-light fa-air-conditioner",
+        "text": "Air Conditioner"
+      },
+      {
+        "icon": "fa-light fa-refrigerator",
+        "text": "In-room Refrigerator"
+      },
+      {
+        "icon": "fa-light fa-mug-saucer",
+        "text": "Tea/Coffee Maker"
+      }
+    ],
+    "paidServices": [
+      "In-Room Dining",
+      "Laundry & Dry Cleaning"
+    ],
+    "checkIn": {
+      "title": "Check-in",
+      "items": [
+        "Check-in from 2:00 PM - anytime",
+        "Early check-in subject to availability"
+      ]
+    },
+    "checkOut": {
+      "title": "Check-out",
+      "items": [
+        "Check-out before 11:00 AM",
+        "Express check-out available"
+      ]
+    },
+    "specialInstructions": "Family rooms are perfect for guests traveling with children. Extra beds and cribs can be arranged upon request. Please inform us in advance about any special requirements for your family.",
+    "childrenExtraBeds": "Children are welcome! Kids under 12 stay free when using existing bedding. Extra beds for children are available for $15 per day. Cribs are provided complimentary upon request.",
+    "faqs": [
+      {
+        "question": "Is the room suitable for children?",
+        "answer": "Yes, our Family Room is designed with families in mind. We provide child-safe amenities and can arrange extra beds or cribs upon request."
+      },
+      {
+        "question": "What amenities are available for families?",
+        "answer": "The room includes free baby bed, extra bedding options, and family-friendly entertainment. Our staff is trained to assist families with special requests."
+      }
+    ],
+    "imagePosition": "right"
+  },
+  {
+    "id": 3,
+    "slug": "double-room",
+    "tagline": "LAID-BACK PLACES",
+    "title": "Double Room",
+    "description": "Spacious, bright guestrooms with tasteful furnishing, wooden floor and panoramic windows from the ceiling to the floor. Perfect for couples and business travelers.",
+    "image": "/assets/img/rooms/03.jpg",
+    "icon": "/assets/img/logo.png",
+    "link": "/stay/double-room",
+    "bannerImage": "/assets/img/rooms/03.jpg",
+    "bannerVideo": "https://duruthemes.com/demo/html/rixos/video2.mp4",
+    "detailImages": [
+      "/assets/img/rooms/b.jpg",
+      "/assets/img/rooms/e.jpg",
+      "/assets/img/rooms/f.jpg",
+      "/assets/img/rooms/a.jpg",
+      "/assets/img/rooms/c.jpg",
+      "/assets/img/rooms/d.jpg"
+    ],
+    "listDescription": "Spacious, bright guestrooms with tasteful furnishing, wooden floor and panoramic windows from the ceiling to the floor.",
+    "detailDescription": "The luxurious Double Room is designed in the style of \"Provence\". The main details of the interior are made of natural wood. The room has a homely cozy atmosphere that makes you feel instantly relaxed.\n\nThe room features tasteful furnishings, wooden floors, and panoramic windows that create a bright and welcoming space. Perfect for couples seeking a romantic getaway or business travelers who need a comfortable and productive environment. Hotel non lorem ac erat suscipit bibendum nulla facilisi fermen. Quisque pretium fermentum quam, sit amet cursus ante sollicitudin consequat the risus conisen porttitor orci sit amet, iaculis quis sapien.",
+    "stayDetails": {
+      "roomSize": "280 sq. ft.",
+      "bedType": "Twin Beds",
+      "occupancy": "2-3 Guests",
+      "bathroom": "Full Bathroom",
+      "breakfast": "Complimentary Breakfast"
+    },
+    "price": "$250",
+    "priceUnit": "/ night",
+    "roomFeatures": [
+      {
+        "icon": "fa-thin fa-user",
+        "text": "2-3 Persons"
+      },
+      {
+        "icon": "fa-thin fa-expand",
+        "text": "280 sqft room"
+      },
+      {
+        "icon": "fa-thin fa-bed-front",
+        "text": "Twin Bed"
+      },
+      {
+        "icon": "fa-thin fa-mug-saucer",
+        "text": "Breakfast"
+      }
+    ],
+    "features": [
+      {
+        "icon": "fa-light fa-water-ladder",
+        "text": "Free Swimming Pool Access"
+      },
+      {
+        "icon": "fa-light fa-wifi",
+        "text": "Free Wi-Fi"
+      },
+      {
+        "icon": "fa-light fa-tv",
+        "text": "Cable TV"
+      },
+      {
+        "icon": "fa-light fa-bed",
+        "text": "Comfortable Beds"
+      },
+      {
+        "icon": "fa-light fa-martini-glass",
+        "text": "Mini-bar"
+      },
+      {
+        "icon": "fa-light fa-air-conditioner",
+        "text": "Air Conditioner"
+      },
+      {
+        "icon": "fa-light fa-dryer",
+        "text": "Hair Dryer"
+      },
+      {
+        "icon": "fa-light fa-refrigerator",
+        "text": "In-room Refrigerator"
+      }
+    ],
+    "paidServices": [
+      "In-Room Dining",
+      "Laundry & Dry Cleaning",
+      "Photocopy / Printouts"
+    ],
+    "checkIn": {
+      "title": "Check-in",
+      "items": [
+        "Check-in from 9:00 AM - anytime",
+        "Early check-in subject to availability"
+      ]
+    },
+    "checkOut": {
+      "title": "Check-out",
+      "items": [
+        "Check-out before noon",
+        "Express check-out"
+      ]
+    },
+    "specialInstructions": "Guests will receive an email 5 days before arrival with check-in instructions; front desk staff will greet guests on arrival. For more details, please contact the property using the information on the booking confirmation.",
+    "childrenExtraBeds": "Children are welcome! Kids stay free. Children stay free when using existing bedding; children may not be eligible for complimentary breakfast. Rollaway/extra beds are available for $10 per day.",
+    "faqs": [
+      {
+        "question": "Do you have any discount code?",
+        "answer": "Yes, we offer seasonal discount codes. Please check our website or contact our reservation team for current promotions."
+      },
+      {
+        "question": "How can I get in touch with my hotel?",
+        "answer": "You can contact us directly through our front desk, via email, or through our 24/7 customer service hotline."
+      },
+      {
+        "question": "Can I cancel my reservation?",
+        "answer": "Yes, reservations can be cancelled according to our cancellation policy. Free cancellation is available up to 48 hours before check-in."
+      },
+      {
+        "question": "Do you have hotels with a spa?",
+        "answer": "Yes, our hotel includes access to spa facilities. We offer a range of wellness services to enhance your stay experience."
+      }
+    ],
+    "imagePosition": "left"
+  },
+  {
+    "id": 4,
+    "slug": "deluxe-room",
+    "tagline": "PREMIUM ACCOMMODATION",
+    "title": "Deluxe Room",
+    "description": "Spacious, bright guestrooms with tasteful furnishing, wooden floor and panoramic windows from the ceiling to the floor. Ideal for extended stays and luxury comfort.",
+    "image": "/assets/img/rooms/04.jpg",
+    "icon": "/assets/img/logo.png",
+    "link": "/stay/deluxe-room",
+    "bannerImage": "/assets/img/rooms/04.jpg",
+    "bannerVideo": "https://duruthemes.com/demo/html/rixos/video2.mp4",
+    "detailImages": [
+      "/assets/img/rooms/e.jpg",
+      "/assets/img/rooms/f.jpg",
+      "/assets/img/rooms/c.jpg",
+      "/assets/img/rooms/a.jpg",
+      "/assets/img/rooms/b.jpg",
+      "/assets/img/rooms/d.jpg"
+    ],
+    "listDescription": "Spacious, bright guestrooms with tasteful furnishing, wooden floor and panoramic windows from the ceiling to the floor.",
+    "detailDescription": "The Deluxe Room offers premium accommodations with spacious interiors and elegant design. Perfect for guests seeking extra comfort and luxury during their stay.\n\nThe room features tasteful furnishings, premium wooden floors, and panoramic windows that provide natural light throughout the day. With modern amenities and thoughtful touches, the Deluxe Room ensures a comfortable and memorable experience for all guests.",
+    "stayDetails": {
+      "roomSize": "300 sq. ft.",
+      "bedType": "Twin Beds",
+      "occupancy": "4-5 Guests",
+      "bathroom": "Premium Bathroom",
+      "breakfast": "Complimentary Breakfast"
+    },
+    "price": "$300",
+    "priceUnit": "/ night",
+    "roomFeatures": [
+      {
+        "icon": "fa-thin fa-user",
+        "text": "4-5 Persons"
+      },
+      {
+        "icon": "fa-thin fa-expand",
+        "text": "300 sqft room"
+      },
+      {
+        "icon": "fa-thin fa-bed-front",
+        "text": "Twin Bed"
+      },
+      {
+        "icon": "fa-thin fa-wifi",
+        "text": "Free Wifi"
+      }
+    ],
+    "features": [
+      {
+        "icon": "fa-light fa-water-ladder",
+        "text": "Free Swimming Pool Access"
+      },
+      {
+        "icon": "fa-light fa-wifi",
+        "text": "Free Wi-Fi"
+      },
+      {
+        "icon": "fa-light fa-tv",
+        "text": "LED TV"
+      },
+      {
+        "icon": "fa-light fa-baby-carriage",
+        "text": "Free Baby Bed"
+      },
+      {
+        "icon": "fa-light fa-bed",
+        "text": "Premium Comfortable Beds"
+      },
+      {
+        "icon": "fa-light fa-martini-glass",
+        "text": "Premium Mini-bar"
+      },
+      {
+        "icon": "fa-light fa-air-conditioner",
+        "text": "Climate Control"
+      },
+      {
+        "icon": "fa-light fa-dryer",
+        "text": "Hair Dryer"
+      },
+      {
+        "icon": "fa-light fa-refrigerator",
+        "text": "In-room Refrigerator"
+      }
+    ],
+    "paidServices": [
+      "In-Room Dining",
+      "Laundry & Dry Cleaning",
+      "Photocopy / Printouts",
+      "Direct Dialing Facility"
+    ],
+    "checkIn": {
+      "title": "Check-in",
+      "items": [
+        "Check-in from 2:00 PM - anytime",
+        "Early check-in subject to availability"
+      ]
+    },
+    "checkOut": {
+      "title": "Check-out",
+      "items": [
+        "Check-out before 11:00 AM",
+        "Express check-out available"
+      ]
+    },
+    "specialInstructions": "Deluxe rooms include priority check-in services. Guests will receive an email with check-in instructions and can enjoy expedited arrival procedures.",
+    "childrenExtraBeds": "Children are welcome! Kids under 12 stay free. Extra beds are available for $15 per day. Premium bedding options available upon request.",
+    "faqs": [
+      {
+        "question": "What makes the Deluxe Room special?",
+        "answer": "The Deluxe Room offers premium amenities, larger space, and enhanced comfort features designed for extended stays and luxury experiences."
+      },
+      {
+        "question": "Are there any premium services included?",
+        "answer": "Yes, Deluxe Room guests receive priority check-in, complimentary breakfast, and access to premium facilities including pool and spa areas."
+      }
+    ],
+    "imagePosition": "right"
+  }
+]
+

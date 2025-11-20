@@ -1,0 +1,116 @@
+<%- include('header', {seoDetails}) %>
+
+     <!-- PAGE TITLE
+        ================================================== -->
+        <section class="page-title-section top-position1 bg-img cover-background left-overlay-secondary" data-overlay-dark="85" data-background="/assets/img/banner/page-title-01.jpg">
+            <div class="container">                
+                <h1><%= industry.title %></h1>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/industryfocus">Industry Focus</a></li>
+                    <li><%= industry.title %></li>
+                </ul>                
+            </div>
+        </section>
+
+
+        <section >
+            <div class="container">
+                <div class="row mt-n1-9">
+                   
+                    <div class="col-lg-8 mt-1-9 order-1  ">
+                        <div>
+                            <div class="mb-1-9 mb-xl-5 wow fadeIn" data-wow-delay="200ms">
+                                <div class="industry-detail-image-container">
+                                    <img src="<%= industry.image %>" alt="<%= industry.title %>">
+                                </div>
+                            </div>
+                            <div class="mb-5 wow fadeIn" data-wow-delay="200ms">
+                                <h2 class="mb-3"><%= industry.title %></h2>
+                                <div class="industry-description">
+                                    <%- industry.fullDescription.split('\n\n').map(paragraph => `<p class="mb-3">${paragraph}</p>`).join('') %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-sidebar col-lg-4 mt-1-9 order-2">
+                        <div class=" me-xxl-1-9">
+                            <div class="bg-light p-1-6 mb-2-6 rounded wow fadeIn" data-wow-delay="200ms">
+                                <div class="section-title-01 mb-1-9">
+                                    <span class="text-primary font-weight-600 text-uppercase letter-spacing-1 position-relative ps-2">Industrial Applications</span>
+                                </div>
+                                <ul class="cetegory p-0 list-unstyled mb-0">
+                                    <% allIndustries.forEach((item, index) => { %>
+                                        <li class="<%= item.id === industry.id ? 'active' : '' %>">
+                                            <a href="/industry/<%= item.id %>" class="<%= index === allIndustries.length - 1 ? 'mb-0' : '' %>">
+                                                <%= item.title %>
+                                                <i class="ti-angle-right"></i>
+                                            </a>
+                                        </li>
+                                    <% }) %>
+                                </ul>
+                            </div>
+                            <div class="banner-wrapper wow fadeIn" data-wow-delay="200ms">
+                                <img src="/assets/img/content/contact-img01.jpg" class="rounded-top" alt="Contact Us">
+                                <div class="p-2-2 pt-6 position-relative rounded-bottom bg-secondary text-center">
+                                    <div class="icon-boxs bg-primary">
+                                        <i class="ti-headphone-alt fs-1 text-white"></i>
+                                    </div>
+                                    <h4 class="mb-3 text-white">How Can We Help?</h4>
+                                    <ul class="text-center list-unstyled mb-0">
+                                        <li class="text-white mb-2"><i class="fa fa-phone small text-white me-2"></i><a href="tel:+919039149822" class="text-white">+91 90391 49822</a></li>
+                                        <li class="text-white"><i class="fa fa-envelope-open small text-white me-2"></i><a href="mailto:info@passary.in" class="text-white">info@passary.in</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<style>
+/* Industry Detail Image Styles */
+.industry-detail-image-container {
+    width: 100%;
+    position: relative;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    overflow: hidden;
+    border-radius: 8px;
+    background-color: #f5f5f5;
+}
+
+.industry-detail-image-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Sticky Sidebar - Smart Scroll Behavior */
+.service-sidebar {
+    position: sticky;
+    top: 120px;
+    align-self: flex-start;
+    padding-bottom: 210px;
+}
+
+/* No independent scrolling - sidebar stays in place */
+.service-sidebar > div {
+    overflow: visible;
+}
+
+/* Disable sticky on mobile */
+@media (max-width: 991px) {
+    .service-sidebar {
+        position: relative;
+        top: 0;
+    }
+}
+</style>
+
+<%- include('footer') %>

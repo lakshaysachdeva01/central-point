@@ -1,0 +1,46 @@
+
+
+            <% if (products && products.length > 0) { %>
+                <% products.forEach((item, index) => { %>
+                    <div  data-category="<%= item.category ? item.category._id : 'uncategorized' %>" data-wow-delay="<%= (index % 3 + 1) * 100 + 100 %>ms">
+                       
+                                <% if (item.arrays && item.arrays.arrayOne && item.arrays.arrayOne[0]) { %>
+                                    <img src="<%= S3_BASE_URL + item.arrays.arrayOne[0] %>" class="rounded-top" alt="<%= item.title || 'Product Image' %>">
+                                <% } else { %>
+                                    <div class="image-placeholder">
+                                        <i class="fa-solid fa-image"></i>
+                                    </div>
+                                <% } %>
+                           
+                                <% if (item.postDate) { 
+                                    const dateParts = item.postDate.split(' ');
+                                    const day = dateParts[0];
+                                    const month = dateParts[1];
+                                %>
+
+
+                                <div class="post-date">
+                                    <span class="mb-0 d-block lh-1 display-22 display-xl-17"><%= day %></span>
+                                    <span class="d-block display-31"><%= month %></span>
+                                </div>
+
+
+                                <% } %>
+
+
+                                <div class="mb-3">
+                                    <% if (item.category && item.category.name) { %>
+                                        <a href="/product/<%= item.seoDetails.slug %>" class="text-uppercase category-name fw-bold display-31"><%= item.category.name %></a>
+                                    <% } else { %>
+                                        <a href="/product/<%= item.seoDetails.slug %>" class="text-uppercase fw-bold display-31">Product</a>
+                                    <% } %>
+                                </div>
+                                <h4 class="mb-0"><a href="/product/<%= item.seoDetails.slug %>"><%= item.title || 'Untitled Product' %></a></h4>
+                            </div>
+                <% }); %>
+            <% } else { %>
+                <div class="col-12 text-center py-5">
+                    <p class="display-28">No products available at the moment.</p>
+                </div>
+            <% } %>
+      

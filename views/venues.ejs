@@ -1,0 +1,83 @@
+<%- include('header'), {seoDetails} %>
+
+<!-- Header Banner -->
+<section class="banner-header bg-img bg-fixed" data-overlay-dark="5" data-background="/assets/img/banner/08.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="subtitle">Venue</div>
+                <div class="title">Hotel Venues</div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Facilities 2 -->
+<section class="facilities2 bg-lightbrown">
+    <div class="container">
+        <div class="tabs-content">
+            <% if (venues && venues.length > 0) { %>
+                <% venues.forEach((venue, index) => { %>
+                    <!--tab-->
+                    <div class="tab active-tab" id="venue-<%= venue.slug %>">
+                        <div class="row justify-content-center align-items-center">
+                            <div class="col-lg-6 col-md-12">
+                                <% if (venue.image) { %>
+                                    <img src="<%= venue.image %>" class="img-fluid" alt="<%= venue.title %>">
+                                <% } else if (venue.detailImages && venue.detailImages.length > 0) { %>
+                                    <img src="<%= venue.detailImages[0] %>" class="img-fluid" alt="<%= venue.title %>">
+                                <% } %>
+                            </div>
+                            <div class="col-lg-5 offset-lg-1 col-md-12">
+                                <% if (venue.tagline) { %>
+                                    <div class="section-subtitle"><%= venue.tagline %></div>
+                                <% } %>
+                                <div class="section-title"><%= venue.title %></div>
+                                <% if (venue.listDescription) { %>
+                                    <p class="mb-25"><%= venue.listDescription %></p>
+                                <% } %>
+                                <% if (venue.features && venue.features.length > 0) { %>
+                                    <ul class="list-unstyled list mb-30">
+                                        <% venue.features.slice(0, 4).forEach((feature) => { %>
+                                            <li>
+                                                <div class="list-icon"> <span class="<%= feature.icon %>"></span> </div>
+                                                <div class="list-text">
+                                                    <p><%= feature.text %></p>
+                                                </div>
+                                            </li>
+                                        <% }); %>
+                                    </ul>
+                                <% } %>
+                                <a href="/venue/<%= venue.slug %>" class="button-3">
+                                    <% if (venue.buttonIcon) { %>
+                                        <i class="<%= venue.buttonIcon %>"></i>
+                                    <% } %>
+                                    <%= venue.buttonText || 'View Details' %>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                <% }); %>
+            <% } else { %>
+                <div class="tab active-tab">
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <p>No venues available.</p>
+                        </div>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Override facilities2 CSS to show all tabs as cards in listing */
+    .facilities2 .tabs-content .tab.active-tab {
+        display: block !important;
+        margin-top: 0;
+        transform: translateY(0) !important;
+    }
+</style>
+
+<%- include('footer') %>
+

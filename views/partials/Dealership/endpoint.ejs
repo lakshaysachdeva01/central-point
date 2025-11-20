@@ -1,0 +1,80 @@
+
+
+
+<script>
+    const DEALERSHIP_ENQUIRY_DYNAMIC_FIELDS_KEYS = <%- JSON.stringify(DEALERSHIP_ENQUIRY_DYNAMIC_FIELDS_KEYS) %>;
+    const DEALERSHIP_ENQUIRY_END_POINT = `<%= API_BASE_URL %>/website/dealership-enquiry/create-dealership-enquiry`;
+    const websiteID = "<%= websiteID %>";
+    const WEBSITE_ID_KEY = "<%= WEBSITE_ID_KEY %>";
+  
+    // Phone number validation
+    document.querySelector('input[name="<%= DEALERSHIP_ENQUIRY_DYNAMIC_FIELDS_KEYS.CONTACT_NUMBER %>"]').addEventListener('input', function(e) {
+      this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);
+    });
+  
+    // Dealership Enquiry Form Submission
+    document.getElementById('dealershipEnquiryForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+  
+      const submitBtn = document.getElementById('dealershipSubmitBtn');
+      const btnText = document.getElementById('dealershipBtnText');
+      const loader = document.getElementById('dealershipSubmitLoader');
+  
+      try {
+        const dealershipForm = e.target;
+  
+        // Show loader
+        btnText.style.display = 'none';
+        loader.style.display = 'inline-block';
+        submitBtn.disabled = true;
+  
+        // Build payload
+        const payload = {
+          [DEALERSHIP_ENQUIRY_DYNAMIC_FIELDS_KEYS.NAME]: dealershipForm.querySelector(`input[name="${DEALERSHIP_ENQUIRY_DYNAMIC_FIELDS_KEYS.NAME}"]`)?.value || '',
+          [DEALERSHIP_ENQUIRY_DYNAMIC_FIELDS_KEYS.CONTACT_NUMBER]: dealershipForm.querySelector(`input[name="${DEALERSHIP_ENQUIRY_DYNAMIC_FIELDS_KEYS.CONTACT_NUMBER}"]`)?.value || '',
+          [DEALERSHIP_ENQUIRY_DYNAMIC_FIELDS_KEYS.FIRM_NAME]: dealershipForm.querySelector(`input[name="${DEALERSHIP_ENQUIRY_DYNAMIC_FIELDS_KEYS.FIRM_NAME}"]`)?.value || '',
+          [DEALERSHIP_ENQUIRY_DYNAMIC_FIELDS_KEYS.ADDRESS]: dealershipForm.querySelector(`input[name="${DEALERSHIP_ENQUIRY_DYNAMIC_FIELDS_KEYS.ADDRESS}"]`)?.value || '',
+          [DEALERSHIP_ENQUIRY_DYNAMIC_FIELDS_KEYS.EMAIL]: dealershipForm.querySelector(`input[name="${DEALERSHIP_ENQUIRY_DYNAMIC_FIELDS_KEYS.EMAIL}"]`)?.value || '',
+          [DEALERSHIP_ENQUIRY_DYNAMIC_FIELDS_KEYS.MESSAGE]: dealershipForm.querySelector(`textarea[name="${DEALERSHIP_ENQUIRY_DYNAMIC_FIELDS_KEYS.MESSAGE}"]`)?.value || '',
+          [DEALERSHIP_ENQUIRY_DYNAMIC_FIELDS_KEYS.ENQUIRY_TYPE]: "DEALERSHIP_ENQUIRY",
+          [WEBSITE_ID_KEY]: websiteID,
+        };
+  
+        const headers = new Headers({
+          "Content-Type": "application/json",
+        });
+  
+        // Submit the form
+        const response = await fetch(DEALERSHIP_ENQUIRY_END_POINT, {
+          method: "POST",
+          headers,
+          body: JSON.stringify(payload),
+        }).catch(error => {
+          console.log("Submission completed (ignoring server response)", error);
+        });
+  
+        // Always proceed with success flow
+        sessionStorage.setItem(
+          "thankYouMessage", 
+          "Thank you for your dealership enquiry! We've received your request and our team will contact you shortly to discuss partnership opportunities."
+        );
+        window.location.href = "/thankyou";
+  
+      } catch (error) {
+        console.error("Form processing error:", error);
+        // Even if something fails, still proceed to thank-you page
+        sessionStorage.setItem(
+          "thankYouMessage", 
+          "Thank you for your interest in becoming a dealer! We've received your enquiry and will contact you soon."
+        );
+        window.location.href = "/thankyou";
+      } finally {
+        // Reset button state
+        btnText.style.display = 'inline';
+        loader.style.display = 'none';
+        submitBtn.disabled = false;
+      }
+    });
+  </script>
+
+

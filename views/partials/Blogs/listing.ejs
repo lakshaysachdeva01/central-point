@@ -1,0 +1,47 @@
+<section class="banner-header bg-img bg-fixed" data-overlay-dark="5" data-background="/assets/img/banner/21.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="subtitle">Latest Updates</div>
+                <div class="title">Articles & Insights</div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Blog -->
+<section class="blog1 section-padding bg-lightbrown">
+    <div class="container">
+        <div class="row">
+
+            <% blogs.forEach(item => { %>
+   
+                <div class="col-lg-4 col-md-6 mb-30" onclick="window.location.href='/blog/<%= item.seoDetails.slug %>'">
+                    <div class="item">
+                        <div class="img"> <img src="<%= process.env.S3_BASE_URL + item.banner.image %>" class="img-fluid" alt="<%= item.title %>">
+                            <div class="cat"><%= item.category %></div>
+                        </div>
+                        <div class="cont">
+                            <h4 ><a style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden; text-overflow: ellipsis;" href="/blog/<%= item.seoDetails.slug %>"><%= item.title %></a></h4>
+                            <div style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; line-clamp: 3; overflow: hidden; text-overflow: ellipsis; margin-bottom: 15px;"><%- item.description %></div>
+                            <div >
+                                <div >
+                                    <h5 style="font-family: Urbanist, sans-serif;
+                                    font-size: 17px;
+                                    font-weight: 400;
+                                    margin-bottom: 0;
+                                    color: #141414;"><%= item.postDate %></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+           
+    <% }) %>
+          
+        </div>
+      
+    </div>
+</section>
+   
+     

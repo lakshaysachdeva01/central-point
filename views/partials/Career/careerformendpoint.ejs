@@ -1,0 +1,148 @@
+<script>
+    // Phone number validation and custom file upload
+    document.addEventListener('DOMContentLoaded', function() {
+        const phoneInput = document.querySelector('input[name="<%= JOB_ENQUIRY_DYNAMIC_FIELDS_KEYS.CONTACT_NUMBER %>"]');
+        if (phoneInput) {
+            phoneInput.addEventListener('input', function(e) {
+                this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);
+            });
+        }
+    
+        // Custom file upload functionality
+        const fileInput = document.getElementById('resumeUpload');
+        const resumePlaceholder = document.getElementById('resumePlaceholder');
+    
+        if (resumePlaceholder && fileInput) {
+            // Click placeholder to open file browser
+            resumePlaceholder.addEventListener('click', function() {
+                fileInput.click();
+            });
+    
+            // Update placeholder text when file is selected
+            fileInput.addEventListener('change', function() {
+                if (this.files && this.files[0]) {
+                    resumePlaceholder.value = this.files[0].name;
+                } else {
+                    resumePlaceholder.value = '';
+                }
+            });
+        }
+    });
+    
+    // Job Application Form Submission
+    document.getElementById('jobApplicationForm').addEventListener('submit', async function (e) {
+        e.preventDefault(); // Prevent default form submission
+    
+        const submitBtn = document.getElementById('jobApplicationSubmitBtn');
+        const btnText = document.getElementById('jobApplicationBtnText');
+        const loader = document.getElementById('jobApplicationSubmitLoader');
+    
+        try {
+            const API_BASE_URL = "<%= API_BASE_URL %>";
+            const websiteID = "<%= websiteID %>";
+            const WEBSITEIDKEY = "<%= WEBSITE_ID_KEY %>";
+            const JOB_ENQUIRY_DYNAMIC_FIELDS_KEYS = <%- JSON.stringify(JOB_ENQUIRY_DYNAMIC_FIELDS_KEYS) %>;
+            
+            const UPLOAD_FILES_END_POINT = `${API_BASE_URL}/third-party/file-upload/upload-files`;
+            const CREATE_JOB_APPLICATION_END_POINT = `${API_BASE_URL}/website/job-application/create-job-application`;
+    
+            const jobApplicationForm = e.target; // Reference to the form element
+            const WEBSITE_ID_KEY = WEBSITEIDKEY;
+    
+            // Show loader
+            btnText.style.display = 'none';
+            loader.style.display = 'inline-block';
+            submitBtn.disabled = true;
+    
+            // -------------------------------------------
+            // 1. Upload File
+            const uploadFileData = new FormData();
+            const fileInput = jobApplicationForm.querySelector(
+                `input[name="${JOB_ENQUIRY_DYNAMIC_FIELDS_KEYS.RESUME}"]`
+            ).files[0];
+    
+            if (!fileInput) {
+                throw new Error("Please upload a resume file.");
+            }
+    
+            uploadFileData.append("file", fileInput);
+    
+            const fileUploadResponse = await fetch(UPLOAD_FILES_END_POINT, {
+                method: "POST",
+                body: uploadFileData,
+            });
+    
+            if (!fileUploadResponse.ok) {
+                throw new Error(`File upload failed! Status: ${fileUploadResponse.status}`);
+            }
+    
+            const fileUploadData = await fileUploadResponse.json();
+            const uploadedResume =
+                fileUploadData?.data?.length > 0
+                    ? fileUploadData?.data[0]?.imageNames[0]
+                    : "";
+    
+            if (!uploadedResume) {
+                throw new Error("File upload did not return a valid file name.");
+            }
+    
+            // -------------------------------------------
+            // 2. Prepare Form Payload
+            const payload = {
+                [JOB_ENQUIRY_DYNAMIC_FIELDS_KEYS.NAME]: jobApplicationForm.querySelector(
+                    `input[name="${JOB_ENQUIRY_DYNAMIC_FIELDS_KEYS.NAME}"]`
+                ).value,
+                [JOB_ENQUIRY_DYNAMIC_FIELDS_KEYS.CONTACT_NUMBER]: jobApplicationForm.querySelector(
+                    `input[name="${JOB_ENQUIRY_DYNAMIC_FIELDS_KEYS.CONTACT_NUMBER}"]`
+                ).value,
+                [JOB_ENQUIRY_DYNAMIC_FIELDS_KEYS.EMAIL]: jobApplicationForm.querySelector(
+                    `input[name="${JOB_ENQUIRY_DYNAMIC_FIELDS_KEYS.EMAIL}"]`
+                ).value,
+                [JOB_ENQUIRY_DYNAMIC_FIELDS_KEYS.MESSAGE]: jobApplicationForm.querySelector(
+                    `textarea[name="${JOB_ENQUIRY_DYNAMIC_FIELDS_KEYS.MESSAGE}"]`
+                ).value,
+                [JOB_ENQUIRY_DYNAMIC_FIELDS_KEYS.RESUME]: uploadedResume,
+                [JOB_ENQUIRY_DYNAMIC_FIELDS_KEYS.JOB_ID]: jobApplicationForm.querySelector(
+                    `input[name="${JOB_ENQUIRY_DYNAMIC_FIELDS_KEYS.JOB_ID}"]`
+                ).value,
+                [JOB_ENQUIRY_DYNAMIC_FIELDS_KEYS.FORM_TYPE]: "career-enquiry",
+                [WEBSITE_ID_KEY]: websiteID,
+            };
+    
+            // -------------------------------------------
+            // 3. Submit the Form Data
+            const headers = new Headers({
+                "Content-Type": "application/json",
+            });
+    
+            const response = await fetch(CREATE_JOB_APPLICATION_END_POINT, {
+                method: "POST",
+                headers,
+                body: JSON.stringify(payload),
+            });
+    
+            if (!response.ok) {
+                throw new Error(`Form submission failed! Status: ${response.status}`);
+            }
+    
+            const data = await response.json();
+    
+            // Redirect to the thank-you page on success
+            sessionStorage.setItem("thankYouMessage", "We've Received Your Request and will Reach out to you soon");
+            window.location.href = "/thankyou";
+        } catch (error) {
+            console.error("Form submission error:", error);
+            // Reset button state
+            btnText.style.display = 'inline';
+            loader.style.display = 'none';
+            submitBtn.disabled = false;
+            
+            // Show error message
+            const formMessage = document.querySelector('.form-messege');
+            if (formMessage) {
+                formMessage.textContent = error.message || "An error occurred. Please try again.";
+                formMessage.style.color = "#dc3545";
+            }
+        }
+    });
+    </script>

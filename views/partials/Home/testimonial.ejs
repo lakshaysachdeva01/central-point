@@ -1,0 +1,185 @@
+ <!-- TESTIMONIALS
+        ================================================== -->
+        <% if (testimonial && testimonial.length > 0) { %>
+        
+                          <% testimonial.forEach((slide) => { %>
+                          
+                              
+                                    <img  src="<%= process.env.S3_BASE_URL + slide.image %>" alt="<%= slide.name %>">
+                               
+                                <p class="mb-1-9 display-28 display-md-26 w-sm-85 mx-auto text-white opacity7 font-weight-400"> <%= slide.review.length > 140 ? slide.review.slice(0, 140) + '...' : slide.review %> 
+                                  <% if (slide.review.length > 140) { %>
+                                      <span class="read-more-btn" data-review="<%= slide.review.replace(/"/g, '&quot;') %>" onclick="openReviewPopup(this.getAttribute('data-review'))">
+                                          Read More
+                                      </span>
+                                  <% } %></p>
+<%= slide.name %>
+                               <%= slide.companyProfile %>
+                            
+                            <% }) %>
+              
+        
+<!-- Review Popup -->
+<div id="reviewPopup" class="review-popup">
+  <div class="review-popup-content">
+      <p id="fullReviewText" class="fullReviewText"></p>
+  </div>
+  <button class="close-popup" onclick="closeReviewPopup()">&times;</button>
+</div>
+
+<style>
+  /* Glassy Popup Overlay */
+  .review-popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 9999;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      display: none;
+      justify-content: center;
+      align-items: center;
+    
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+  }
+
+  #fullReviewText {
+    font-family: 'Rubik', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #1b1a1a;
+  font-size: 20px;
+  line-height: 34px;
+  font-weight: 500;
+  margin-bottom: 19px
+  }
+
+  /* Popup Content */
+  .review-popup-content {
+      background: white;
+      padding: 60px;
+      border-radius: 12px;
+      width: 50%;
+      text-align: center;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+      transform: scale(0.8);
+      transition: transform 0.3s ease-in-out;
+  }
+
+  @media (max-width: 600px) {
+      .review-popup-content {
+          padding: 15px;
+          margin: 10px;
+          width: 100%;
+      }
+  }
+
+  /* Close Button Outside */
+  #reviewPopup .close-popup {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      height: 40px;
+      width: 40px;
+      padding: 0;
+      font-size: 24px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      background-color: #76767691;
+      color: white;
+      font-weight: bold;
+      z-index: 1001;
+  }
+
+  
+
+  .testimonial-text {
+      color: #323232;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 26px;
+  }
+
+  /* Read More Button (Inside the Box) */
+  .read-more-btn {
+      margin-top: 5px;
+      background-color: transparent;
+      color: #999999;
+      font-size: 15px;
+      font-style: italic;
+      font-weight: 400;
+      cursor: pointer;
+      padding: 5px 8px 5px 0;
+      border-radius: 4px;
+      transition: all 0.3s ease-in-out;
+  }
+
+  /* Disable scrolling when modal is open */
+  body.modal-open {
+      overflow: hidden;
+      position: fixed;
+      width: 100%;
+  }
+
+  /* Show animation */
+  .review-popup.show {
+      display: flex;
+      opacity: 1;
+  }
+
+  .review-popup.show .review-popup-content {
+      transform: scale(1);
+  }
+</style>
+
+<script>
+  let scrollPosition = 0;
+  
+  function openReviewPopup(reviewText) {
+      // Save current scroll position
+      scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+      
+      document.getElementById("fullReviewText").innerText = reviewText;
+      const popup = document.getElementById("reviewPopup");
+      popup.style.display = "flex";
+      setTimeout(() => popup.classList.add("show"), 10);
+      
+      // Freeze background at current position
+      document.body.style.top = '-' + scrollPosition + 'px';
+      document.body.classList.add("modal-open");
+      
+      // Prevent spacebar scrolling
+      window.addEventListener('keydown', preventSpaceScroll, false);
+  }
+
+  function closeReviewPopup() {
+      const popup = document.getElementById("reviewPopup");
+      popup.classList.remove("show");
+      setTimeout(() => popup.style.display = "none", 300);
+      
+      // Restore scroll position
+      document.body.classList.remove("modal-open");
+      document.body.style.top = '';
+      window.scrollTo(0, scrollPosition);
+      
+      // Re-enable spacebar
+      window.removeEventListener('keydown', preventSpaceScroll, false);
+  }
+  
+  // Prevent spacebar from scrolling
+  function preventSpaceScroll(e) {
+      if (e.keyCode === 32 && e.target === document.body) {
+          e.preventDefault();
+      }
+  }
+
+  // Close popup on clicking outside
+  document.getElementById("reviewPopup").addEventListener("click", function(event) {
+      if (event.target === this) {
+          closeReviewPopup();
+      }
+  });
+</script>
+<% } %>

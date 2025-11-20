@@ -1,0 +1,291 @@
+<%- include('header'), {seoDetails} %>
+    <!-- MANUFACTURING HERO CAROUSEL
+         ================================================== -->
+         <section style="margin-top: -100px; height: 104vh;" class="manufacturing-hero-carousel">
+             <div class="swiper manufacturing-hero-swiper" style="height: 104vh;">
+                 <div class="swiper-wrapper">
+                     <!-- Slide 1 -->
+                     <div class="swiper-slide">
+                         <div style="height: 104vh;" class="hero-slide p-0 bg-img cover-background full-screen banner-style02 top-position1 " data-overlay-dark="7" data-background="/assets/img/banner/madhya-factory.jpg">
+                             <div class="hero-content">
+                                 <div class="content-box">
+                                    
+                                     <h2 class="content-heading">Passary Refractories , <span class="content-subheading">Madhya</span> </h2>
+                                     <p class="content-subheading-1"><span style="font-weight: 400;">Production Capacity</span> - 3000 Tonnes</p>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                     
+                     <!-- Slide 2 -->
+                     <div class="swiper-slide">
+                         <div style="height: 104vh;" class="hero-slide p-0 bg-img cover-background full-screen banner-style02 top-position1 " data-overlay-dark="7" data-background="/assets/img/banner/purab-factory.jpg">
+                             <div class="hero-content">
+                                <div class="content-box">
+                                   
+                                    <h2 class="content-heading">Passary Refractories , <span class="content-subheading">Purab</span> </h2>
+                                    <p class="content-subheading-1"><span style="font-weight: 400;">Production Capacity</span> - 1500 Tonnes</p>
+                                </div>
+                             </div>
+                         </div>
+                     </div>
+                     
+                  
+                 </div>
+                 
+                 <!-- Navigation -->
+             
+                 
+               
+             </div>
+         </section>
+
+<%- include('partials/process') %>
+
+<style>
+/* Manufacturing Hero Carousel */
+.manufacturing-hero-carousel {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.manufacturing-hero-swiper {
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.hero-slide {
+    height: 100vh;
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.hero-content {
+    position: absolute;
+    bottom: 120px;
+  
+    left: 0px;
+    z-index: 10;
+}
+
+/* Ensure banner backgrounds work properly */
+.hero-slide[data-background] {
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+
+/* Add dark overlay for better header contrast */
+.hero-slide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+/* Ensure content is above overlay */
+.hero-content {
+    z-index: 10;
+}
+
+.content-box {
+    background: rgba(0, 0, 0, 0.497);
+    padding: 30px 40px 30px 100px;
+}
+
+
+
+.content-heading {
+    color: white;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    line-height: 1.3;
+}
+
+
+
+@media (max-width: 768px) {
+    .content-box {
+        padding: 30px 20px 30px 20px;
+    }
+}
+
+.content-icon {
+    font-size: 48px;
+    color: #FC5220;
+    margin-bottom: 20px;
+}
+
+
+.content-subheading{
+    color: #FC5220;
+   
+}
+
+.content-subheading-1 {
+  color: white;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-content {
+        bottom: 20px;
+        right: 20px;
+        left: 20px;
+    }
+    
+    .content-box {
+        padding: 20px;
+        max-width: 100%;
+    }
+    
+    .content-heading {
+        font-size: 24px;
+    }
+    
+    .content-subheading {
+        font-size: 16px;
+    }
+    
+    .content-icon {
+        font-size: 40px;
+    }
+}
+
+/* Navigation Buttons */
+.swiper-button-next,
+.swiper-button-prev {
+    color: white !important;
+    background: rgba(0, 0, 0, 0.5);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-top: -25px;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+    font-size: 18px;
+}
+
+/* Pagination */
+.swiper-pagination {
+    bottom: 30px !important;
+}
+
+.swiper-pagination-bullet {
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+    background: #FC5220;
+}
+
+/* Manufacturing Content Section */
+.manufacturing-content-section {
+    background: #f8f9fa;
+    position: relative;
+    z-index: 1;
+}
+
+.manufacturing-feature {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.manufacturing-feature:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.manufacturing-feature .feature-icon {
+    font-size: 48px;
+    color: #FC5220;
+    margin-bottom: 20px;
+}
+
+.manufacturing-feature h4 {
+    color: #333;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.manufacturing-feature p {
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+}
+</style>
+
+<script>
+// Force remove preloader immediately
+document.addEventListener('DOMContentLoaded', function() {
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        preloader.style.display = 'none';
+        preloader.remove();
+    }
+});
+
+// Wait for all scripts to load
+window.addEventListener('load', function() {
+    // Force remove preloader again in case it's still there
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        preloader.style.display = 'none';
+        preloader.remove();
+    }
+    
+    // Initialize Manufacturing Hero Swiper
+    if (typeof Swiper !== 'undefined') {
+        const manufacturingHeroSwiper = new Swiper('.manufacturing-hero-swiper', {
+            slidesPerView: 1,
+            spaceBetween: 0,
+            loop: true,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            speed: 1000,
+            effect: 'fade',
+            fadeEffect: {
+                crossFade: true
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+        });
+    } else {
+        console.error('Swiper is not loaded');
+    }
+});
+</script>
+
+<%- include('footer') %>

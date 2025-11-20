@@ -1,0 +1,385 @@
+/* Booking System */
+.booking-system {
+    position: relative;
+}
+/* stepwizard */
+.booking-system .stepwizard {
+    display: table;
+    width: 100%;
+    position: relative;
+    margin-bottom: 60px;
+}
+.booking-system .stepwizard .stepwizard-row {
+    display: table-row;
+}
+.booking-system .stepwizard .stepwizard-row:before {
+    top: 35px;
+    content: " ";
+    z-index: 0;
+    height: 2px;
+    background: #e0e0e0;
+    position: absolute;
+    width: 78%;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+}
+.booking-system .stepwizard .stepwizard-row .stepwizard-step {
+    display: table-cell;
+    text-align: center;
+    position: relative;
+}
+.booking-system .stepwizard .stepwizard-row .stepwizard-step h3 {
+    margin-bottom: 30px;
+    font-size: 21px;
+    text-align: center;
+}
+.booking-system .stepwizard .stepwizard-row .stepwizard-step .btn {
+    padding: 13px 13px;
+}
+.booking-system .stepwizard .stepwizard-row .stepwizard-step .btn-circle {
+    width: 70px;
+    height: 70px;
+    line-height: 45px;
+    display: inline-block;
+    border-radius: 100px;
+    background: #f4f1ed;
+    border: 2px solid #e0e0e0;
+    z-index: 2;
+    left: 0;
+    text-align: center;
+    font-size: 25px;
+    margin: 0 auto 20px;
+}
+.booking-system .stepwizard .stepwizard-row .stepwizard-step .btn-circle:hover {
+    color: #BD945A;
+}
+.booking-system .stepwizard .stepwizard-row .stepwizard-step .btn-default {
+    color: #707070!important;
+}
+.booking-system .stepwizard .stepwizard-row .stepwizard-step .btn-success {
+    color: #fff!important;
+    background: #BD945A;
+    border: 2px solid #BD945A;
+}
+.booking-system .stepwizard .stepwizard-row .stepwizard-step .btn-success:focus,
+.booking-system .stepwizard .stepwizard-row .stepwizard-step .btn-success:active {
+    outline: none;
+    box-shadow: none;
+}
+/* step-content */
+.booking-system .step-content {}
+.booking-system .step-content .heading {
+    font-family: "Gilda Display", serif;
+    font-size: 27px;
+    font-weight: 400;
+    color: #141414;
+}
+.booking-system .step-content .sidebar {
+    background: #fff;
+    border-radius: 5px;
+    padding: 45px 30px 15px 30px;
+    margin: 0 0 30px 0;
+}
+.booking-system .step-content .select2-container--default .select2-selection--single .select2-selection__rendered {
+    font-size: 17px;
+    line-height: 28px;
+    padding: inherit;
+    color: #707070 !important;
+}
+.booking-system .step-content .sidebar .form-group {
+    margin-bottom: 15px;
+}
+.booking-system .step-content .select2-container--default {
+    width: 100%;
+    height: 55px;
+    border: 1px solid rgba(203, 157, 85, 0.3);
+    border-radius: 5px;
+    padding-right: 40px; /* ikon için boşluk */
+    display: flex;
+    align-items: center;
+}
+.booking-system .step-content .select2-selection__rendered {
+    padding-left: 20px !important;
+    font-size: 17px;
+    color: #707070;
+    line-height: 1;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 100%;
+    top: 0;
+    right: 10px;
+    width: 20px;
+    position: absolute;
+    pointer-events: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow b {
+    border-color: #707070 transparent transparent transparent;
+    border-width: 5px 5px 0 5px;
+}
+.booking-system .step-content .sidebar .cont .select2 button,
+.booking-system .step-content .booking-form .cont .select2 button {
+    border-radius: 3px;
+    box-shadow: none;
+    border: none;
+    background: #fff;
+}
+/* booking-form */
+.booking-system .step-content .booking-form label {
+    margin-bottom: 5px;
+    font-size: 17px;
+    color: #141414;
+}
+.booking-system .step-content .booking-form .form-group {
+    margin-bottom: 30px;
+}
+.booking-system .step-content .booking-form .form-group .form-control {
+    width: 100%;
+    padding: 14px 20px;
+    font-size: 17px;
+    background: #fff;
+    outline: 0;
+    height: 55px;
+    border-radius: 5px;
+    border: 1px solid rgba(203, 157, 85, 0.3);
+}
+.booking-system .step-content .booking-form {
+    margin-bottom: 30px;
+    background: #fff;
+    border-radius: 5px;
+}
+.booking-system .step-content .booking-form .cont {
+    padding: 45px 30px;
+}
+.booking-system .step-content .booking-form .cont .country {
+    width: 100%;
+}
+/* room info */
+.booking-system .step-content .room-info {
+    position: relative;
+    display: block;
+    margin-bottom: 30px;
+    overflow: hidden;
+    background: #fff;
+    -webkit-transition: .5s;
+    transition: .5s;
+    border-radius: 5px;
+}
+.booking-system .step-content .room-info:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    -webkit-transform: translateY(-5px);
+    transform: translateY(-5px);
+}
+.booking-system .step-content .room-info .photo-thumbnail {
+    position: relative;
+    display: block;
+}
+.booking-system .step-content .room-info .photo-thumbnail .rating {
+    margin: 0 0 10px;
+    padding: 0;
+}
+.booking-system .step-content .room-info .photo-thumbnail .rating li {
+    list-style: none;
+    display: inline-block;
+    font-size: 14px;
+}
+.booking-system .step-content .room-info .photo-thumbnail .ratings {
+    color: orange;
+    font-size: 12px;
+}
+.booking-system .step-content .room-info .photo {
+    position: relative;
+    display: block;
+    overflow: hidden;
+}
+.booking-system .step-content .room-info .photo:before {
+    content: "";
+    top: 0;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 8;
+    background: transparent;
+    border-radius: 5px 5px 0 0;
+    opacity: 1;
+}
+.booking-system .step-content .room-info .photo img {
+    width: 100%;
+    transform: scale(1);
+    transition: all 500ms ease;
+}
+.booking-system .step-content .room-info:hover .photo img {
+    transform: scale(1.05);
+}
+.booking-system .step-content .room-info .detail {
+    padding: 30px 30px 40px 30px;
+}
+.booking-system .step-content .room-info .detail p {
+    margin-bottom: 0;
+    font-size: 15px;
+}
+.booking-system .step-content .room-info .detail .location {
+    margin: 0 0 15px;
+}
+.booking-system .step-content .room-info .detail .location a i {
+    margin-right: 10px;
+    color: #BD945A;
+    font-size: 21px;
+}
+.booking-system .step-content .room-info .detail .location a {
+    font-size: 17px;
+    color: #707070;
+}
+.booking-system .step-content .room-info .detail h3 {
+    margin: 0;
+}
+.booking-system .step-content .room-info .detail .fecilities ul {
+    padding: 0;
+}
+.booking-system .step-content .room-info .detail .fecilities ul li {
+    width: 50%;
+    float: left;
+    font-size: 17px;
+    line-height: 30px;
+}
+.booking-system .step-content .room-info .detail .fecilities ul li i {
+    margin-right: 10px;
+    color: #BD945A;
+    font-size: 21px;
+}
+.booking-system .step-content .room-info .pr {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    letter-spacing: 1px;
+    font-weight: 700;
+    color: #fff;
+    z-index: 20;
+    font-size: 27px;
+}
+.booking-system .step-content .room-info .pr span {
+    font-size: 15px;
+    font-weight: 400;
+    margin-left: 5px;
+}
+.booking-system .step-content .room-info .pr .rating {
+    font-size: 13px;
+    text-align: right;
+    margin: 0;
+    color: #ffc12b;
+}
+.booking-system .step-content .room-info .detail h4 sub {
+    font-weight: 400;
+}
+.booking-system .step-content .room-info .detail h3 a {
+    font-size: 24px;
+}
+/* booking details */
+.booking-system .step-content .booking-details {
+    background: #fff;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+.booking-system .step-content .booking-details h4 {
+    font-size: 24px;
+    margin: 0;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(203, 157, 85, 0.3);
+}
+.booking-system .step-content .booking-details img {
+    border-radius: 5px 5px 0 0;
+}
+.booking-system .step-content .booking-details ul {
+    margin: 25px 0;
+    padding: 0 0 25px;
+    border-bottom: solid 1px #eaeaea;
+}
+.booking-system .step-content .booking-details ul li {
+    list-style: none;
+    line-height: 30px;
+    font-size: 17px;s
+}
+.booking-system .step-content .booking-details ul li span {
+    font-weight: 400;
+    margin-right: 10px;
+    font-family: "Gilda Display", serif;
+    color: #141414;
+    font-size: 17px;
+}
+.booking-system .step-content .booking-details .price {
+    font-family: "Gilda Display", serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: #141414;
+}
+.booking-system .step-content .booking-details .info {
+    padding: 30px;
+}
+.booking-system .step-content .booking-details .carousel-indicators [data-bs-target] {
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    opacity: 1;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    border-radius: 100%;
+}
+.booking-system .step-content .booking-details .carousel-indicators .active {
+    background-color: #fff;
+}
+/* adress */
+.booking-system .step-content .info .address {
+    padding: 0 0 5px;
+    margin-bottom: 25px;
+    border-bottom: solid 1px #eaeaea;
+    color: #5a5959;
+}
+.booking-system .step-content .info .address > strong {
+    margin-bottom: 20px;
+    display: block;
+    float: left;
+    font-weight: 600;
+}
+.booking-system .step-content .info .address > address {
+    margin-left: 120px;
+}
+.booking-system .step-content .info .address > address strong {
+    margin-bottom: 20px;
+}
+.booking-system .step-content .info .address strong {
+    font-weight: 400;
+    font-family: "Gilda Display", serif;
+    color: #141414;
+    font-size: 17px;
+}
+@media screen and (max-width: 991px) {
+    .booking-system .stepwizard .stepwizard-row .stepwizard-step h3 {
+        font-size: 17px;
+    }
+    .booking-system .step-content .heading {
+        font-size: 24px;
+    }
+    .booking-system .step-content .room-info .detail h3 a {
+        font-size: 21px;
+    }
+}
+
+
+
+.booking-system .step-content .select2-container--default .select2-selection--single::after {
+    content: "\f107";
+    font-family: "Font Awesome 6 Pro";
+    font-weight: 400; 
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: auto; 
+    cursor: pointer;
+    font-size: 13px;
+    color: #BD945A;
+}

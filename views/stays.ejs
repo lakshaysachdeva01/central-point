@@ -1,0 +1,92 @@
+<%- include('header'), {seoDetails} %>
+
+<section class="banner-header bg-img bg-fixed" data-overlay-dark="5" data-background="/assets/img/banner/20.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="subtitle">Rixos Luxury Hotel</div>
+                <div class="title">Rooms <span>&</span> Suites</div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Rooms 2 -->
+<section class="rooms2 section-padding">
+    <div class="container">
+        <% if (stays && stays.length > 0) { %>
+            <% stays.forEach((stay, index) => { %>
+                <% 
+                    const isEven = index % 2 === 0;
+                    const rowBorderClass = isEven ? 'br-0550' : 'br-5005';
+                    const imageBorderClass = isEven ? 'br-0550' : 'br-5005';
+                %>
+                <div class="row g-0 justify-content-center align-items-center bg-lightbrown <%= rowBorderClass %> mb-90">
+                    <div class="col-lg-7 col-md-12 <%= isEven ? '' : 'order-2' %>">
+                        <div class="owl-carousel owl-theme">
+                            <% if (stay.detailImages && stay.detailImages.length > 0) { %>
+                                <% stay.detailImages.forEach((image) => { %>
+                                    <div class="img"> 
+                                        <img src="<%= image %>" class="img-fluid <%= imageBorderClass %>" alt="<%= stay.title %>"> 
+                                    </div>
+                                <% }); %>
+                            <% } else if (stay.image) { %>
+                                <div class="img"> 
+                                    <img src="<%= stay.image %>" class="img-fluid <%= imageBorderClass %>" alt="<%= stay.title %>"> 
+                                </div>
+                            <% } %>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-12 <%= isEven ? '' : 'order-1' %>">
+                        <div class="item">
+                            <h3 class="title"><%= stay.title %></h3>
+                            <p><%= stay.listDescription %></p>
+                            <div class="row room-features">
+                                <div class="col-lg-6 col-md-12">
+                                    <ul>
+                                        <% if (stay.stayDetails && stay.stayDetails.occupancy) { %>
+                                            <li><i class="fa-thin fa-user"></i> <%= stay.stayDetails.occupancy %></li>
+                                        <% } %>
+                                        <% if (stay.stayDetails && stay.stayDetails.roomSize) { %>
+                                            <li><i class="fa-thin fa-expand"></i> <%= stay.stayDetails.roomSize %></li>
+                                        <% } %>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-6 col-md-12">
+                                    <ul>
+                                        <% if (stay.stayDetails && stay.stayDetails.bedType) { %>
+                                            <li><i class="fa-thin fa-bed-front"></i> <%= stay.stayDetails.bedType %></li>
+                                        <% } %>
+                                        <% if (stay.features && stay.features.length > 0) { %>
+                                            <% const hasWifi = stay.features.some(f => f.text && f.text.toLowerCase().includes('wifi')); %>
+                                            <% const hasBreakfast = stay.features.some(f => f.text && f.text.toLowerCase().includes('breakfast')); %>
+                                            <% if (hasWifi) { %>
+                                                <li><i class="fa-thin fa-wifi"></i> Free Wifi</li>
+                                            <% } else if (hasBreakfast) { %>
+                                                <li><i class="fa-thin fa-mug-saucer"></i> Breakfast</li>
+                                            <% } %>
+                                        <% } %>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="line-dec"></div>
+                            <div class="book">
+                                <div>
+                                    <div class="price"><%= stay.price || 'Contact' %> <span><%= stay.priceUnit || '/ night' %></span></div>
+                                </div>
+                                <div><a href="/stay/<%= stay.slug %>" class="button-3">View Details</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <% }); %>
+        <% } else { %>
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p>No rooms available.</p>
+                </div>
+            </div>
+        <% } %>
+    </div>
+</section>
+
+<%- include('footer') %>

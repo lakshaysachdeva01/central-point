@@ -1,0 +1,75 @@
+[
+  {
+    "id": "sponge-iron",
+    "title": "Sponge Iron (DRI)",
+    "shortDescription": "Engineered rotary kiln refractories ensuring peak efficiency and longer life.",
+    "fullDescription": "Passary Refractories provides complete, advanced refractory lining solutions for rotary kilns, designed to deliver fuel efficiency, consistent output, and reduced maintenance downtime. Before offering any solution, we take the time to understand each customer's operational setup and mindset — studying their process parameters, challenges, and goals in detail. This deep technical understanding allows us to customize our refractory formulations and operational \"recipes\" to perfectly align with each plant's unique requirements, ensuring optimal performance, longer lining life, and superior process efficiency.",
+    "image": "/assets/img/portfolio/portfolio-01.jpg",
+    "category": "Steel Industry"
+  },
+  {
+    "id": "pellet-plants",
+    "title": "Pellet Plants",
+    "shortDescription": "Durable castables and anchors crafted to resist extreme pelletizing heat.",
+    "fullDescription": "Our castables are engineered to withstand the intense thermal loads of pelletizing furnaces, ensuring exceptional durability, thermal stability, and energy efficiency. We also emphasize the use of our in-house designed PCPF Ceramic Anchors/Blocks — innovative anchor systems embedded with stainless steel fibres. These provide an additional layer of support to the castables, significantly enhancing structural strength and extending service life.",
+    "image": "/assets/img/portfolio/portfolio-02.jpg",
+    "category": "Steel Industry"
+  },
+  {
+    "id": "induction-furnace",
+    "title": "Induction Furnace (SMS)",
+    "shortDescription": "Tailored refractory systems improving heat retention, safety, and sustainability.",
+    "fullDescription": "We design custom refractory solutions for ladles and furnaces that enhance safety, process reliability, and heat retention in steel melting operations. In our effort to promote more sustainable practices, we have been educating customers on the use of Neutral Ramming Mass, which offers 5–6 times the life of conventional castables while significantly reducing pollution associated with traditional materials. Additionally, we have redesigned the roofs of reheating furnaces, replacing conventional brick linings with castable-supported ceramic anchor systems — a solution that strengthens the structure, improves thermal efficiency, and extends overall service life.",
+    "image": "/assets/img/portfolio/portfolio-03.jpg",
+    "category": "Steel Industry"
+  },
+  {
+    "id": "rolling-mills",
+    "title": "Rolling Mills",
+    "shortDescription": "High-efficiency hearth linings ensuring durability, performance, and cost savings.",
+    "fullDescription": "Our solutions are designed to enhance furnace efficiency and longevity, ensuring smooth and uninterrupted operations in reheating and rolling processes. We have introduced hexagonal hearth blocks for rolling mill hearths and beds, replacing the conventionally used Mag Chrome Bricks. This innovation provides significantly longer service life and improves operational efficiency by reducing downtime caused by frequent maintenance. To make our solutions more cost-effective, we have also developed a sandwich design — where the top (hot face) layer consists of a high-grade castable that comes in direct contact with the material, while the bottom (cold face) layer uses a lower-grade castable that remains insulated from direct heat exposure. This configuration not only optimizes performance but also balances material costs, delivering an ideal blend of durability and affordability.",
+    "image": "/assets/img/portfolio/portfolio-04.jpg",
+    "category": "Steel Industry"
+  },
+  {
+    "id": "ductile-iron-pipe",
+    "title": "Ductile Iron Pipe (DIP)",
+    "shortDescription": "Precision refractories delivering consistent casting, durability, and energy efficiency.",
+    "fullDescription": "Passary Refractories supplies a comprehensive range of specialized refractory products essential for the production of Ductile Iron Pipes (DIP). Our solutions are engineered to withstand the extreme temperatures and chemical conditions encountered in pipe manufacturing — ensuring smooth operations, consistent casting quality, and reduced maintenance downtime.\n\nWe offer high-performance materials such as Pasheat A, Pasheat A Special, Pasheat K Special, and High Alumina Cement, all formulated to deliver superior thermal stability, slag resistance, and mechanical strength. These materials have been tried and tested across leading DIP manufacturing units, providing excellent resistance to thermal shock and abrasion, while ensuring enhanced lining life and operational reliability.\n\nBy combining advanced formulation science with on-site technical support, Passary Refractories helps DIP manufacturers achieve longer campaign life, energy efficiency, and improved cost-effectiveness, maintaining uninterrupted production even under the most demanding process conditions.",
+    "image": "/assets/img/portfolio/portfolio-01.jpg",
+    "category": "Steel Industry"
+  },
+  {
+    "id": "waste-heat-recovery-boilers",
+    "title": "Waste Heat Recovery Boilers (WHRB)",
+    "shortDescription": "Energy-saving refractory linings maximizing recovery and minimizing harmful emissions.",
+    "fullDescription": "Our specialized refractory linings for Waste Heat Recovery Boilers are designed to maximize energy utilization and minimize fuel consumption, enabling industries to recover waste heat effectively. These solutions deliver excellent thermal insulation, corrosion resistance, and mechanical strength, ensuring optimal heat retention and long service life even under fluctuating temperature conditions. By improving energy efficiency and reducing emissions, our WHRB refractories contribute directly to cleaner, greener industrial operations.",
+    "image": "/assets/img/portfolio/portfolio-02.jpg",
+    "category": "Power Plants"
+  },
+  {
+    "id": "thermal-power-plants",
+    "title": "Thermal Power Plants",
+    "shortDescription": "High-performance materials ensuring durability, reliability, and thermal efficiency.",
+    "fullDescription": "Passary Refractories provides customized refractory solutions for thermal power plants that demand consistent high-temperature performance and structural integrity. Our castables, plastics, and gunning materials are developed to handle extreme thermal stress, slag corrosion, and mechanical wear, ensuring stability and efficiency in combustion chambers, ducts, and boiler zones. With a focus on durability and safety, our refractories help power plants achieve higher efficiency, reduced maintenance costs, and longer operational campaigns.",
+    "image": "/assets/img/portfolio/portfolio-03.jpg",
+    "category": "Power Plants"
+  },
+  {
+    "id": "cfbc-boilers",
+    "title": "Circulating Fluidized Bed Combustion (CFBC) Boilers",
+    "shortDescription": "Advanced refractories built to withstand extreme heat and pressure.",
+    "fullDescription": "Our CFBC boiler refractories are engineered for resilience under aggressive operating conditions, offering superior thermal efficiency, abrasion resistance, and mechanical strength. They effectively prevent heat loss and material erosion, ensuring stable combustion and prolonged service life, even in highly erosive environments.",
+    "image": "/assets/img/portfolio/portfolio-04.jpg",
+    "category": "Power Plants"
+  },
+  {
+    "id": "afbc-boilers",
+    "title": "Atmospheric Fluidized Bed Combustion (AFBC) Boilers",
+    "shortDescription": "Optimized refractory systems promoting steady combustion and superior heat distribution.",
+    "fullDescription": "Designed for optimal combustion and heat distribution, our AFBC boiler refractories enhance process efficiency and ensure reliable long-term operation. By using advanced castables and insulating materials, we help minimize unplanned downtime, improve thermal performance, and reduce energy wastage — contributing to higher productivity and lower lifecycle costs.",
+    "image": "/assets/img/portfolio/portfolio-01.jpg",
+    "category": "Power Plants"
+  }
+]
+

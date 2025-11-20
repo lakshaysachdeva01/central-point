@@ -1,0 +1,50 @@
+ <!-- Enquiry Modal -->
+ <div id="enquiryModal" class="enquiry-modal" >
+    <div class="enquiry-modal-content" style="padding: 50px;">
+      <button class="enquiry-modal-close" onclick="closeEnquiryModal()">&times;</button>
+    
+
+          <form id="productEnquiryForm">
+             
+              
+                  <input type="text" class="form-control" name="strings.stringOne" placeholder="Name*" required>
+               
+
+                  <input type="email" class="form-control" name="email" placeholder="Email*" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Please enter a valid email address" required>
+              
+                  <input type="tel" class="form-control" name="strings.stringTwo" placeholder="Phone*" pattern="[0-9]{10}" title="Please enter a valid 10-digit phone number" maxlength="10" required>
+                
+                  <input type="text" class="form-control" name="strings.stringThree" placeholder="Product Name" value="<%= product?.title || '' %>" readonly required>
+                
+                <input type="hidden" name="productId" value="<%= product?._id || '' %>">
+                
+                  <textarea class="form-control" name="remarks" placeholder="Additional Details!"></textarea>
+          
+                <button class="btn-enquire" type="submit" id="enquirySubmitBtn">
+                  <span id="enquiryBtnText">Send Enquiry</span>
+                  <span class="submit-loader" id="enquirySubmitLoader" style="display: none;">
+                    <svg width="20" height="20" viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg" stroke="#fff">
+                      <g fill="none" fill-rule="evenodd">
+                        <g transform="translate(1 1)" stroke-width="2">
+                          <circle stroke-opacity=".5" cx="18" cy="18" r="18"/>
+                          <path d="M36 18c0-9.94-8.06-18-18-18">
+                            <animateTransform
+                              attributeName="transform"
+                              type="rotate"
+                              from="0 18 18"
+                              to="360 18 18"
+                              dur="1s"
+                              repeatCount="indefinite"/>
+                          </path>
+                        </g>
+                      </g>
+                    </svg>
+                  </span>
+                </button>
+             
+                        
+                              </form>
+                            </div>
+        </div>
+                    
+             

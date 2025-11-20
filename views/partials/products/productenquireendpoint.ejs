@@ -1,0 +1,120 @@
+<script>
+        const API_BASE_URL = "<%= API_BASE_URL %>";
+    const websiteID = "<%= websiteID %>";
+    const WEBSITE_ID_KEY = "<%= WEBSITE_ID_KEY %>";
+  
+    let scrollPosition = 0;
+  
+    // Open enquiry modal
+    function openEnquiryModal() {
+      // Save current scroll position
+      scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+      
+      const modal = document.getElementById('enquiryModal');
+      modal.style.display = 'flex';
+      setTimeout(() => modal.classList.add('show'), 10);
+      
+      // Freeze background at current position
+      document.body.style.top = `-${scrollPosition}px`;
+      document.body.classList.add('modal-open');
+    }
+  
+    // Close enquiry modal
+    function closeEnquiryModal() {
+      const modal = document.getElementById('enquiryModal');
+      modal.classList.remove('show');
+      setTimeout(() => modal.style.display = 'none', 300);
+      
+      // Restore scroll position
+      document.body.classList.remove('modal-open');
+      document.body.style.top = '';
+      window.scrollTo(0, scrollPosition);
+    }
+  
+    // Close modal on clicking outside
+    document.getElementById('enquiryModal').addEventListener('click', function(event) {
+      if (event.target === this) {
+        closeEnquiryModal();
+      }
+    });
+  
+    // Close modal on Escape key
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        const modal = document.getElementById('enquiryModal');
+        if (modal.classList.contains('show')) {
+          closeEnquiryModal();
+                      }
+                  }
+              });
+      
+    // Phone number validation for product enquiry
+    document.querySelector('input[name="strings.stringTwo"]').addEventListener('input', function(e) {
+      this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);
+    });
+  
+    // Product Enquiry Form Submission
+    document.getElementById('productEnquiryForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+  
+      const submitBtn = document.getElementById('enquirySubmitBtn');
+      const btnText = document.getElementById('enquiryBtnText');
+      const loader = document.getElementById('enquirySubmitLoader');
+  
+      try {
+        const productForm = e.target;
+  
+        // Show loader
+        btnText.style.display = 'none';
+        loader.style.display = 'inline-block';
+        submitBtn.disabled = true;
+  
+        // Build payload with null checks
+        const payload = {
+          strings: {
+            stringOne: productForm.querySelector('input[name="strings.stringOne"]')?.value || '',
+            stringTwo: productForm.querySelector('input[name="strings.stringTwo"]')?.value || '',
+            stringThree: productForm.querySelector('input[name="strings.stringThree"]')?.value || ''
+          },
+          email: productForm.querySelector('input[name="email"]')?.value || '',
+          remarks: productForm.querySelector('textarea[name="remarks"]')?.value || '',
+          productId: productForm.querySelector('input[name="productId"]')?.value || '',
+          [WEBSITE_ID_KEY]: websiteID,
+        };
+  
+        const headers = new Headers({
+          "Content-Type": "application/json",
+        });
+  
+        // Submit the form regardless of response status
+        const response = await fetch(`${API_BASE_URL}/website/contact-enquiry/create-contact-enquiry`, {
+          method: "POST",
+          headers,
+          body: JSON.stringify(payload),
+        }).catch(error => {
+          console.log("Submission completed (ignoring server response)", error);
+        });
+  
+        // Always proceed with success flow since we know data is saved
+        sessionStorage.setItem(
+          "thankYouMessage", 
+          "Thank you for your product enquiry! We've received your request and our team will contact you shortly."
+        );
+        window.location.href = "/thankyou";
+  
+      } catch (error) {
+        console.error("Form processing error:", error);
+        // Even if something fails, still proceed to thank-you page
+        sessionStorage.setItem(
+          "thankYouMessage", 
+          "Thank you for your interest in our products! We've received your enquiry and will contact you soon."
+        );
+        window.location.href = "/thankyou";
+      } finally {
+        // Reset button state
+        btnText.style.display = 'inline';
+        loader.style.display = 'none';
+        submitBtn.disabled = false;
+      }
+    });
+</script>

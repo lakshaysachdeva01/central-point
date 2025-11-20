@@ -1,0 +1,345 @@
+
+<style>
+    .form-switch .switch {
+        cursor: pointer;
+        position: relative;
+        width: 55px;
+        height: 30px;
+    }
+    
+    .form-switch .switch input:checked + .switch__slider {
+        background-color: #e33d5c;
+    }
+    
+    .form-switch .switch input:checked + .switch__slider::before {
+        transform: translateX(25px);
+        background-color: white;
+    }
+    
+    .form-switch .switch input {
+        z-index: 5;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+    }
+    
+    .form-switch .switch__slider {
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        max-width: 60px;
+        height: 30px;
+        background-color: #1f0b45ef;
+        transition: .3s;
+        border-radius: 30px;
+    }
+    
+    .breadcrumb-item {
+        cursor: pointer;
+        padding: 12px 20px;
+        border-radius: 8px;
+    }
+    
+    .breadcrumb-item+.breadcrumb-item::before{
+        content: none !important;
+    }
+
+    .gallery-breadcrumb {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        white-space: nowrap;
+        gap: 10px;
+        padding: 10px 5px;
+        scrollbar-width: none;
+    }
+    
+    .gallery-breadcrumb::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .breadcrumb-item {
+        flex: 0 0 auto;
+        text-align: center;
+        color: white;
+        font-size: 14px;
+        white-space: nowrap;
+    }
+    
+    @media (max-width:768px) {
+        .page-title-content {
+            overflow-x: auto;
+            display: flex;
+            justify-content: flex-start;
+            padding-left: 0px;
+        }
+    }
+    
+    .form-switch .switch__slider::before {
+        content: "";
+        position: absolute;
+        height: 24px;
+        width: 24px;
+        left: 3px;
+        bottom: 3px;
+        background-color: white;
+        border-radius: 100%;
+        box-shadow: 0px 10px 40px 0px #0000000D;
+        transition: .3s;
+    }
+    
+ 
+    
+    .gallery-container {
+        column-count: 3;
+        gap: 20px;
+    }
+    
+    .gallery-thumb {
+        margin-bottom: 20px;
+    }
+    
+    @media (max-width:992px) {
+        .gallery-container {
+            max-width: 800px;
+            margin: 2px auto;
+            column-count: 2;
+            gap: 30px;
+        }
+    }
+    
+    @media (max-width:700px) {
+        .gallery-container {
+            max-width: 500px;
+            margin: 2px auto;
+            column-count: 1;
+            gap: 30px;
+        }
+    }
+    
+    @media (max-width:500px) {
+        .gallery-container {
+            max-width: 500px;
+            margin: 2px auto;
+            column-count: 1;
+            gap: 0px;
+        }
+        .gallery-thumb {
+            margin-bottom: 14px !important;
+        }
+    }
+  
+    .thumbnail-container {
+        position: relative;
+        width: 100%;
+    }
+    
+    .thumbnail-image {
+        width: 100%;
+        height: 230px !important;
+        object-fit: cover;
+        display: block;
+    }
+    
+    .play-button {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-self: center;
+        font-size: 40px;
+        color: white;
+        border: 2px solid white;
+        height: 72px;
+        width: 72px;
+       
+        border-radius: 50%;
+        cursor: pointer;
+        top: 34%;
+        left: 42%;
+    }
+    
+    h3.video-title {
+        font-family: "Paytone One", sans-serif;
+        font-size: 20px !important;
+        text-align: left !important;
+        color: #1f0b45;
+        margin-top: 10px;
+    }
+    
+    .breadcrumb-item.active {
+        background-color: white !important;
+        color: black;
+        border: 1px solid rgb(0, 0, 0) !important;
+    }
+    
+    .breadcrumb-item.btn-style1:hover{
+background-color: white !important;
+color: black;
+border: 1px solid rgb(0, 0, 0) !important;
+    }
+  
+</style>
+<section class="banner-header bg-img bg-fixed" data-overlay-dark="5" data-background="/assets/img/banner/18.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="subtitle">Our Gallery</div>
+                <div class="title">Glimpses</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section style="padding: 40px 0;">
+    <div class="container">
+        <div class="filter-tabs-scroll">
+            <div class="filter-tabs-inner" style="display: flex; justify-content: center; flex-wrap: wrap; gap: 10px;">
+                <button onclick="filterGallery('all')" class="gallery-tab active" data-filter="all">All</button>
+                <% gallery.forEach((album) => { %>
+                    <% if (album.mediaDetails.mediaType === "IMAGE") { %>
+                        <button onclick="filterGallery('<%= album.title.toLowerCase() %>')" class="gallery-tab" data-filter="<%= album.title.toLowerCase() %>"><%= album.title %></button>
+                    <% } %>
+                <% }); %>
+                <% 
+                // Check if there are any videos
+                const hasVideos = gallery.some(album => album.mediaDetails.mediaType === "VIDEO" && album.mediaDetails.videoLink);
+                if (hasVideos) { 
+                %>
+                    <button onclick="filterGallery('videos')" class="gallery-tab" data-filter="videos">Videos</button>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .gallery-tab {
+        padding: 10px 20px;
+        border: 1px solid #BD945A;
+        background-color: transparent;
+        color: #BD945A;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border-radius: 4px;
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    .gallery-tab:hover {
+        background-color: #BD945A;
+        color: white;
+    }
+
+    .gallery-tab.active {
+        background-color: #BD945A;
+        color: white;
+        border-color: #BD945A;
+    }
+</style>
+
+<div class="gallery-area gallery-page masonry" style="padding-bottom: 120px;">
+    <div class="container">
+        <div class="gallery-itmes">
+            <div class="rows">
+                <!-- Gallery Container -->
+                <div class="gallery-container state-gallery">
+                    <% gallery.slice().reverse().forEach((album) => { %>
+                        <% if (album.mediaDetails.mediaType === "IMAGE" && album.mediaDetails.images.length > 0) { %>
+                            <% album.mediaDetails.images.slice().reverse().forEach((image) => { %>
+                                <div class="gallery-thumb image-item popup-trigger" data-type="image" data-src="https://technolitics-s3-bucket.s3.ap-south-1.amazonaws.com/websitebuilder-s3-bucket/<%= image %>" data-title="<%= album.title.toLowerCase() %>">
+                                    <img src="https://technolitics-s3-bucket.s3.ap-south-1.amazonaws.com/websitebuilder-s3-bucket/<%= image %>" 
+                                         alt="<%= album.title %>" style="width: 100%;" />
+                                </div>
+                            <% }); %>
+                        <% } %>
+                        <% if (album.mediaDetails.mediaType === "VIDEO" && album.mediaDetails.videoLink) { 
+                            function convertToEmbedUrl(url) {
+                                let videoId = "";
+                                if (url.includes("youtu.be")) {
+                                    videoId = url.split("youtu.be/")[1]?.split("?")[0];
+                                } else if (url.includes("youtube.com/watch")) {
+                                    videoId = url.split("v=")[1]?.split("&")[0];
+                                }
+                                return videoId ? `https://www.youtube.com/embed/${videoId}` : "";
+                            }
+                            const embedUrl = convertToEmbedUrl(album.mediaDetails.videoLink);
+                        %>
+                            <% if (embedUrl) { %>
+                                <div class="gallery-thumb video-item popup-trigger" data-type="video" data-src="<%= embedUrl %>" data-title="videos" style="margin-bottom: 20px; display:flex; flex-direction:column">
+                                    <div class="thumbnail-container">
+                                        <img src="https://img.youtube.com/vi/<%= embedUrl.split('/').pop() %>/0.jpg" 
+                                             alt="<%= album.title %>" class="thumbnail-image" />
+                                        <div class="play-button">▶</div>
+                                    </div>
+                                </div>
+                            <% } else { %>
+                                <p>Invalid YouTube URL provided.</p>
+                            <% } %>
+                        <% } %>
+                    <% }); %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function filterGallery(filter) {
+        const galleryItems = document.querySelectorAll('.gallery-thumb');
+        const galleryTabs = document.querySelectorAll('.gallery-tab');
+        
+        // Remove active class from all tabs first
+        galleryTabs.forEach(tab => {
+            tab.classList.remove('active');
+        });
+        
+        // Add active class to the clicked tab
+        galleryTabs.forEach(tab => {
+            if (tab.getAttribute('data-filter') === filter) {
+                tab.classList.add('active');
+            }
+        });
+        
+        // Filter gallery items
+        galleryItems.forEach(item => {
+            const itemTitle = item.getAttribute('data-title');
+            if (filter === 'all') {
+                item.style.display = 'flex';
+                if (item.classList.contains('video-item')) {
+                    const title = item.querySelector('.video-title');
+                    if (title) title.style.display = 'none';
+                }
+            } else if (filter === 'videos' && item.classList.contains('video-item')) {
+                item.style.display = 'flex';
+                const title = item.querySelector('.video-title');
+                if (title) title.style.display = 'block';
+            } else if (filter !== 'videos' && itemTitle === filter && !item.classList.contains('video-item')) {
+                item.style.display = 'flex';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    
+        // Reinitialize Media Items for Popup
+        if (typeof initMediaItems === 'function') {
+            initMediaItems();
+        }
+    }
+    
+    // Set default filter on page load - check URL for filter parameter
+    document.addEventListener('DOMContentLoaded', function () {
+        // Get filter from URL path (e.g., /gallery/stay -> 'stay')
+        const pathParts = window.location.pathname.split('/');
+        const urlFilter = pathParts[pathParts.length - 1];
+        
+        // If URL has a filter and it's not just 'gallery', use that filter
+        // Otherwise default to 'all'
+        const initialFilter = (urlFilter && urlFilter !== 'gallery') ? urlFilter : 'all';
+        filterGallery(initialFilter);
+    });
+</script>
+    

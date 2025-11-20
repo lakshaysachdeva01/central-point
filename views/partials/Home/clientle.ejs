@@ -1,0 +1,23 @@
+<% if (clients && clients.length > 0) { %>
+      
+  <section class="clients bg-lightbrown">
+    <div class="container">
+        <div class="row wrap">
+            <div class="col-md-12">
+                <div class="owl-carousel owl-theme">
+
+                  <% clients.forEach((client) => { %>
+               
+                    <div class="item">
+                        <a href="<%= client.link %>"><img src="<%= process.env.S3_BASE_URL + client.logo %>" alt="<%= client.name %>"></a>
+                    </div>
+                    <% }) %>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+               
+         
+<% } %>                    
+     

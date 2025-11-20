@@ -1,0 +1,40 @@
+    <!-- Header Banner -->
+    <section class="banner-header bg-img bg-fixed" data-overlay-dark="5" data-background="/assets/img/banner/20.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="subtitle">Work With Us</div>
+                    <div class="title">Career</div>
+                </div>
+            </div>
+        </div>
+    </section>
+      <!-- Blog -->
+      <section class="blog1 section-padding bg-lightbrown">
+        <div class="container">
+            <div class="row">
+                <% if (jobs && jobs.length > 0) { %>
+ 
+
+                    <% jobs.forEach(job => { %>
+                        <div class="col-lg-6 col-md-12 mb-30">
+                            <div class="item">
+                                <div class="cont">
+                                
+                                    <h4><a href="/job/<%= job.seoDetails?.slug %>"><%= job.title %></a></h4>
+                                    <p><%= job.subTitle %></p>
+                                    <a class="apply" href="/job/<%= job.seoDetails?.slug %>">Apply Now <i class="fa-solid fa-angles-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+  
+
+                                  
+                      <% }) %>
+      <% } %>
+                
+            </div>
+          
+        </div>
+    </section>
+

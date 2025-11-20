@@ -1,0 +1,114 @@
+<%- include('header'), {seoDetails} %>
+
+<header class="header">
+    <div class="video-fullscreen-wrap">
+        <div class="video-fullscreen-video" data-overlay-dark="4">
+            <% if (venue && venue.bannerVideo) { %>
+                <video playsinline autoplay loop muted>
+                    <source src="<%= venue.bannerVideo %>" type="video/mp4">
+                </video>
+            <% } else if (venue && venue.bannerImage) { %>
+                <div style="background-image: url('<%= venue.bannerImage %>'); background-size: cover; background-position: center; width: 100%; height: 100%;"></div>
+            <% } %>
+        </div>
+        <div class="v-middle">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 col-md-12 text-center">
+                        <% if (venue && venue.tagline) { %>
+                            <h5><%= venue.tagline %></h5>
+                        <% } %>
+                        <% if (venue && venue.title) { %>
+                            <h1><%= venue.title %></h1>
+                        <% } %>
+                        <div class="details"> 
+                            <% if (venue && venue.venueDetails && venue.venueDetails.capacity) { %>
+                                <span><i class="fa-thin fa-user"></i><%= venue.venueDetails.capacity %></span>
+                            <% } %>
+                            <% if (venue && venue.venueDetails && venue.venueDetails.area) { %>
+                                <span><i class="fa-thin fa-expand"></i><%= venue.venueDetails.area %></span>
+                            <% } %>
+                            <% if (venue && venue.venueDetails && venue.venueDetails.type) { %>
+                                <span><i class="fa-thin fa-building"></i><%= venue.venueDetails.type %></span>
+                            <% } %>
+                            <% if (venue && venue.venueDetails && venue.venueDetails.style) { %>
+                                <span><i class="fa-thin fa-star"></i><%= venue.venueDetails.style %></span> 
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Venue Details -->
+<section class="page-details section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7 col-md-12 mb-30">
+                <div class="row mb-30">
+                    <div class="col-md-12">
+                        <% if (venue && venue.tagline) { %>
+                            <div class="section-subtitle"><%= venue.tagline %></div>
+                        <% } %>
+                        <% if (venue && venue.title) { %>
+                            <div class="section-title"><%= venue.title %></div>
+                        <% } %>
+                        <% if (venue && venue.detailDescription) { %>
+                            <% const paragraphs = venue.detailDescription.split('\n\n'); %>
+                            <% paragraphs.forEach(paragraph => { %>
+                                <p><%= paragraph %></p>
+                            <% }); %>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 offset-lg-1 col-md-12">
+                <div class="cont">
+                    <h5>Venue Features</h5>
+                    <ul class="list">
+                        <% if (venue && venue.features && venue.features.length > 0) { %>
+                            <% venue.features.forEach(feature => { %>
+                                <li>
+                                    <span><i class="<%= feature.icon %>"></i></span>
+                                    <span><%= feature.text %></span>
+                                </li>
+                            <% }); %>
+                        <% } %>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Gallery Image -->
+<% if (venue && venue.detailImages && venue.detailImages.length > 0) { %>
+    <section class="galleryscroll section-padding bg-darkgray">
+        <div class="container-fluid p-0">
+            <div class="row justify-content-center">
+                <div class="col-md-12 text-center mb-20">
+                    <div class="section-subtitle">Venue Images</div>
+                    <% if (venue && venue.title) { %>
+                        <div class="section-title white"><%= venue.title %></div>
+                    <% } %>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="owl-carousel owl-theme">
+                        <% venue.detailImages.forEach((image) => { %>
+                            <div class="item">
+                                <a href="<%= image %>" title="<%= venue.title %>" class="gallery-masonry-item-img-link img-zoom">
+                                    <div class="img"> <img src="<%= image %>" class="img-fluid mx-auto d-block" alt="<%= venue.title %>"> </div>
+                                </a>
+                            </div>
+                        <% }); %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<% } %>
+
+<%- include('footer') %>
+

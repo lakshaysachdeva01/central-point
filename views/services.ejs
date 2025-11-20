@@ -1,0 +1,207 @@
+<%- include('header', {seoDetails}) %>
+
+
+  <!-- PAGE TITLE
+        ================================================== -->
+        <section class="page-title-section top-position1 bg-img cover-background left-overlay-secondary" data-overlay-dark="85" data-background="/assets/img/banner/page-title-01.jpg">
+            <div class="container">                
+                <h1>Our Services</h1>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li>Services Focus</li>
+                </ul>                
+            </div>
+        </section>
+
+
+<!-- SERVICES SECTION
+================================================== -->
+<section class="py-15 section-top" >
+    <div class="container">
+    
+        <div class="row" style="max-width: 1200px; margin: auto;">
+            <!-- Service 1 -->
+            <div class="col-12 mb-6 service-1">
+                <div class="row align-items-center h-100">
+                    <div class="col-md-6 below-smp-0 mb-4 mb-md-0" >
+                        <div class="service-image-container">
+                            <div class="service-image-wrapper">
+                                <img src="img/service/nonexistent-01.jpg" alt="Total Refractory Application" class="img-fluid rounded service-image" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="service-image-placeholder" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;  display: none; align-items: center; justify-content: center; ">
+                                    <i class="fa-solid fa-image" style="font-size: 40px; color: #c6a446;"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 content-container" >
+                        <div class="service-content">
+                            <h2 class="h3 mb-3" style="color: black;">Total Refractory Application</h2>
+                            <p class="text-dark mb-0">We provide end-to-end refractory application services, handling everything from material selection and design to installation and commissioning. Our skilled technical teams ensure that refractories are applied with the highest standards of quality and safety, maximizing durability and operational efficiency. By combining our expertise with state-of-the-art techniques, we help clients achieve optimal performance while minimizing downtime.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="col-12 mb-6 service-2">
+                <div class="row align-items-center h-100">
+                    <div class="col-md-6 below-smp-0 order-md-2 mb-4 mb-md-0" >
+                        <div class="service-image-container">
+                            <div class="service-image-wrapper">
+                                <img src="img/service/nonexistent-02.jpg" alt="Total Refractory Management" class="img-fluid rounded service-image" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="service-image-placeholder" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;  display: none; align-items: center; justify-content: center; ">
+                                    <i class="fa-solid fa-image" style="font-size: 40px; color: #c6a446;"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 order-md-1 content-container" >
+                        <div class="service-content">
+                            <h2 class="h3 mb-3" style="color: black;">Total Refractory Management</h2>
+                            <p class="text-dark mb-0">Our Total Refractory Management service is a comprehensive offering where we take full responsibility for managing all refractory needs of a plant or unit. From regular inspections, preventive maintenance, and repairs to inventory planning and performance monitoring, we ensure seamless operations throughout the lifecycle of the refractories. This holistic approach allows clients to focus on their core business while we take care of every detail of refractory management.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.service-image-container {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+
+}
+
+
+.service-1 .content-container{
+    padding-left: 30px;
+}
+
+.service-2 .content-container{
+    padding-right: 30px;
+}
+
+.service-1 .service-image-container{
+    border-radius: 12px;
+padding-right: 30px;
+ padding-left: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.service-2 .service-image-container{
+    border-radius: 12px;
+    padding-left: 30px;
+     padding-right: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+
+.service-1 .row, .service-2 .row{
+    box-shadow: 1px 1px 4px 3px #ebebeb;
+    border-radius: 12px;
+}
+
+.service-image-wrapper {
+    position: relative;
+    width: 100%;
+   height: 100%;
+
+    min-height: 400px;
+}
+
+.service-image-container img {
+    transition: transform 0.3s ease;
+}
+
+.service-image-container:hover img {
+    transform: scale(1.05);
+}
+
+.service-1 .below-smp-0{
+    padding-left: 0 ;
+}
+
+.service-2 .below-smp-0{
+    padding-right: 0;
+}
+
+.service-content h2 {
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.service-content p {
+    line-height: 1.7;
+    font-size: 16px;
+}
+
+.service-image-placeholder {
+    background-color: rgba(198, 164, 70, 0.5) !important;
+   
+}
+
+@media (max-width: 768px) {
+    .service-1 .service-image-container{
+    border-radius: 12px;
+    padding-right: 0 !important;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+
+
+.service-2 .service-image-container{
+    border-radius: 12px;
+    padding-left: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+
+    .service-content {
+        text-align: center;
+    }
+    
+    /* Second service - reverse order on mobile */
+    .service-2 .row {
+        display: flex;
+       
+    }
+    
+  
+
+
+    .service-1 .below-smp-0{
+    padding-left: 0 ;
+    padding-right: 0;
+}
+
+.service-2 .below-smp-0{
+    padding-right: 0;
+    padding-left: 0;
+}
+
+    .service-1 .content-container{
+        padding-left: 20px;
+        padding-right: 20px;
+    padding-bottom: 30px;
+}
+
+.service-2 .content-container{
+    padding-bottom: 30px;
+    padding-left: 20px;
+        padding-right: 20px;
+}
+
+}
+</style>
+
+<%- include('footer') %>

@@ -1,0 +1,216 @@
+ <!-- Job Application Form -->
+ <div class="job-section">
+    <h3 class="job-section-title">Apply for this Position</h3>
+    <div class="job-application-form">
+        <p class="form-description">Fill out the form below to apply for this position. We'll review your application and get back to you soon.</p>
+        <form id="jobApplicationForm">
+            <div class="row">
+                <div class="col-sm-6 col-md-6 col-lg-6">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="<%= JOB_ENQUIRY_DYNAMIC_FIELDS_KEYS.NAME %>" placeholder="Full Name*" required>
+                    </div>
+                </div>
+                
+                <div class="col-sm-6 col-md-6 col-lg-6">
+                    <div class="form-group">
+                        <input type="tel" class="form-control" name="<%= JOB_ENQUIRY_DYNAMIC_FIELDS_KEYS.CONTACT_NUMBER %>" placeholder="Contact Number*" pattern="[0-9]{10}" title="Please enter a valid 10-digit phone number" maxlength="10" required>
+                    </div>
+                </div>
+                
+                <div class="col-sm-6 col-md-6 col-lg-6">
+                    <div class="form-group">
+                        <input type="email" class="form-control" name="<%= JOB_ENQUIRY_DYNAMIC_FIELDS_KEYS.EMAIL %>" placeholder="Email Address*" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Please enter a valid email address" required>
+                    </div>
+                </div>
+                
+                <div class="col-sm-6 col-md-6 col-lg-6">
+                    <div class="form-group">
+                        <input type="file" class="form-control" id="resumeUpload" name="<%= JOB_ENQUIRY_DYNAMIC_FIELDS_KEYS.RESUME %>" accept=".pdf,.doc,.docx" required style="display: none;">
+                        <input type="text" class="form-control" id="resumePlaceholder" placeholder="Upload Resume*" readonly style="cursor: pointer; background-color: #fff;">
+                    </div>
+                </div>
+                
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <input type="hidden" name="<%= JOB_ENQUIRY_DYNAMIC_FIELDS_KEYS.JOB_ID %>" value="<%= job._id %>">
+                    <div class="form-group">
+                        <textarea class="form-control" name="<%= JOB_ENQUIRY_DYNAMIC_FIELDS_KEYS.MESSAGE %>" placeholder="Tell us about yourself and why you're interested in this position" rows="5" style="direction: ltr; text-align: left;"></textarea>
+                    </div>
+                </div>
+                
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <button class="btn btn__primary" type="submit" id="jobApplicationSubmitBtn">
+                        <span id="jobApplicationBtnText">Submit</span>
+                        <span class="submit-loader" id="jobApplicationSubmitLoader" style="display: none;">
+                            <svg width="20" height="20" viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg" stroke="#fff">
+                                <g fill="none" fill-rule="evenodd">
+                                    <g transform="translate(1 1)" stroke-width="2">
+                                        <circle stroke-opacity=".5" cx="18" cy="18" r="18"/>
+                                        <path d="M36 18c0-9.94-8.06-18-18-18">
+                                            <animateTransform
+                                                attributeName="transform"
+                                                type="rotate"
+                                                from="0 18 18"
+                                                to="360 18 18"
+                                                dur="1s"
+                                                repeatCount="indefinite"/>
+                                        </path>
+                                    </g>
+                                </g>
+                            </svg>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </form>
+        <p class="form-messege mt-3"></p>
+    </div>
+</div>
+
+<script>
+    // Phone number validation and custom file upload
+    document.addEventListener('DOMContentLoaded', function() {
+        const phoneInput = document.querySelector('input[name="<%= JOB_ENQUIRY_DYNAMIC_FIELDS_KEYS.CONTACT_NUMBER %>"]');
+        if (phoneInput) {
+            phoneInput.addEventListener('input', function(e) {
+                this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);
+            });
+        }
+    
+        // Custom file upload functionality
+        const fileInput = document.getElementById('resumeUpload');
+        const resumePlaceholder = document.getElementById('resumePlaceholder');
+    
+        if (resumePlaceholder && fileInput) {
+            // Click placeholder to open file browser
+            resumePlaceholder.addEventListener('click', function() {
+                fileInput.click();
+            });
+    
+            // Update placeholder text when file is selected
+            fileInput.addEventListener('change', function() {
+                if (this.files && this.files[0]) {
+                    resumePlaceholder.value = this.files[0].name;
+                } else {
+                    resumePlaceholder.value = '';
+                }
+            });
+        }
+    });
+    
+    // Job Application Form Submission
+    document.getElementById('jobApplicationForm').addEventListener('submit', async function (e) {
+        e.preventDefault(); // Prevent default form submission
+    
+        const submitBtn = document.getElementById('jobApplicationSubmitBtn');
+        const btnText = document.getElementById('jobApplicationBtnText');
+        const loader = document.getElementById('jobApplicationSubmitLoader');
+    
+        try {
+            const API_BASE_URL = "<%= API_BASE_URL %>";
+            const websiteID = "<%= websiteID %>";
+            const WEBSITEIDKEY = "<%= WEBSITE_ID_KEY %>";
+            const JOB_ENQUIRY_DYNAMIC_FIELDS_KEYS = <%- JSON.stringify(JOB_ENQUIRY_DYNAMIC_FIELDS_KEYS) %>;
+            
+            const UPLOAD_FILES_END_POINT = `${API_BASE_URL}/third-party/file-upload/upload-files`;
+            const CREATE_JOB_APPLICATION_END_POINT = `${API_BASE_URL}/website/job-application/create-job-application`;
+    
+            const jobApplicationForm = e.target; // Reference to the form element
+            const WEBSITE_ID_KEY = WEBSITEIDKEY;
+    
+            // Show loader
+            btnText.style.display = 'none';
+            loader.style.display = 'inline-block';
+            submitBtn.disabled = true;
+    
+            // -------------------------------------------
+            // 1. Upload File
+            const uploadFileData = new FormData();
+            const resumeFile = jobApplicationForm.querySelector(
+                `input[name="${JOB_ENQUIRY_DYNAMIC_FIELDS_KEYS.RESUME}"]`
+            ).files[0];
+    
+            if (!resumeFile) {
+                throw new Error("Please upload a resume file.");
+            }
+    
+            uploadFileData.append("file", resumeFile);
+    
+            const fileUploadResponse = await fetch(UPLOAD_FILES_END_POINT, {
+                method: "POST",
+                body: uploadFileData,
+            });
+    
+            if (!fileUploadResponse.ok) {
+                throw new Error(`File upload failed! Status: ${fileUploadResponse.status}`);
+            }
+    
+            const fileUploadData = await fileUploadResponse.json();
+            const uploadedResume =
+                fileUploadData?.data?.length > 0
+                    ? fileUploadData?.data[0]?.imageNames[0]
+                    : "";
+    
+            if (!uploadedResume) {
+                throw new Error("File upload did not return a valid file name.");
+            }
+    
+            // -------------------------------------------
+            // 2. Prepare Form Payload
+            const payload = {
+                [JOB_ENQUIRY_DYNAMIC_FIELDS_KEYS.NAME]: jobApplicationForm.querySelector(
+                    `input[name="${JOB_ENQUIRY_DYNAMIC_FIELDS_KEYS.NAME}"]`
+                ).value,
+                [JOB_ENQUIRY_DYNAMIC_FIELDS_KEYS.CONTACT_NUMBER]: jobApplicationForm.querySelector(
+                    `input[name="${JOB_ENQUIRY_DYNAMIC_FIELDS_KEYS.CONTACT_NUMBER}"]`
+                ).value,
+                [JOB_ENQUIRY_DYNAMIC_FIELDS_KEYS.EMAIL]: jobApplicationForm.querySelector(
+                    `input[name="${JOB_ENQUIRY_DYNAMIC_FIELDS_KEYS.EMAIL}"]`
+                ).value,
+                [JOB_ENQUIRY_DYNAMIC_FIELDS_KEYS.MESSAGE]: jobApplicationForm.querySelector(
+                    `textarea[name="${JOB_ENQUIRY_DYNAMIC_FIELDS_KEYS.MESSAGE}"]`
+                ).value,
+                [JOB_ENQUIRY_DYNAMIC_FIELDS_KEYS.RESUME]: uploadedResume,
+                [JOB_ENQUIRY_DYNAMIC_FIELDS_KEYS.JOB_ID]: jobApplicationForm.querySelector(
+                    `input[name="${JOB_ENQUIRY_DYNAMIC_FIELDS_KEYS.JOB_ID}"]`
+                ).value,
+                [JOB_ENQUIRY_DYNAMIC_FIELDS_KEYS.FORM_TYPE]: "career-enquiry",
+                [WEBSITE_ID_KEY]: websiteID,
+            };
+    
+            // -------------------------------------------
+            // 3. Submit the Form Data
+            const headers = new Headers({
+                "Content-Type": "application/json",
+            });
+    
+            const response = await fetch(CREATE_JOB_APPLICATION_END_POINT, {
+                method: "POST",
+                headers,
+                body: JSON.stringify(payload),
+            });
+    
+            if (!response.ok) {
+                throw new Error(`Form submission failed! Status: ${response.status}`);
+            }
+    
+            const data = await response.json();
+    
+            // Redirect to the thank-you page on success
+            sessionStorage.setItem("thankYouMessage", "We've Received Your Request and will Reach out to you soon");
+            window.location.href = "/thankyou";
+        } catch (error) {
+            console.error("Form submission error:", error);
+            // Reset button state
+            btnText.style.display = 'inline';
+            loader.style.display = 'none';
+            submitBtn.disabled = false;
+            
+            // Show error message
+            const formMessage = document.querySelector('.form-messege');
+            if (formMessage) {
+                formMessage.textContent = error.message || "An error occurred. Please try again.";
+                formMessage.style.color = "#dc3545";
+            }
+        }
+    });
+</script>

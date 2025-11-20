@@ -1,0 +1,430 @@
+[
+  {
+    "id": 1,
+    "slug": "jashn-the-banquet",
+    "tagline": "GRAND BANQUET HALL",
+    "title": "JASHN THE BANQUET",
+    "description": "Experience grandeur and elegance at JASHN THE BANQUET, our premier banquet hall perfect for weddings, corporate events, and grand celebrations. With state-of-the-art facilities and luxurious ambiance.",
+    "image": "/assets/img/offers/05.jpg",
+    "link": "/venue/jashn-the-banquet",
+    "bannerImage": "/assets/img/offers/05.jpg",
+    "bannerVideo": null,
+    "detailImages": [
+      "/assets/img/offers/05.jpg",
+      "/assets/img/offers/06.jpg",
+      "/assets/img/offers/07.jpg",
+      "/assets/img/offers/08.jpg"
+    ],
+    "listDescription": "Experience grandeur and elegance at JASHN THE BANQUET, our premier banquet hall perfect for weddings, corporate events, and grand celebrations.",
+    "detailDescription": "JASHN THE BANQUET is our flagship venue designed to host the most memorable celebrations. This spacious and elegantly designed banquet hall can accommodate large gatherings with style and sophistication. Featuring high ceilings, crystal chandeliers, and modern sound systems, it provides the perfect backdrop for weddings, anniversaries, corporate galas, and social events.\n\nOur dedicated event planning team ensures every detail is meticulously executed, from custom decor to gourmet catering. The venue includes advanced lighting systems, professional audio-visual equipment, and flexible seating arrangements to suit your specific needs. Whether you're planning an intimate gathering or a grand celebration, JASHN THE BANQUET delivers an unforgettable experience.",
+    "venueDetails": {
+      "capacity": "500 Guests",
+      "area": "10,000 sq. ft.",
+      "type": "Indoor Banquet Hall",
+      "style": "Luxury Grand Hall"
+    },
+    "features": [
+      {
+        "icon": "fa-regular fa-check",
+        "text": "Capacity: Up to 500 guests"
+      },
+      {
+        "icon": "fa-regular fa-check",
+        "text": "Advanced sound & lighting systems"
+      },
+      {
+        "icon": "fa-regular fa-check",
+        "text": "Professional stage setup"
+      },
+      {
+        "icon": "fa-regular fa-check",
+        "text": "In-house catering facilities"
+      },
+      {
+        "icon": "fa-regular fa-check",
+        "text": "Parking for 200+ vehicles"
+      },
+      {
+        "icon": "fa-regular fa-check",
+        "text": "Bridal & groom suites"
+      },
+      {
+        "icon": "fa-regular fa-check",
+        "text": "Climate control & air conditioning"
+      },
+      {
+        "icon": "fa-regular fa-check",
+        "text": "Event planning assistance"
+      }
+    ],
+    "buttonText": "View Details",
+    "buttonIcon": "fa-solid fa-arrow-right"
+  },
+  {
+    "id": 2,
+    "slug": "blanco-the-pool-side",
+    "tagline": "POOLSIDE VENUE",
+    "title": "BLANCO THE POOL SIDE",
+    "description": "A stunning poolside venue offering a perfect blend of outdoor elegance and modern amenities. Ideal for daytime celebrations, pool parties, and intimate gatherings with a refreshing ambiance.",
+    "image": "/assets/img/offers/07.jpg",
+    "link": "/venue/blanco-the-pool-side",
+    "bannerImage": "/assets/img/offers/07.jpg",
+    "bannerVideo": null,
+    "detailImages": [
+      "/assets/img/offers/07.jpg",
+      "/assets/img/offers/05.jpg",
+      "/assets/img/offers/06.jpg",
+      "/assets/img/offers/08.jpg"
+    ],
+    "listDescription": "A stunning poolside venue offering a perfect blend of outdoor elegance and modern amenities. Ideal for daytime celebrations and pool parties.",
+    "detailDescription": "BLANCO THE POOL SIDE creates a magical outdoor experience with its beautiful poolside setting and contemporary design. This versatile venue is perfect for daytime celebrations, pool parties, brunches, and intimate gatherings. The open-air space features elegant cabanas, comfortable seating arrangements, and direct pool access, creating a relaxed yet sophisticated atmosphere.\n\nWith natural lighting, lush greenery, and the sparkling pool as a backdrop, every event becomes memorable. The venue includes shaded areas, poolside bar facilities, and flexible catering options. Whether you're hosting a summer party, engagement celebration, or corporate lunch, BLANCO THE POOL SIDE offers a refreshing and elegant setting.",
+    "venueDetails": {
+      "capacity": "200 Guests",
+      "area": "5,000 sq. ft.",
+      "type": "Outdoor Poolside",
+      "style": "Modern Outdoor"
+    },
+    "features": [
+      {
+        "icon": "fa-regular fa-check",
+        "text": "Capacity: Up to 200 guests"
+      },
+      {
+        "icon": "fa-regular fa-check",
+        "text": "Poolside bar & service"
+      },
+      {
+        "icon": "fa-regular fa-check",
+        "text": "Elegant cabanas & shaded areas"
+      },
+      {
+        "icon": "fa-regular fa-check",
+        "text": "Direct pool access"
+      },
+      {
+        "icon": "fa-regular fa-check",
+        "text": "Outdoor sound system"
+      },
+      {
+        "icon": "fa-regular fa-check",
+        "text": "BBQ & outdoor catering facilities"
+      },
+      {
+        "icon": "fa-regular fa-check",
+        "text": "Changing rooms & restrooms"
+      },
+      {
+        "icon": "fa-regular fa-check",
+        "text": "Beautiful landscaping & lighting"
+      }
+    ],
+    "buttonText": "View Details",
+    "buttonIcon": "fa-solid fa-arrow-right"
+  },
+  {
+    "id": 3,
+    "slug": "cp-banquet-and-convention",
+    "tagline": "CONVENTION CENTER",
+    "title": "CP BANQUET AND CONVENTION",
+    "description": "Our largest and most versatile convention center designed for corporate events, conferences, exhibitions, and large-scale gatherings. Equipped with cutting-edge technology and flexible spaces.",
+    "image": "/assets/img/offers/06.jpg",
+    "link": "/venue/cp-banquet-and-convention",
+    "bannerImage": "/assets/img/offers/06.jpg",
+    "bannerVideo": null,
+    "detailImages": [
+      "/assets/img/offers/06.jpg",
+      "/assets/img/offers/05.jpg",
+      "/assets/img/offers/07.jpg",
+      "/assets/img/offers/08.jpg"
+    ],
+    "listDescription": "Our largest and most versatile convention center designed for corporate events, conferences, exhibitions, and large-scale gatherings.",
+    "detailDescription": "CP BANQUET AND CONVENTION is a world-class facility designed to meet the demands of modern corporate events and large-scale gatherings. This expansive venue features multiple flexible spaces that can be configured for conferences, exhibitions, trade shows, product launches, and corporate meetings. With state-of-the-art audio-visual technology, high-speed internet, and professional presentation equipment, it's the ideal choice for business events.\n\nThe venue includes breakout rooms, registration areas, networking spaces, and full catering facilities. Our experienced event management team ensures seamless execution of complex multi-day conferences. With ample parking, easy accessibility, and professional service, CP BANQUET AND CONVENTION sets the standard for corporate hospitality.",
+    "venueDetails": {
+      "capacity": "1000 Guests",
+      "area": "25,000 sq. ft.",
+      "type": "Convention Center",
+      "style": "Professional Corporate"
+    },
+    "features": [
+      {
+        "icon": "fa-regular fa-check",
+        "text": "Capacity: Up to 1000 guests"
+      },
+      {
+        "icon": "fa-regular fa-check",
+        "text": "Multiple divisible spaces"
+      },
+      {
+        "icon": "fa-regular fa-check",
+        "text": "Advanced AV & projection systems"
+      },
+      {
+        "icon": "fa-regular fa-check",
+        "text": "High-speed WiFi throughout"
+      },
+      {
+        "icon": "fa-regular fa-check",
+        "text": "Breakout rooms & networking areas"
+      },
+      {
+        "icon": "fa-regular fa-check",
+        "text": "Registration & reception desks"
+      },
+      {
+        "icon": "fa-regular fa-check",
+        "text": "Full catering & coffee service"
+      },
+      {
+        "icon": "fa-regular fa-check",
+        "text": "Dedicated event coordinator"
+      }
+    ],
+    "buttonText": "View Details",
+    "buttonIcon": "fa-solid fa-arrow-right"
+  },
+  {
+    "id": 4,
+    "slug": "deliberation-meeting-hall",
+    "tagline": "EXECUTIVE MEETING SPACE",
+    "title": "DELIBERATION MEETING HALL",
+    "description": "An elegant and intimate meeting hall designed for board meetings, seminars, workshops, and executive gatherings. Features premium furnishings and advanced conferencing technology.",
+    "image": "/assets/img/offers/08.jpg",
+    "link": "/venue/deliberation-meeting-hall",
+    "bannerImage": "/assets/img/offers/08.jpg",
+    "bannerVideo": null,
+    "detailImages": [
+      "/assets/img/offers/08.jpg",
+      "/assets/img/offers/05.jpg",
+      "/assets/img/offers/06.jpg",
+      "/assets/img/offers/07.jpg"
+    ],
+    "listDescription": "An elegant and intimate meeting hall designed for board meetings, seminars, workshops, and executive gatherings.",
+    "detailDescription": "DELIBERATION MEETING HALL offers a sophisticated and professional setting for important business meetings, board discussions, executive seminars, and strategic planning sessions. The venue combines classic elegance with modern technology to create an environment conducive to productive dialogue and decision-making.\n\nFeaturing premium boardroom-style seating, advanced video conferencing capabilities, and soundproof walls for privacy, this hall ensures confidentiality and comfort. The space includes smart boards, high-definition displays, and seamless connectivity options. With professional catering service, comfortable seating arrangements, and dedicated technical support, DELIBERATION MEETING HALL provides the perfect setting for serious business discussions.",
+    "venueDetails": {
+      "capacity": "50 Guests",
+      "area": "1,500 sq. ft.",
+      "type": "Indoor Meeting Hall",
+      "style": "Executive Boardroom"
+    },
+    "features": [
+      {
+        "icon": "fa-regular fa-check",
+        "text": "Capacity: Up to 50 guests"
+      },
+      {
+        "icon": "fa-regular fa-check",
+        "text": "Boardroom-style seating"
+      },
+      {
+        "icon": "fa-regular fa-check",
+        "text": "Video conferencing facilities"
+      },
+      {
+        "icon": "fa-regular fa-check",
+        "text": "Smart boards & HD displays"
+      },
+      {
+        "icon": "fa-regular fa-check",
+        "text": "Soundproof & private"
+      },
+      {
+        "icon": "fa-regular fa-check",
+        "text": "High-speed internet & connectivity"
+      },
+      {
+        "icon": "fa-regular fa-check",
+        "text": "Premium catering service"
+      },
+      {
+        "icon": "fa-regular fa-check",
+        "text": "Dedicated technical support"
+      }
+    ],
+    "buttonText": "View Details",
+    "buttonIcon": "fa-solid fa-arrow-right"
+  },
+  {
+    "id": 5,
+    "slug": "the-velvet-room",
+    "tagline": "LUXURY PRIVATE ROOM",
+    "title": "THE VELVET ROOM",
+    "description": "An exclusive and luxurious private room perfect for intimate celebrations, VIP events, and sophisticated gatherings. Features opulent decor, premium amenities, and personalized service.",
+    "image": "/assets/img/offers/05.jpg",
+    "link": "/venue/the-velvet-room",
+    "bannerImage": "/assets/img/offers/05.jpg",
+    "bannerVideo": null,
+    "detailImages": [
+      "/assets/img/offers/05.jpg",
+      "/assets/img/offers/06.jpg",
+      "/assets/img/offers/07.jpg",
+      "/assets/img/offers/08.jpg"
+    ],
+    "listDescription": "An exclusive and luxurious private room perfect for intimate celebrations, VIP events, and sophisticated gatherings.",
+    "detailDescription": "THE VELVET ROOM represents the pinnacle of luxury and exclusivity. This intimate venue is designed for discerning clients seeking an extraordinary setting for VIP events, intimate celebrations, private dinners, and elite social gatherings. The room features opulent velvet furnishings, crystal chandeliers, rich color schemes, and artisanal details that create an atmosphere of refined elegance.\n\nEvery element has been carefully curated to provide an exceptional experience, from premium bar service to gourmet dining options. The venue offers complete privacy, personalized service, and attention to detail that exceeds expectations. Whether hosting a private dinner party, engagement celebration, or exclusive corporate event, THE VELVET ROOM delivers an unforgettable and sophisticated experience.",
+    "venueDetails": {
+      "capacity": "80 Guests",
+      "area": "2,500 sq. ft.",
+      "type": "Private Luxury Room",
+      "style": "Opulent & Exclusive"
+    },
+    "features": [
+      {
+        "icon": "fa-regular fa-check",
+        "text": "Capacity: Up to 80 guests"
+      },
+      {
+        "icon": "fa-regular fa-check",
+        "text": "Opulent velvet furnishings"
+      },
+      {
+        "icon": "fa-regular fa-check",
+        "text": "Premium bar & beverage service"
+      },
+      {
+        "icon": "fa-regular fa-check",
+        "text": "Private entrance & exclusivity"
+      },
+      {
+        "icon": "fa-regular fa-check",
+        "text": "Gourmet dining options"
+      },
+      {
+        "icon": "fa-regular fa-check",
+        "text": "Ambient lighting & music systems"
+      },
+      {
+        "icon": "fa-regular fa-check",
+        "text": "Dedicated butler service"
+      },
+      {
+        "icon": "fa-regular fa-check",
+        "text": "Customizable decor & themes"
+      }
+    ],
+    "buttonText": "View Details",
+    "buttonIcon": "fa-solid fa-arrow-right"
+  },
+  {
+    "id": 6,
+    "slug": "cp-green-the-lawn",
+    "tagline": "OUTDOOR LAWN VENUE",
+    "title": "CP GREEN - THE LAWN",
+    "description": "A sprawling outdoor lawn venue surrounded by lush greenery, perfect for weddings, outdoor celebrations, and nature-themed events. Offers a picturesque setting under the open sky.",
+    "image": "/assets/img/offers/06.jpg",
+    "link": "/venue/cp-green-the-lawn",
+    "bannerImage": "/assets/img/offers/06.jpg",
+    "bannerVideo": null,
+    "detailImages": [
+      "/assets/img/offers/06.jpg",
+      "/assets/img/offers/05.jpg",
+      "/assets/img/offers/07.jpg",
+      "/assets/img/offers/08.jpg"
+    ],
+    "listDescription": "A sprawling outdoor lawn venue surrounded by lush greenery, perfect for weddings, outdoor celebrations, and nature-themed events.",
+    "detailDescription": "CP GREEN - THE LAWN is a magnificent outdoor venue that brings nature's beauty to your celebration. This expansive lawn area is surrounded by meticulously maintained gardens, creating a picturesque setting for outdoor weddings, garden parties, and nature-themed events. The natural backdrop of greenery and open skies provides a romantic and refreshing atmosphere.\n\nThe venue offers flexible setup options with elegant marquees, beautiful arches, and natural pathways. Our event planning team specializes in creating stunning outdoor ceremonies and receptions that blend seamlessly with the natural environment. With covered areas for protection, full catering facilities, and beautiful landscaping, CP GREEN - THE LAWN transforms your outdoor celebration into a magical experience.",
+    "venueDetails": {
+      "capacity": "300 Guests",
+      "area": "8,000 sq. ft.",
+      "type": "Outdoor Lawn",
+      "style": "Garden & Natural"
+    },
+    "features": [
+      {
+        "icon": "fa-regular fa-check",
+        "text": "Capacity: Up to 300 guests"
+      },
+      {
+        "icon": "fa-regular fa-check",
+        "text": "Lush green surroundings"
+      },
+      {
+        "icon": "fa-regular fa-check",
+        "text": "Beautiful garden landscapes"
+      },
+      {
+        "icon": "fa-regular fa-check",
+        "text": "Flexible marquee & tent options"
+      },
+      {
+        "icon": "fa-regular fa-check",
+        "text": "Natural pathways & arches"
+      },
+      {
+        "icon": "fa-regular fa-check",
+        "text": "Outdoor sound & lighting systems"
+      },
+      {
+        "icon": "fa-regular fa-check",
+        "text": "Full catering facilities"
+      },
+      {
+        "icon": "fa-regular fa-check",
+        "text": "Covered areas for weather protection"
+      }
+    ],
+    "buttonText": "View Details",
+    "buttonIcon": "fa-solid fa-arrow-right"
+  },
+  {
+    "id": 7,
+    "slug": "lost-and-found-club",
+    "tagline": "ENTERTAINMENT VENUE",
+    "title": "LOST AND FOUND CLUB",
+    "description": "A vibrant and energetic entertainment venue perfect for parties, live performances, and nightlife events. Features modern sound systems, dynamic lighting, and a lively atmosphere.",
+    "image": "/assets/img/offers/08.jpg",
+    "link": "/venue/lost-and-found-club",
+    "bannerImage": "/assets/img/offers/08.jpg",
+    "bannerVideo": null,
+    "detailImages": [
+      "/assets/img/offers/08.jpg",
+      "/assets/img/offers/05.jpg",
+      "/assets/img/offers/06.jpg",
+      "/assets/img/offers/07.jpg"
+    ],
+    "listDescription": "A vibrant and energetic entertainment venue perfect for parties, live performances, and nightlife events.",
+    "detailDescription": "LOST AND FOUND CLUB is the ultimate destination for entertainment and nightlife. This dynamic venue combines cutting-edge technology with a vibrant atmosphere to create unforgettable experiences. Featuring state-of-the-art sound systems, dynamic LED lighting, and a professional DJ setup, it's perfect for parties, live music events, themed nights, and social celebrations.\n\nThe club offers multiple levels, VIP areas, a fully-stocked bar, and flexible space configurations. Whether hosting a private party, corporate celebration, or special event, the venue adapts to your needs. With professional event management, talented DJs and performers, and a lively ambiance, LOST AND FOUND CLUB ensures your event is the talk of the town.",
+    "venueDetails": {
+      "capacity": "250 Guests",
+      "area": "4,000 sq. ft.",
+      "type": "Indoor Club & Entertainment",
+      "style": "Modern & Dynamic"
+    },
+    "features": [
+      {
+        "icon": "fa-regular fa-check",
+        "text": "Capacity: Up to 250 guests"
+      },
+      {
+        "icon": "fa-regular fa-check",
+        "text": "State-of-the-art sound system"
+      },
+      {
+        "icon": "fa-regular fa-check",
+        "text": "Dynamic LED lighting systems"
+      },
+      {
+        "icon": "fa-regular fa-check",
+        "text": "Professional DJ setup & stage"
+      },
+      {
+        "icon": "fa-regular fa-check",
+        "text": "VIP areas & multiple levels"
+      },
+      {
+        "icon": "fa-regular fa-check",
+        "text": "Fully-stocked bar service"
+      },
+      {
+        "icon": "fa-regular fa-check",
+        "text": "Flexible space configurations"
+      },
+      {
+        "icon": "fa-regular fa-check",
+        "text": "Event management & entertainment"
+      }
+    ],
+    "buttonText": "View Details",
+    "buttonIcon": "fa-solid fa-arrow-right"
+  }
+]
+
