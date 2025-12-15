@@ -1,3 +1,16 @@
+<% // Function to convert a YouTube URL (watch or short form) into an embeddable URL 
+function convertToEmbedUrl(url) {
+    let videoId = "";
+    if (url.includes("youtu.be")) {
+        // Handle short URL format (e.g., https://youtu.be/Tjxx80uYyUQ)
+        videoId = url.split("youtu.be/")[1]?.split("?")[0];
+    } else if (url.includes("youtube.com/watch")) {
+        // Handle full URL format (e.g., https://www.youtube.com/watch?v=Tjxx80uYyUQ)
+        videoId = url.split("v=")[1]?.split("&")[0];
+    }
+    return videoId ? `https://www.youtube.com/embed/${videoId}` : "";
+} %>
+
 <section class="blog1 section-padding bg-lightbrown">
     <div class="container">
         <div class="row mb-15">
@@ -14,15 +27,66 @@
                         <% latestBlogs.forEach((item, index) => { %>
                             <div class="item mt-10" onclick="window.location.href='/blog/<%= item.seoDetails.slug %>'">
                                 <div class="img">
-                                    <img src="<%= process.env.S3_BASE_URL + item.banner.image %>" class="img-fluid" alt="<%= item.title %>">
-                                    <div class="cat"><%= item.category || 'Blog' %></div>
+                                    <% if (item?.banner?.bannerType === "VIDEO" && item?.banner?.video && item?.banner?.video !== "") { %>
+                                        <!-- Render YouTube video thumbnail if the banner type is VIDEO -->
+                                        <% 
+                                            const embedUrl = convertToEmbedUrl(item.banner.video);
+                                            let videoId = "";
+                                            if (embedUrl) {
+                                                // Extract video ID from embed URL
+                                                const match = embedUrl.match(/embed\/([^?]+)/);
+                                                videoId = match ? match[1] : "";
+                                            }
+                                        %>
+                                        <% if (videoId) { %>
+                                            <!-- YouTube thumbnail with play button overlay -->
+                                            <div style="position: relative;">
+                                                <img src="https://img.youtube.com/vi/<%= videoId %>/hqdefault.jpg" 
+                                                     class="img-fluid" 
+                                                     alt="<%= item.title %>"
+                                                     style="width: 100%; height: 250px; object-fit: cover; scale: 1.2;">
+                                                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center;">
+                                                    <div style="width: 60px; height: 60px; background: rgba(0, 0, 0, 0.571); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="white">
+                                                            <path d="M8 5v14l11-7z"/>
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <% } else { %>
+                                            <!-- Fallback image if video ID not found -->
+                                            <img src="/assets/img/blog/default-video-thumbnail.jpg" 
+                                                 class="img-fluid" 
+                                                 alt="<%= item.title %>">
+                                        <% } %>
+                                    <% } else if (item?.banner?.bannerType === "IMAGE" && item?.banner?.image) { %>
+                                        <!-- Render image if the banner type is IMAGE -->
+                                        <img src="<%= process.env.S3_BASE_URL + item.banner.image %>" 
+                                             class="img-fluid" 
+                                             alt="<%= item.title %>">
+                                    <% } else { %>
+                                        <!-- Default image if no banner -->
+                                        <img src="/assets/img/blog/default-blog.jpg" 
+                                             class="img-fluid" 
+                                             alt="<%= item.title %>">
+                                    <% } %>
+                                    <div class="cat" style="width:fit-content"><%= item.category %></div>
                                 </div>
                                 <div class="cont">
-                                    <h4><a href="/blog/<%= item.seoDetails.slug %>" style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden; text-overflow: ellipsis;"><%= item.title %></a></h4>
-                                    <div style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; line-clamp: 3; overflow: hidden; text-overflow: ellipsis; margin-bottom: 15px;"><%- item.description %></div>
-                                    <div class="author">
+                                    <h4>
+                                        <a style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden; text-overflow: ellipsis;" 
+                                           href="/blog/<%= item.seoDetails.slug %>">
+                                            <%= item.title %>
+                                        </a>
+                                    </h4>
+                                    <div style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; line-clamp: 3; overflow: hidden; text-overflow: ellipsis; margin-bottom: 15px;">
+                                        <%- item.description.replace(/<span[^>]*>/g, '').replace(/<\/span>/g, '').replace(/\n/g, ' ') %>
+                                    </div>
+                                    <div>
                                         <div>
-                                            <h5 style="font-family: Urbanist, sans-serif; font-size: 17px; font-weight: 400; margin-bottom: 0; color: #141414;"><%= item.postDate %></h5>
+                                            <h5 style="font-family: Urbanist, sans-serif; font-size: 17px; font-weight: 400; margin-bottom: 0; color: #141414;">
+                                                <%= item.postDate %>
+                                            </h5>
                                         </div>
                                     </div>
                                 </div>
@@ -87,3 +151,53 @@ setTimeout(function() {
     }
 }, 100);
 </script>
+
+<!-- Add some CSS for the YouTube thumbnail styling -->
+<style>
+   .blog1 .img {
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .blog1 .cat {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        background: #ff0000;
+        color: white;
+        padding: 5px 15px;
+        border-radius: 3px;
+        font-size: 12px;
+        font-weight: 600;
+        z-index: 2;
+    }
+    
+    .blog1 .item {
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+        cursor: pointer;
+        height: 100%;
+    }
+    
+    .blog1 .item:hover {
+        transform: translateY(-5px);
+    }
+    
+    .blog1 .cont {
+        padding: 20px;
+    }
+    
+    .blog1 .img img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+    
+    .blog1 .item:hover .img img {
+        transform: scale(1.05);
+    }
+</style>
