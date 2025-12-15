@@ -4,427 +4,311 @@
     "slug": "jashn-the-banquet",
     "tagline": "GRAND BANQUET HALL",
     "title": "JASHN THE BANQUET",
-    "description": "Experience grandeur and elegance at JASHN THE BANQUET, our premier banquet hall perfect for weddings, corporate events, and grand celebrations. With state-of-the-art facilities and luxurious ambiance.",
-    "image": "/assets/img/offers/05.jpg",
+    "description": "Our premier banquet hall perfect for intimate celebrations and business gatherings with elegant ambiance and modern amenities.",
     "link": "/venue/jashn-the-banquet",
-    "bannerImage": "/assets/img/offers/05.jpg",
+    "bannerImage": "/assets/img/jashn/0L4A7056.webp",
     "bannerVideo": null,
     "detailImages": [
-      "/assets/img/offers/05.jpg",
-      "/assets/img/offers/06.jpg",
-      "/assets/img/offers/07.jpg",
-      "/assets/img/offers/08.jpg"
+      "/assets/img/jashn/0L4A7040.webp",
+      "/assets/img/jashn/0L4A7047.webp",
+      "/assets/img/jashn/0L4A7050.webp",
+      "/assets/img/jashn/0L4A7054.webp",
+      "/assets/img/jashn/0L4A7056.webp",
+      "/assets/img/jashn/0L4A7061.webp"
     ],
-    "listDescription": "Experience grandeur and elegance at JASHN THE BANQUET, our premier banquet hall perfect for weddings, corporate events, and grand celebrations.",
-    "detailDescription": "JASHN THE BANQUET is our flagship venue designed to host the most memorable celebrations. This spacious and elegantly designed banquet hall can accommodate large gatherings with style and sophistication. Featuring high ceilings, crystal chandeliers, and modern sound systems, it provides the perfect backdrop for weddings, anniversaries, corporate galas, and social events.\n\nOur dedicated event planning team ensures every detail is meticulously executed, from custom decor to gourmet catering. The venue includes advanced lighting systems, professional audio-visual equipment, and flexible seating arrangements to suit your specific needs. Whether you're planning an intimate gathering or a grand celebration, JASHN THE BANQUET delivers an unforgettable experience.",
+    "listDescription": "Perfect for birthday parties, rokha ceremonies, engagements, kitty parties, and small corporate meetings in an elegant setting.",
+    "detailDescription": "JASHN THE BANQUET offers a sophisticated 3,000 sq. ft. venue designed for intimate celebrations and professional gatherings. With a capacity of 150+ guests, this elegantly appointed hall provides the perfect backdrop for memorable events.\n\nIdeal for birthday celebrations, rokha ceremonies, engagements, kitty parties, and small business meetings, the venue features modern amenities including centralized AC, JBL sound systems, and dedicated buffet counters. The accessible entry ensures comfort for all guests, while ample parking accommodates 300+ vehicles. Our professional event team ensures seamless execution of your special occasions.",
     "venueDetails": {
-      "capacity": "500 Guests",
-      "area": "10,000 sq. ft.",
+      "capacity": "150+ Guests",
+      "area": "3,000 sq. ft.",
       "type": "Indoor Banquet Hall",
-      "style": "Luxury Grand Hall"
+      "style": "Elegant & Intimate"
     },
-    "features": [
-      {
-        "icon": "fa-regular fa-check",
-        "text": "Capacity: Up to 500 guests"
-      },
-      {
-        "icon": "fa-regular fa-check",
-        "text": "Advanced sound & lighting systems"
-      },
-      {
-        "icon": "fa-regular fa-check",
-        "text": "Professional stage setup"
-      },
-      {
-        "icon": "fa-regular fa-check",
-        "text": "In-house catering facilities"
-      },
-      {
-        "icon": "fa-regular fa-check",
-        "text": "Parking for 200+ vehicles"
-      },
-      {
-        "icon": "fa-regular fa-check",
-        "text": "Bridal & groom suites"
-      },
-      {
-        "icon": "fa-regular fa-check",
-        "text": "Climate control & air conditioning"
-      },
-      {
-        "icon": "fa-regular fa-check",
-        "text": "Event planning assistance"
-      }
+    "suitableFor": [
+      "Birthday Parties",
+      "Rokha Ceremonies",
+      "Engagements",
+      "Kitty Parties",
+      "Small Business Meetings",
+      "Corporate Launches",
+      "Family Gatherings"
     ],
-    "buttonText": "View Details",
-    "buttonIcon": "fa-solid fa-arrow-right"
+    "amenities": [
+      "Centralized AC System",
+      "JBL Sound System",
+      "Separate Buffet Counters",
+      "High-Speed WiFi",
+      "DG Generator Backup",
+      "2 Washrooms",
+      "Accessible Entry for Wheelchairs",
+      "Valet Parking Service",
+      "Ample Parking (300+ cars)"
+    ],
+    "importantNotes": [
+      "Liquor is not allowed without a Single Day Liquor License",
+      "Liquor can only be accessed with a valid Single Day Liquor License"
+    ],
+    "youtubeVideo": "https://www.youtube.com/watch?v=JUcT0WHdKkY"
   },
   {
     "id": 2,
     "slug": "blanco-the-pool-side",
-    "tagline": "POOLSIDE VENUE",
+    "tagline": "LUXURY POOLSIDE VENUE",
     "title": "BLANCO THE POOL SIDE",
-    "description": "A stunning poolside venue offering a perfect blend of outdoor elegance and modern amenities. Ideal for daytime celebrations, pool parties, and intimate gatherings with a refreshing ambiance.",
-    "image": "/assets/img/offers/07.jpg",
+    "description": "Experience magical celebrations by the largest pool in town, featuring lush greenery and beautiful fountains for unforgettable events.",
     "link": "/venue/blanco-the-pool-side",
-    "bannerImage": "/assets/img/offers/07.jpg",
+    "bannerImage": "/assets/img/blanco/0L4A7162.webp",
     "bannerVideo": null,
     "detailImages": [
-      "/assets/img/offers/07.jpg",
-      "/assets/img/offers/05.jpg",
-      "/assets/img/offers/06.jpg",
-      "/assets/img/offers/08.jpg"
+      "/assets/img/blanco/097A0620.webp",
+      "/assets/img/blanco/0L4A5713.webp",
+      "/assets/img/blanco/0L4A7162.webp",
+      "/assets/img/blanco/0L4A7170.webp",
+      "/assets/img/blanco/0L4A7177.webp",
+      "/assets/img/blanco/0L4A7213.webp"
     ],
-    "listDescription": "A stunning poolside venue offering a perfect blend of outdoor elegance and modern amenities. Ideal for daytime celebrations and pool parties.",
-    "detailDescription": "BLANCO THE POOL SIDE creates a magical outdoor experience with its beautiful poolside setting and contemporary design. This versatile venue is perfect for daytime celebrations, pool parties, brunches, and intimate gatherings. The open-air space features elegant cabanas, comfortable seating arrangements, and direct pool access, creating a relaxed yet sophisticated atmosphere.\n\nWith natural lighting, lush greenery, and the sparkling pool as a backdrop, every event becomes memorable. The venue includes shaded areas, poolside bar facilities, and flexible catering options. Whether you're hosting a summer party, engagement celebration, or corporate lunch, BLANCO THE POOL SIDE offers a refreshing and elegant setting.",
+    "listDescription": "Perfect for wedding carnivals, haldi, mehndi, engagements, and floating phera ceremonies with the largest pool in town.",
+    "detailDescription": "BLANCO THE POOL SIDE transforms celebrations into magical experiences with its stunning 30,000 sq. ft. venue featuring the largest pool in town. The 5,300 sq. ft. pool area, complete with a separate kids' pool section, creates a breathtaking backdrop for ceremonies.\n\nPerfect for wedding carnivals, haldi, mehndi, engagements, and the unique experience of floating phera mandaps, this venue offers both grand banquet and semi-banquet settings. With lush greenery, beautiful planters, and elegant fountains, guests can enjoy food and celebrations right by the water. The venue accommodates 500+ guests and features premium amenities including a 500 sq. ft. LED screen, pre-function areas, and separate bar counters.",
     "venueDetails": {
-      "capacity": "200 Guests",
-      "area": "5,000 sq. ft.",
-      "type": "Outdoor Poolside",
-      "style": "Modern Outdoor"
+      "capacity": "500+ Guests",
+      "area": "30,000 sq. ft.",
+      "poolArea": "5,300 sq. ft.",
+      "type": "Outdoor Poolside Venue",
+      "style": "Luxury Resort-Style"
     },
-    "features": [
-      {
-        "icon": "fa-regular fa-check",
-        "text": "Capacity: Up to 200 guests"
-      },
-      {
-        "icon": "fa-regular fa-check",
-        "text": "Poolside bar & service"
-      },
-      {
-        "icon": "fa-regular fa-check",
-        "text": "Elegant cabanas & shaded areas"
-      },
-      {
-        "icon": "fa-regular fa-check",
-        "text": "Direct pool access"
-      },
-      {
-        "icon": "fa-regular fa-check",
-        "text": "Outdoor sound system"
-      },
-      {
-        "icon": "fa-regular fa-check",
-        "text": "BBQ & outdoor catering facilities"
-      },
-      {
-        "icon": "fa-regular fa-check",
-        "text": "Changing rooms & restrooms"
-      },
-      {
-        "icon": "fa-regular fa-check",
-        "text": "Beautiful landscaping & lighting"
-      }
+    "suitableFor": [
+      "Wedding Carnivals",
+      "Haldi Ceremonies",
+      "Mehndi Functions",
+      "Engagement Parties",
+      "Floating Phera Mandaps",
+      "Birthday Celebrations",
+      "Grand Semi-Banquets"
     ],
-    "buttonText": "View Details",
-    "buttonIcon": "fa-solid fa-arrow-right"
+    "amenities": [
+      "5,300 sq. ft. Main Pool Area",
+      "Separate Kids Pool Section",
+      "Centralized AC System",
+      "500 sq. ft. LED Screen",
+      "JBL Sound System",
+      "Pre-Function Area",
+      "Lounge Area",
+      "Separate Bar Counter",
+      "High-Speed WiFi",
+      "DG Generator Backup",
+      "5+ Washrooms",
+      "Accessible Entry for Wheelchairs",
+      "Valet Parking Service",
+      "Ample Parking (300+ cars)"
+    ],
+    "importantNotes": [
+      "Liquor is not allowed without a Single Day Liquor License",
+      "Liquor can only be accessed with a valid Single Day Liquor License"
+    ],
+    "youtubeVideo": "https://www.youtube.com/watch?v=sl25c9MRv2I"
   },
   {
     "id": 3,
     "slug": "cp-banquet-and-convention",
-    "tagline": "CONVENTION CENTER",
+    "tagline": "GRAND CONVENTION CENTER",
     "title": "CP BANQUET AND CONVENTION",
-    "description": "Our largest and most versatile convention center designed for corporate events, conferences, exhibitions, and large-scale gatherings. Equipped with cutting-edge technology and flexible spaces.",
-    "image": "/assets/img/offers/06.jpg",
+    "description": "The first and biggest banquet of the town, perfect for lavish weddings, grand receptions, and major celebrations in any season.",
     "link": "/venue/cp-banquet-and-convention",
-    "bannerImage": "/assets/img/offers/06.jpg",
+    "bannerImage": "/assets/img/cpbanquet/0L4A7337.webp",
     "bannerVideo": null,
     "detailImages": [
-      "/assets/img/offers/06.jpg",
-      "/assets/img/offers/05.jpg",
-      "/assets/img/offers/07.jpg",
-      "/assets/img/offers/08.jpg"
+      "/assets/img/cpbanquet/0L4A7337.webp",
+      "/assets/img/cpbanquet/0L4A7340.webp",
+      "/assets/img/cpbanquet/0L4A7348.webp",
+      "/assets/img/cpbanquet/0L4A7355.webp",
+      "/assets/img/cpbanquet/0L4A7376.webp",
+      "/assets/img/cpbanquet/0L4A7385.webp"
     ],
-    "listDescription": "Our largest and most versatile convention center designed for corporate events, conferences, exhibitions, and large-scale gatherings.",
-    "detailDescription": "CP BANQUET AND CONVENTION is a world-class facility designed to meet the demands of modern corporate events and large-scale gatherings. This expansive venue features multiple flexible spaces that can be configured for conferences, exhibitions, trade shows, product launches, and corporate meetings. With state-of-the-art audio-visual technology, high-speed internet, and professional presentation equipment, it's the ideal choice for business events.\n\nThe venue includes breakout rooms, registration areas, networking spaces, and full catering facilities. Our experienced event management team ensures seamless execution of complex multi-day conferences. With ample parking, easy accessibility, and professional service, CP BANQUET AND CONVENTION sets the standard for corporate hospitality.",
+    "listDescription": "Ideal for grand weddings, receptions, birthdays, and rainy season celebrations in the town's largest banquet hall.",
+    "detailDescription": "CP BANQUET AND CONVENTION stands as the town's premier and largest banquet facility, offering 10,000 sq. ft. of elegantly designed space for the most lavish celebrations. As the first major banquet in the area, it sets the standard for grand events with its sophisticated ambiance and comprehensive facilities.\n\nPerfect for grand weddings, receptions, significant birthdays, and especially ideal for rainy season celebrations when you want your wedding to maintain its lavish appeal indoors. The venue features luxurious carpet flooring, ample pre-function areas, and professional event support to ensure your celebration is executed flawlessly regardless of weather conditions.",
     "venueDetails": {
-      "capacity": "1000 Guests",
-      "area": "25,000 sq. ft.",
-      "type": "Convention Center",
-      "style": "Professional Corporate"
+      "capacity": "500+ Guests",
+      "seatingCapacity": "1000+ Chairs",
+      "area": "10,000 sq. ft.",
+      "type": "Indoor Convention Center",
+      "style": "Grand & Lavish"
     },
-    "features": [
-      {
-        "icon": "fa-regular fa-check",
-        "text": "Capacity: Up to 1000 guests"
-      },
-      {
-        "icon": "fa-regular fa-check",
-        "text": "Multiple divisible spaces"
-      },
-      {
-        "icon": "fa-regular fa-check",
-        "text": "Advanced AV & projection systems"
-      },
-      {
-        "icon": "fa-regular fa-check",
-        "text": "High-speed WiFi throughout"
-      },
-      {
-        "icon": "fa-regular fa-check",
-        "text": "Breakout rooms & networking areas"
-      },
-      {
-        "icon": "fa-regular fa-check",
-        "text": "Registration & reception desks"
-      },
-      {
-        "icon": "fa-regular fa-check",
-        "text": "Full catering & coffee service"
-      },
-      {
-        "icon": "fa-regular fa-check",
-        "text": "Dedicated event coordinator"
-      }
+    "suitableFor": [
+      "Grand Weddings",
+      "Wedding Receptions",
+      "Grand Birthdays",
+      "Rainy Season Celebrations",
+      "Corporate Galas",
+      "Large Social Events"
     ],
-    "buttonText": "View Details",
-    "buttonIcon": "fa-solid fa-arrow-right"
+    "amenities": [
+      "Centralized AC System",
+      "Carpet Flooring",
+      "Separate Buffet Counters",
+      "Pre-Function Area",
+      "Lounge Area",
+      "High-Speed WiFi",
+      "DG Generator Backup",
+      "5+ Washrooms",
+      "Accessible Entry for Wheelchairs",
+      "Valet Parking Service",
+      "Ample Parking (300+ cars)"
+    ],
+    "importantNotes": [
+      "Liquor is not allowed without a Single Day Liquor License",
+      "Liquor can only be accessed with a valid Single Day Liquor License"
+    ],
+    "youtubeVideo": "https://www.youtube.com/watch?v=PuPaZKQuJ84"
   },
   {
     "id": 4,
     "slug": "deliberation-meeting-hall",
     "tagline": "EXECUTIVE MEETING SPACE",
     "title": "DELIBERATION MEETING HALL",
-    "description": "An elegant and intimate meeting hall designed for board meetings, seminars, workshops, and executive gatherings. Features premium furnishings and advanced conferencing technology.",
-    "image": "/assets/img/offers/08.jpg",
+    "description": "Professional meeting space perfect for board meetings, corporate discussions, and intimate gatherings with focused ambiance.",
     "link": "/venue/deliberation-meeting-hall",
-    "bannerImage": "/assets/img/offers/08.jpg",
+    "bannerImage": "/assets/img/deliberation/0L4A7064.webp",
     "bannerVideo": null,
     "detailImages": [
-      "/assets/img/offers/08.jpg",
-      "/assets/img/offers/05.jpg",
-      "/assets/img/offers/06.jpg",
-      "/assets/img/offers/07.jpg"
+      "/assets/img/deliberation/0L4A7064.webp",
+      "/assets/img/deliberation/0L4A7075.webp",
+      "/assets/img/deliberation/0L4A7079.webp"
     ],
-    "listDescription": "An elegant and intimate meeting hall designed for board meetings, seminars, workshops, and executive gatherings.",
-    "detailDescription": "DELIBERATION MEETING HALL offers a sophisticated and professional setting for important business meetings, board discussions, executive seminars, and strategic planning sessions. The venue combines classic elegance with modern technology to create an environment conducive to productive dialogue and decision-making.\n\nFeaturing premium boardroom-style seating, advanced video conferencing capabilities, and soundproof walls for privacy, this hall ensures confidentiality and comfort. The space includes smart boards, high-definition displays, and seamless connectivity options. With professional catering service, comfortable seating arrangements, and dedicated technical support, DELIBERATION MEETING HALL provides the perfect setting for serious business discussions.",
+    "listDescription": "Ideal for board meetings, small kitty parties, and intimate gatherings in a professional and comfortable setting.",
+    "detailDescription": "The DELIBERATION MEETING HALL provides a professional 900 sq. ft. space designed for focused discussions and intimate gatherings. With a capacity for 40+ guests, this venue offers the perfect environment for productive meetings and small social events.\n\nSpecifically designed for board meetings, corporate discussions, small kitty parties, and intimate gatherings, the hall features all necessary amenities for a seamless experience. The comfortable setting with centralized climate control ensures productive sessions, while the available buffet counters and lounge areas facilitate networking and refreshment breaks.",
     "venueDetails": {
-      "capacity": "50 Guests",
-      "area": "1,500 sq. ft.",
+      "capacity": "40+ Guests",
+      "area": "900 sq. ft.",
       "type": "Indoor Meeting Hall",
-      "style": "Executive Boardroom"
+      "style": "Professional & Focused"
     },
-    "features": [
-      {
-        "icon": "fa-regular fa-check",
-        "text": "Capacity: Up to 50 guests"
-      },
-      {
-        "icon": "fa-regular fa-check",
-        "text": "Boardroom-style seating"
-      },
-      {
-        "icon": "fa-regular fa-check",
-        "text": "Video conferencing facilities"
-      },
-      {
-        "icon": "fa-regular fa-check",
-        "text": "Smart boards & HD displays"
-      },
-      {
-        "icon": "fa-regular fa-check",
-        "text": "Soundproof & private"
-      },
-      {
-        "icon": "fa-regular fa-check",
-        "text": "High-speed internet & connectivity"
-      },
-      {
-        "icon": "fa-regular fa-check",
-        "text": "Premium catering service"
-      },
-      {
-        "icon": "fa-regular fa-check",
-        "text": "Dedicated technical support"
-      }
+    "suitableFor": [
+      "Board Meetings",
+      "Corporate Meetings",
+      "Small Kitty Parties",
+      "Intimate Gatherings",
+      "Training Sessions",
+      "Strategy Discussions"
     ],
-    "buttonText": "View Details",
-    "buttonIcon": "fa-solid fa-arrow-right"
+    "amenities": [
+      "Centralized AC System",
+      "Separate Buffet Counters",
+      "Pre-Function Area",
+      "Lounge Area",
+      "High-Speed WiFi",
+      "DG Generator Backup",
+      "5+ Washrooms",
+      "Accessible Entry for Wheelchairs",
+      "Valet Parking Service",
+      "Ample Parking (300+ cars)"
+    ],
+    "importantNotes": [
+      "Liquor is not allowed without a Single Day Liquor License",
+      "Liquor can only be accessed with a valid Single Day Liquor License"
+    ],
+    "youtubeVideo": "https://www.youtube.com/watch?v=oB2279di3oo"
   },
   {
     "id": 5,
     "slug": "the-velvet-room",
-    "tagline": "LUXURY PRIVATE ROOM",
+    "tagline": "PREMIUM AFTER-PARTY VENUE",
     "title": "THE VELVET ROOM",
-    "description": "An exclusive and luxurious private room perfect for intimate celebrations, VIP events, and sophisticated gatherings. Features opulent decor, premium amenities, and personalized service.",
-    "image": "/assets/img/offers/05.jpg",
+    "description": "Sophisticated space designed for after-parties, kitty gatherings, and elegant social events with luxurious ambiance.",
     "link": "/venue/the-velvet-room",
-    "bannerImage": "/assets/img/offers/05.jpg",
+    "bannerImage": "/assets/img/velvetroom/0L4A7265.webp",
     "bannerVideo": null,
     "detailImages": [
-      "/assets/img/offers/05.jpg",
-      "/assets/img/offers/06.jpg",
-      "/assets/img/offers/07.jpg",
-      "/assets/img/offers/08.jpg"
+      "/assets/img/velvetroom/0L4A7265.webp",
+      "/assets/img/velvetroom/0L4A7285.webp",
+      "/assets/img/velvetroom/0L4A7313.webp",
+      "/assets/img/velvetroom/0L4A7319.webp",
+      "/assets/img/velvetroom/0L4A7322.webp"
     ],
-    "listDescription": "An exclusive and luxurious private room perfect for intimate celebrations, VIP events, and sophisticated gatherings.",
-    "detailDescription": "THE VELVET ROOM represents the pinnacle of luxury and exclusivity. This intimate venue is designed for discerning clients seeking an extraordinary setting for VIP events, intimate celebrations, private dinners, and elite social gatherings. The room features opulent velvet furnishings, crystal chandeliers, rich color schemes, and artisanal details that create an atmosphere of refined elegance.\n\nEvery element has been carefully curated to provide an exceptional experience, from premium bar service to gourmet dining options. The venue offers complete privacy, personalized service, and attention to detail that exceeds expectations. Whether hosting a private dinner party, engagement celebration, or exclusive corporate event, THE VELVET ROOM delivers an unforgettable and sophisticated experience.",
+    "listDescription": "Perfect for after-parties, kitty gatherings, and elegant social events in a sophisticated and comfortable setting.",
+    "detailDescription": "THE VELVET ROOM offers 1,800 sq. ft. of sophisticated space specifically designed for elegant after-parties and social gatherings. With a capacity for 100+ guests, this venue provides the perfect intimate setting for post-event celebrations and kitty parties.\n\nFeaturing a luxurious ambiance with comfortable lounge areas and pre-function spaces, The Velvet Room creates the ideal atmosphere for relaxed socializing and celebration. The centralized climate control ensures comfort throughout your event, while the separate buffet counters allow for elegant food service arrangements.",
     "venueDetails": {
-      "capacity": "80 Guests",
-      "area": "2,500 sq. ft.",
-      "type": "Private Luxury Room",
-      "style": "Opulent & Exclusive"
+      "capacity": "100+ Guests",
+      "area": "1,800 sq. ft.",
+      "type": "Indoor Event Space",
+      "style": "Sophisticated & Elegant"
     },
-    "features": [
-      {
-        "icon": "fa-regular fa-check",
-        "text": "Capacity: Up to 80 guests"
-      },
-      {
-        "icon": "fa-regular fa-check",
-        "text": "Opulent velvet furnishings"
-      },
-      {
-        "icon": "fa-regular fa-check",
-        "text": "Premium bar & beverage service"
-      },
-      {
-        "icon": "fa-regular fa-check",
-        "text": "Private entrance & exclusivity"
-      },
-      {
-        "icon": "fa-regular fa-check",
-        "text": "Gourmet dining options"
-      },
-      {
-        "icon": "fa-regular fa-check",
-        "text": "Ambient lighting & music systems"
-      },
-      {
-        "icon": "fa-regular fa-check",
-        "text": "Dedicated butler service"
-      },
-      {
-        "icon": "fa-regular fa-check",
-        "text": "Customizable decor & themes"
-      }
+    "suitableFor": [
+      "After-Parties",
+      "Kitty Parties",
+      "Social Gatherings",
+      "Anniversary Celebrations",
+      "Intimate Receptions",
+      "Cocktail Evenings"
     ],
-    "buttonText": "View Details",
-    "buttonIcon": "fa-solid fa-arrow-right"
+    "amenities": [
+      "Centralized AC System",
+      "Separate Buffet Counters",
+      "Pre-Function Area",
+      "Lounge Area",
+      "High-Speed WiFi",
+      "DG Generator Backup",
+      "5+ Washrooms",
+      "Accessible Entry for Wheelchairs",
+      "Valet Parking Service",
+      "Ample Parking (300+ cars)"
+    ],
+    "importantNotes": [
+      "Liquor is not allowed without a Single Day Liquor License",
+      "Liquor can only be accessed with a valid Single Day Liquor License"
+    ],
+    "youtubeVideo": "https://www.youtube.com/watch?v=LfwB5-TbKhU"
   },
   {
     "id": 6,
-    "slug": "cp-green-the-lawn",
-    "tagline": "OUTDOOR LAWN VENUE",
-    "title": "CP GREEN - THE LAWN",
-    "description": "A sprawling outdoor lawn venue surrounded by lush greenery, perfect for weddings, outdoor celebrations, and nature-themed events. Offers a picturesque setting under the open sky.",
-    "image": "/assets/img/offers/06.jpg",
-    "link": "/venue/cp-green-the-lawn",
-    "bannerImage": "/assets/img/offers/06.jpg",
-    "bannerVideo": null,
-    "detailImages": [
-      "/assets/img/offers/06.jpg",
-      "/assets/img/offers/05.jpg",
-      "/assets/img/offers/07.jpg",
-      "/assets/img/offers/08.jpg"
-    ],
-    "listDescription": "A sprawling outdoor lawn venue surrounded by lush greenery, perfect for weddings, outdoor celebrations, and nature-themed events.",
-    "detailDescription": "CP GREEN - THE LAWN is a magnificent outdoor venue that brings nature's beauty to your celebration. This expansive lawn area is surrounded by meticulously maintained gardens, creating a picturesque setting for outdoor weddings, garden parties, and nature-themed events. The natural backdrop of greenery and open skies provides a romantic and refreshing atmosphere.\n\nThe venue offers flexible setup options with elegant marquees, beautiful arches, and natural pathways. Our event planning team specializes in creating stunning outdoor ceremonies and receptions that blend seamlessly with the natural environment. With covered areas for protection, full catering facilities, and beautiful landscaping, CP GREEN - THE LAWN transforms your outdoor celebration into a magical experience.",
-    "venueDetails": {
-      "capacity": "300 Guests",
-      "area": "8,000 sq. ft.",
-      "type": "Outdoor Lawn",
-      "style": "Garden & Natural"
-    },
-    "features": [
-      {
-        "icon": "fa-regular fa-check",
-        "text": "Capacity: Up to 300 guests"
-      },
-      {
-        "icon": "fa-regular fa-check",
-        "text": "Lush green surroundings"
-      },
-      {
-        "icon": "fa-regular fa-check",
-        "text": "Beautiful garden landscapes"
-      },
-      {
-        "icon": "fa-regular fa-check",
-        "text": "Flexible marquee & tent options"
-      },
-      {
-        "icon": "fa-regular fa-check",
-        "text": "Natural pathways & arches"
-      },
-      {
-        "icon": "fa-regular fa-check",
-        "text": "Outdoor sound & lighting systems"
-      },
-      {
-        "icon": "fa-regular fa-check",
-        "text": "Full catering facilities"
-      },
-      {
-        "icon": "fa-regular fa-check",
-        "text": "Covered areas for weather protection"
-      }
-    ],
-    "buttonText": "View Details",
-    "buttonIcon": "fa-solid fa-arrow-right"
-  },
-  {
-    "id": 7,
     "slug": "lost-and-found-club",
-    "tagline": "ENTERTAINMENT VENUE",
+    "tagline": "PREMIUM PARTY CLUB",
     "title": "LOST AND FOUND CLUB",
-    "description": "A vibrant and energetic entertainment venue perfect for parties, live performances, and nightlife events. Features modern sound systems, dynamic lighting, and a lively atmosphere.",
-    "image": "/assets/img/offers/08.jpg",
+    "description": "Dynamic party venue with built-in JBL sound system, attractive lighting, and dance floor for high-energy celebrations.",
     "link": "/venue/lost-and-found-club",
-    "bannerImage": "/assets/img/offers/08.jpg",
+    "bannerImage": "/assets/img/Lostandfound/01.webp",
     "bannerVideo": null,
     "detailImages": [
-      "/assets/img/offers/08.jpg",
-      "/assets/img/offers/05.jpg",
-      "/assets/img/offers/06.jpg",
-      "/assets/img/offers/07.jpg"
+      "/assets/img/Lostandfound/01.webp",
+      "/assets/img/Lostandfound/Sequence 03.00_03_18_61.Still010.webp",
+      "/assets/img/Lostandfound/Sequence 03.00_03_30_35.Still002.webp",
+      "/assets/img/Lostandfound/Sequence 03.00_03_34_60.Still005.webp",
+      "/assets/img/Lostandfound/Sequence 03.00_03_42_27.Still007.webp"
     ],
-    "listDescription": "A vibrant and energetic entertainment venue perfect for parties, live performances, and nightlife events.",
-    "detailDescription": "LOST AND FOUND CLUB is the ultimate destination for entertainment and nightlife. This dynamic venue combines cutting-edge technology with a vibrant atmosphere to create unforgettable experiences. Featuring state-of-the-art sound systems, dynamic LED lighting, and a professional DJ setup, it's perfect for parties, live music events, themed nights, and social celebrations.\n\nThe club offers multiple levels, VIP areas, a fully-stocked bar, and flexible space configurations. Whether hosting a private party, corporate celebration, or special event, the venue adapts to your needs. With professional event management, talented DJs and performers, and a lively ambiance, LOST AND FOUND CLUB ensures your event is the talk of the town.",
+    "listDescription": "Perfect for after-parties, freshers, farewells, birthday parties with built-in JBL sound system and party lighting.",
+    "detailDescription": "LOST AND FOUND CLUB is a 6,500 sq. ft. premium party venue designed for high-energy celebrations and unforgettable nights. With capacity for 250+ guests, this club-style space features built-in JBL sound systems, dynamic party lighting, and dedicated dance floors to create the perfect party atmosphere.\n\nIdeal for after-parties, freshers' events, farewell celebrations, and themed birthday parties, the club is fully loaded with attractive lighting systems that make every event more engaging and perfect. The carpet flooring, centralized AC, and separate bar counter ensure comfort and convenience throughout your celebration.",
     "venueDetails": {
-      "capacity": "250 Guests",
-      "area": "4,000 sq. ft.",
-      "type": "Indoor Club & Entertainment",
-      "style": "Modern & Dynamic"
+      "capacity": "250+ Guests",
+      "area": "6,500 sq. ft.",
+      "type": "Indoor Club",
+      "style": "Dynamic & Energetic"
     },
-    "features": [
-      {
-        "icon": "fa-regular fa-check",
-        "text": "Capacity: Up to 250 guests"
-      },
-      {
-        "icon": "fa-regular fa-check",
-        "text": "State-of-the-art sound system"
-      },
-      {
-        "icon": "fa-regular fa-check",
-        "text": "Dynamic LED lighting systems"
-      },
-      {
-        "icon": "fa-regular fa-check",
-        "text": "Professional DJ setup & stage"
-      },
-      {
-        "icon": "fa-regular fa-check",
-        "text": "VIP areas & multiple levels"
-      },
-      {
-        "icon": "fa-regular fa-check",
-        "text": "Fully-stocked bar service"
-      },
-      {
-        "icon": "fa-regular fa-check",
-        "text": "Flexible space configurations"
-      },
-      {
-        "icon": "fa-regular fa-check",
-        "text": "Event management & entertainment"
-      }
+    "suitableFor": [
+      "After-Parties",
+      "Freshers Parties",
+      "Farewell Events",
+      "Birthday Parties",
+      "Theme Nights",
+      "College Events",
+      "Corporate Parties"
     ],
-    "buttonText": "View Details",
-    "buttonIcon": "fa-solid fa-arrow-right"
+    "amenities": [
+      "Built-in JBL Sound System",
+      "Dance Floor",
+      "Party Lighting System",
+      "Centralized AC",
+      "DJ System Setup",
+      "Separate Bar Counter",
+      "Carpet Flooring",
+      "High-Speed WiFi",
+      "DG Generator Backup",
+      "Accessible Entry for Wheelchairs",
+      "Valet Parking Service",
+      "Ample Parking (300+ cars)"
+    ],
+    "importantNotes": [
+      "Liquor is not allowed without a Single Day Liquor License",
+      "Liquor can only be accessed with a valid Single Day Liquor License"
+    ],
+    "youtubeVideo": "https://www.youtube.com/watch?v=NZcrAPpuyn4"
   }
 ]
-

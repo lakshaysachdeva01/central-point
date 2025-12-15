@@ -1354,6 +1354,8 @@ blockquote cite:before {
 
 /* navbar media query */
 @media screen and (min-width: 992px) {
+
+    
     .navbar .dropdown-menu {
         display: block;
         opacity: 0;
@@ -1368,6 +1370,13 @@ blockquote cite:before {
         -webkit-transition: all .3s;
         transition: all .3s;
     }
+
+    .navbar .venue .dropdown-menu {
+     
+        width: 290px;
+       
+    }
+    
     .navbar .dropdown-menu .dropdown-menu {
         left: calc(100% + 5px);
         top: -17px;
@@ -1856,6 +1865,71 @@ blockquote cite:before {
     -o-object-fit: cover;
     object-fit: cover;
 }
+/* YouTube Video Container Styles */
+.video-fullscreen-video .youtube-video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+/* Background overlay with 30% opacity */
+.video-fullscreen-video .youtube-video-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0.3;
+    z-index: 1;
+    pointer-events: none;
+}
+.youtube-banner-iframe {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 177.77777778vh; /* 16:9 aspect ratio for width */
+    min-width: 100%;
+    min-height: 100vh;
+    height: 56.25vw; /* 16:9 aspect ratio for height */
+    transform: translate(-50%, -50%) scale(1.3);
+    border: none;
+    z-index: 0;
+}
+/* Ensure iframe covers full area on all screen sizes */
+@media (max-aspect-ratio: 16/9) {
+    .youtube-banner-iframe {
+        width: 177.77777778vh;
+        height: 100vh;
+    }
+}
+@media (min-aspect-ratio: 16/9) {
+    .youtube-banner-iframe {
+        width: 100vw;
+        height: 56.25vw;
+    }
+}
+/* Overlay to block all user interactions with YouTube video */
+.youtube-video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 11;
+    pointer-events: auto;
+    cursor: default;
+    background: transparent;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
+}
 .video-fullscreen-wrap .video-fullscreen-inner {
     position: absolute;
     top: 0;
@@ -2012,6 +2086,15 @@ blockquote cite:before {
     margin-right: 0px;
 }
 
+/* Contact Banner - Position content at bottom */
+.banner-header.contact-banner {
+    display: flex;
+    align-items: flex-end;
+    background-position: center bottom !important;
+}
+.banner-header.contact-banner .container {
+    width: 100%;
+}
 
 @media (max-width: 991px) {
     .banner-header[data-overlay-dark] h1,
@@ -4900,8 +4983,7 @@ body.mfp-zoom-out-cur {
     color: #fff;
 }
 .map {
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(100%);
+   
     z-index: 9999;
     border-radius: 5px;
 }
@@ -5746,14 +5828,21 @@ body.mfp-zoom-out-cur {
 
 /* ======= Responsive style ======= */
 @media (min-width: 1400px) {
+    .navbar .container{
+        max-width: 1400px;
+    }
+    
     .container,
     .container-lg,
     .container-md,
     .container-sm,
     .container-xl,
     .container-xxl {
-        max-width: 1220px;
+        max-width: 1200px;
     }
+
+
+
 }
 @media screen and (max-width: 991px) {
     .kenburns-inner .caption h1 {

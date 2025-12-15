@@ -1,13 +1,47 @@
 <%- include('header'), {seoDetails} %>
 
+<% 
+  // Function to extract video ID from YouTube URL
+  function getYouTubeVideoId(url) {
+    if (!url) return '';
+    let videoId = '';
+    if (url.includes('youtu.be/')) {
+      videoId = url.split('youtu.be/')[1]?.split('?')[0];
+    } else if (url.includes('youtube.com/watch')) {
+      videoId = url.split('v=')[1]?.split('&')[0];
+    } else if (url.includes('youtube.com/embed/')) {
+      videoId = url.split('youtube.com/embed/')[1]?.split('?')[0];
+    }
+    return videoId;
+  }
+
+  // YouTube video URL from stay data
+  const youtubeUrl = stay && stay.youtubeVideo ? stay.youtubeVideo : '';
+  const videoId = getYouTubeVideoId(youtubeUrl);
+  const hasYouTubeVideo = videoId && videoId !== '';
+%>
+
 <header class="header">
     <div class="video-fullscreen-wrap">
         <div class="video-fullscreen-video" data-overlay-dark="4">
-            <% if (stay && stay.bannerVideo) { %>
-                <video playsinline autoplay loop muted>
-                    <source src="<%= stay.bannerVideo %>" type="video/mp4">
-                </video>
+            <% if (hasYouTubeVideo) { %>
+                <!-- YouTube Video Embed -->
+                <div class="youtube-video-container" id="youtube-stay-video">
+                    <iframe 
+                        id="youtube-stay-iframe"
+                        class="youtube-banner-iframe"
+                        src="https://www.youtube.com/embed/<%= videoId %>?autoplay=1&mute=1&loop=1&playlist=<%= videoId %>&controls=0&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&disablekb=1&fs=0&playsinline=1&enablejsapi=1&origin=<%= typeof baseUrl !== 'undefined' ? encodeURIComponent(baseUrl) : '' %>"
+                        frameborder="0"
+                        allow="autoplay; encrypted-media"
+                        allowfullscreen="false"
+                        title="<%= stay.title %>"
+                        loading="eager">
+                    </iframe>
+                    <!-- Overlay to block all user interactions -->
+                    <div class="youtube-video-overlay"></div>
+                </div>
             <% } else if (stay && stay.bannerImage) { %>
+                <!-- Fallback to banner image -->
                 <div style="background-image: url('<%= stay.bannerImage %>'); background-size: cover; background-position: center; width: 100%; height: 100%;"></div>
             <% } %>
         </div>
@@ -41,6 +75,63 @@
         </div>
     </div>
 </header>
+
+<style>
+    .col-lg-7{
+        position: sticky;
+    top: 125px;
+    align-self: self-start;
+
+    }
+</style>
+
+<% if (hasYouTubeVideo) { %>
+<script>
+  // Load YouTube IFrame API
+  var tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  var ytStayPlayer;
+  
+  function onYouTubeIframeAPIReady() {
+    ytStayPlayer = new YT.Player('youtube-stay-iframe', {
+      events: {
+        'onReady': onPlayerReady,
+        'onStateChange': onPlayerStateChange
+      }
+    });
+  }
+
+  function onPlayerReady(event) {
+    // Set video quality to highest available (2160p if available)
+    event.target.setPlaybackQuality('hd2160');
+    // Force quality if available, otherwise fallback to next highest
+    setTimeout(function() {
+      var quality = event.target.getPlaybackQuality();
+      if (quality !== 'hd2160') {
+        // Try to set to highest available quality
+        event.target.setPlaybackQuality('highres');
+      }
+    }, 1000);
+    
+    // Ensure video is playing and muted
+    event.target.mute();
+    event.target.playVideo();
+  }
+
+  function onPlayerStateChange(event) {
+    // Loop the video when it ends
+    if (event.data === YT.PlayerState.ENDED) {
+      event.target.playVideo();
+    }
+  }
+
+  // Expose function globally for YouTube API
+  window.onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;
+</script>
+<% } %>
 <!-- Room Details -->
 <section class="page-details section-padding">
     <div class="container">
@@ -63,53 +154,31 @@
                     </div>
                 </div>
                 <div class="row">
-                    <% if (stay && stay.checkIn) { %>
+                    <% if (stay && stay.checkInOut) { %>
                         <div class="col-lg-6 col-md-12 mb-30">
-                            <h5><%= stay.checkIn.title %></h5>
+                            <h5>Check-In</h5>
                             <ul class="list-unstyled page-list">
-                                <% stay.checkIn.items.forEach(item => { %>
-                                    <li>
-                                        <div class="page-list-icon"> <span class="ti-check"></span> </div>
-                                        <div class="page-list-text">
-                                            <p><%= item %></p>
-                                        </div>
-                                    </li>
-                                <% }); %>
+                                <li>
+                                    <div class="page-list-icon"> <span class="ti-check"></span> </div>
+                                    <div class="page-list-text">
+                                        <p><%= stay.checkInOut.checkIn %></p>
+                                    </div>
+                                </li>
                             </ul>
                         </div>
-                    <% } %>
-                    <% if (stay && stay.checkOut) { %>
                         <div class="col-lg-6 col-md-12 mb-30">
-                            <h5><%= stay.checkOut.title %></h5>
+                            <h5>Check-Out</h5>
                             <ul class="list-unstyled page-list mb-30">
-                                <% stay.checkOut.items.forEach(item => { %>
-                                    <li>
-                                        <div class="page-list-icon"> <span class="ti-check"></span> </div>
-                                        <div class="page-list-text">
-                                            <p><%= item %></p>
-                                        </div>
-                                    </li>
-                                <% }); %>
+                                <li>
+                                    <div class="page-list-icon"> <span class="ti-check"></span> </div>
+                                    <div class="page-list-text">
+                                        <p><%= stay.checkInOut.checkOut %></p>
+                                    </div>
+                                </li>
                             </ul>
                         </div>
                     <% } %>
                 </div>
-                <% if (stay && stay.specialInstructions) { %>
-                    <div class="row mb-30">
-                        <div class="col-md-12">
-                            <h5>Special check-in instructions</h5>
-                            <p><%= stay.specialInstructions %></p>
-                        </div>
-                    </div>
-                <% } %>
-                <% if (stay && stay.childrenExtraBeds) { %>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h5>Children and extra beds</h5>
-                            <p><%= stay.childrenExtraBeds %></p>
-                        </div>
-                    </div>
-                <% } %>
             </div>
             <div class="col-lg-4 offset-lg-1 col-md-12">
                 <div class="cont">
@@ -118,13 +187,31 @@
                         <% if (stay && stay.features && stay.features.length > 0) { %>
                             <% stay.features.forEach(feature => { %>
                                 <li>
-                                    <span><i class="<%= feature.icon %>"></i></span>
-                                    <span><%= feature.text %></span>
+                                    <% if (typeof feature === 'string') { %>
+                                        <span><i class="fa-regular fa-check"></i></span>
+                                        <span><%= feature %></span>
+                                    <% } else { %>
+                                        <span><i class="<%= feature.icon %>"></i></span>
+                                        <span><%= feature.text %></span>
+                                    <% } %>
                                 </li>
                             <% }); %>
                         <% } %>
                     </ul>
                 </div>
+                <% if (stay && stay.paidServices && stay.paidServices.length > 0) { %>
+                    <div class="cont mt-4">
+                        <h5>Paid Services</h5>
+                        <ul class="list">
+                            <% stay.paidServices.forEach(service => { %>
+                                <li>
+                                    <span><i class="fa-regular fa-circle-dollar"></i></span>
+                                    <span><%= service %></span>
+                                </li>
+                            <% }); %>
+                        </ul>
+                    </div>
+                <% } %>
             </div>
         </div>
     </div>
@@ -147,40 +234,11 @@
                         <% stay.detailImages.forEach((image) => { %>
                             <div class="item">
                                 <a href="<%= image %>" title="<%= stay.title %>" class="gallery-masonry-item-img-link img-zoom">
-                                    <div class="img"> <img src="<%= image %>" class="img-fluid mx-auto d-block" alt="<%= stay.title %>"> </div>
+                                    <div class="img"> <img src="<%= image %>" class="img-fluid mx-auto d-block" style="aspect-ratio: 14/9; object-fit: cover;" alt="<%= stay.title %>"> </div>
                                 </a>
                             </div>
                         <% }); %>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-<% } %>
-<!-- FAQs -->
-<% if (stay && stay.faqs && stay.faqs.length > 0) { %>
-    <section class="faqs section-padding">
-        <div class="container">
-            <div class="row justify-content-center align-items-center">
-                <div class="col-lg-5 col-md-12 mb-30">
-                    <div class="section-subtitle">Popular Questions</div>
-                    <div class="section-title">Frequently Asked Questions</div>
-                    <p class="mb-25">The experience elementum sesue in the aucantion alesun in sapien fermen miss caleustion in the sapien.</p>
-                    <a href="#" class="button-3">All Questions</a>
-                </div>
-                <div class="col-lg-6 offset-lg-1 col-md-12">
-                    <ul class="accordion-box clearfix">
-                        <% stay.faqs.forEach((faq, index) => { %>
-                            <li class="accordion block">
-                                <div class="acc-btn"><%= faq.question %></div>
-                                <div class="acc-content">
-                                    <div class="content">
-                                        <p><%= faq.answer %></p>
-                                    </div>
-                                </div>
-                            </li>
-                        <% }); %>
-                    </ul>
                 </div>
             </div>
         </div>

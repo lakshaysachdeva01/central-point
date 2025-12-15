@@ -21,10 +21,12 @@
                     <div class="tab active-tab" id="venue-<%= venue.slug %>">
                         <div class="row justify-content-center align-items-center">
                             <div class="col-lg-6 col-md-12">
-                                <% if (venue.image) { %>
-                                    <img src="<%= venue.image %>" class="img-fluid" alt="<%= venue.title %>">
+                                <% if (venue.bannerImage) { %>
+                                    <img src="<%= venue.bannerImage %>" class="img-fluid venue-banner-img" alt="<%= venue.title %>">
+                                <% } else if (venue.image) { %>
+                                    <img src="<%= venue.image %>" class="img-fluid venue-banner-img" alt="<%= venue.title %>">
                                 <% } else if (venue.detailImages && venue.detailImages.length > 0) { %>
-                                    <img src="<%= venue.detailImages[0] %>" class="img-fluid" alt="<%= venue.title %>">
+                                    <img src="<%= venue.detailImages[0] %>" class="img-fluid venue-banner-img" alt="<%= venue.title %>">
                                 <% } %>
                             </div>
                             <div class="col-lg-5 offset-lg-1 col-md-12">
@@ -34,6 +36,24 @@
                                 <div class="section-title"><%= venue.title %></div>
                                 <% if (venue.listDescription) { %>
                                     <p class="mb-25"><%= venue.listDescription %></p>
+                                <% } %>
+                                <% if (venue.venueDetails) { %>
+                                    <div class="venue-details mb-30">
+                                        <ul>
+                                            <% if (venue.venueDetails.capacity) { %>
+                                                <li><i class="fa-thin fa-users"></i> <%= venue.venueDetails.capacity %></li>
+                                            <% } %>
+                                            <% if (venue.venueDetails.area) { %>
+                                                <li><i class="fa-thin fa-expand"></i> <%= venue.venueDetails.area %></li>
+                                            <% } %>
+                                            <% if (venue.venueDetails.type) { %>
+                                                <li><i class="fa-thin fa-building"></i> <%= venue.venueDetails.type %></li>
+                                            <% } %>
+                                            <% if (venue.venueDetails.style) { %>
+                                                <li><i class="fa-thin fa-palette"></i> <%= venue.venueDetails.style %></li>
+                                            <% } %>
+                                        </ul>
+                                    </div>
                                 <% } %>
                                 <% if (venue.features && venue.features.length > 0) { %>
                                     <ul class="list-unstyled list mb-30">
@@ -76,6 +96,41 @@
         display: block !important;
         margin-top: 0;
         transform: translateY(0) !important;
+    }
+    
+    /* Venue Details Styling */
+    .venue-details ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .venue-details ul li {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .venue-details ul li i {
+        color: #cb9d55;
+    }
+    
+    /* Venue Banner Image Styling */
+    .venue-banner-img {
+        width: 586px;
+        height: 527px;
+        object-fit: cover;
+    }
+    
+    @media (max-width: 768px) {
+        .venue-banner-img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            height: auto;
+        }
     }
 </style>
 

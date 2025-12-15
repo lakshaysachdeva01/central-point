@@ -1,6 +1,6 @@
 <%- include('header'), {seoDetails} %>
 
-<section class="banner-header bg-img bg-fixed" data-overlay-dark="5" data-background="/assets/img/banner/20.jpg">
+<section class="banner-header contact-banner bg-img bg-fixed" data-overlay-dark="5" data-background="/assets/img/rooms/suite/suite-4.webp">
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
@@ -11,6 +11,15 @@
     </div>
 </section>
 <!-- Rooms 2 -->
+ <style>
+    .rooms2 .owl-carousel{
+        height: 520px;
+    }
+    .rooms2 img{
+        height: 520px;
+        object-fit: cover;
+    }
+ </style>
 <section class="rooms2 section-padding">
     <div class="container">
         <% if (stays && stays.length > 0) { %>
@@ -26,12 +35,12 @@
                             <% if (stay.detailImages && stay.detailImages.length > 0) { %>
                                 <% stay.detailImages.forEach((image) => { %>
                                     <div class="img"> 
-                                        <img src="<%= image %>" class="img-fluid <%= imageBorderClass %>" alt="<%= stay.title %>"> 
+                                        <img src="<%= image %>" class="img-fluid " alt="<%= stay.title %>"> 
                                     </div>
                                 <% }); %>
-                            <% } else if (stay.image) { %>
+                            <% } else if (stay.bannerImage) { %>
                                 <div class="img"> 
-                                    <img src="<%= stay.image %>" class="img-fluid <%= imageBorderClass %>" alt="<%= stay.title %>"> 
+                                    <img src="<%= stay.bannerImage %>" class="img-fluid " alt="<%= stay.title %>"> 
                                 </div>
                             <% } %>
                         </div>
@@ -57,8 +66,8 @@
                                             <li><i class="fa-thin fa-bed-front"></i> <%= stay.stayDetails.bedType %></li>
                                         <% } %>
                                         <% if (stay.features && stay.features.length > 0) { %>
-                                            <% const hasWifi = stay.features.some(f => f.text && f.text.toLowerCase().includes('wifi')); %>
-                                            <% const hasBreakfast = stay.features.some(f => f.text && f.text.toLowerCase().includes('breakfast')); %>
+                                            <% const hasWifi = stay.features.some(f => f.toLowerCase().includes('wifi')); %>
+                                            <% const hasBreakfast = stay.features.some(f => f.toLowerCase().includes('breakfast')); %>
                                             <% if (hasWifi) { %>
                                                 <li><i class="fa-thin fa-wifi"></i> Free Wifi</li>
                                             <% } else if (hasBreakfast) { %>
@@ -70,10 +79,8 @@
                             </div>
                             <div class="line-dec"></div>
                             <div class="book">
-                                <div>
-                                    <div class="price"><%= stay.price || 'Contact' %> <span><%= stay.priceUnit || '/ night' %></span></div>
-                                </div>
-                                <div><a href="/stay/<%= stay.slug %>" class="button-3">View Details</a></div>
+                               
+                                <div><a href="<%= stay.link %>" class="button-3">View Details</a></div>
                             </div>
                         </div>
                     </div>

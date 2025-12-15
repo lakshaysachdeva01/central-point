@@ -1,14 +1,48 @@
 <%- include('header'), {seoDetails} %>
 
+<% 
+  // Function to extract video ID from YouTube URL
+  function getYouTubeVideoId(url) {
+    if (!url) return '';
+    let videoId = '';
+    if (url.includes('youtu.be/')) {
+      videoId = url.split('youtu.be/')[1]?.split('?')[0];
+    } else if (url.includes('youtube.com/watch')) {
+      videoId = url.split('v=')[1]?.split('&')[0];
+    } else if (url.includes('youtube.com/embed/')) {
+      videoId = url.split('youtube.com/embed/')[1]?.split('?')[0];
+    }
+    return videoId;
+  }
+
+  // YouTube video URL from venue data
+  const youtubeUrl = venue && venue.youtubeVideo ? venue.youtubeVideo : '';
+  const videoId = getYouTubeVideoId(youtubeUrl);
+  const hasYouTubeVideo = videoId && videoId !== '';
+%>
+
 <header class="header">
     <div class="video-fullscreen-wrap">
         <div class="video-fullscreen-video" data-overlay-dark="4">
-            <% if (venue && venue.bannerVideo) { %>
-                <video playsinline autoplay loop muted>
-                    <source src="<%= venue.bannerVideo %>" type="video/mp4">
-                </video>
+            <% if (hasYouTubeVideo) { %>
+                <!-- YouTube Video Embed -->
+                <div class="youtube-video-container" id="youtube-venue-video">
+                    <iframe 
+                        id="youtube-venue-iframe"
+                        class="youtube-banner-iframe"
+                        src="https://www.youtube.com/embed/<%= videoId %>?autoplay=1&mute=1&loop=1&playlist=<%= videoId %>&controls=0&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&disablekb=1&fs=0&playsinline=1&enablejsapi=1&origin=<%= typeof baseUrl !== 'undefined' ? encodeURIComponent(baseUrl) : '' %>"
+                        frameborder="0"
+                        allow="autoplay; encrypted-media"
+                        allowfullscreen="false"
+                        title="<%= venue.title %>"
+                        loading="eager">
+                    </iframe>
+                    <!-- Overlay to block all user interactions -->
+                    <div class="youtube-video-overlay"></div>
+                </div>
             <% } else if (venue && venue.bannerImage) { %>
-                <div style="background-image: url('<%= venue.bannerImage %>'); background-size: cover; background-position: center; width: 100%; height: 100%;"></div>
+                <!-- Fallback to banner image -->
+                <div class="venue-detail-banner-img" style="background-image: url('<%= venue.bannerImage %>'); background-size: cover; background-position: center;"></div>
             <% } %>
         </div>
         <div class="v-middle">
@@ -41,6 +75,63 @@
         </div>
     </div>
 </header>
+
+<% if (hasYouTubeVideo) { %>
+<script>
+  // Load YouTube IFrame API
+  var tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  var ytVenuePlayer;
+  
+  function onYouTubeIframeAPIReady() {
+    ytVenuePlayer = new YT.Player('youtube-venue-iframe', {
+      events: {
+        'onReady': onPlayerReady,
+        'onStateChange': onPlayerStateChange
+      }
+    });
+  }
+
+  function onPlayerReady(event) {
+    // Set video quality to highest available (2160p if available)
+    event.target.setPlaybackQuality('hd2160');
+    // Force quality if available, otherwise fallback to next highest
+    setTimeout(function() {
+      var quality = event.target.getPlaybackQuality();
+      if (quality !== 'hd2160') {
+        // Try to set to highest available quality
+        event.target.setPlaybackQuality('highres');
+      }
+    }, 1000);
+    
+    // Ensure video is playing and muted
+    event.target.mute();
+    event.target.playVideo();
+  }
+
+  function onPlayerStateChange(event) {
+    // Loop the video when it ends
+    if (event.data === YT.PlayerState.ENDED) {
+      event.target.playVideo();
+    }
+  }
+
+  // Expose function globally for YouTube API
+  window.onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;
+</script>
+<% } %>
+
+<style>
+    .col-lg-7 {
+        position: sticky;
+        top: 125px;
+        align-self: self-start;
+    }
+</style>
+
 <!-- Venue Details -->
 <section class="page-details section-padding">
     <div class="container">
@@ -62,21 +153,56 @@
                         <% } %>
                     </div>
                 </div>
+                <% if (venue && venue.suitableFor && venue.suitableFor.length > 0) { %>
+                    <div class="row mb-30">
+                        <div class="col-md-12">
+                            <h5>Suitable For</h5>
+                            <ul class="list-unstyled page-list">
+                                <% venue.suitableFor.forEach(item => { %>
+                                    <li>
+                                        <div class="page-list-icon"> <span class="ti-check"></span> </div>
+                                        <div class="page-list-text">
+                                            <p><%= item %></p>
+                                        </div>
+                                    </li>
+                                <% }); %>
+                            </ul>
+                        </div>
+                    </div>
+                <% } %>
             </div>
             <div class="col-lg-4 offset-lg-1 col-md-12">
                 <div class="cont">
-                    <h5>Venue Features</h5>
+                    <h5>Venue Amenities</h5>
                     <ul class="list">
-                        <% if (venue && venue.features && venue.features.length > 0) { %>
-                            <% venue.features.forEach(feature => { %>
+                        <% if (venue && venue.amenities && venue.amenities.length > 0) { %>
+                            <% venue.amenities.forEach(amenity => { %>
                                 <li>
-                                    <span><i class="<%= feature.icon %>"></i></span>
-                                    <span><%= feature.text %></span>
+                                    <% if (typeof amenity === 'string') { %>
+                                        <span><i class="fa-regular fa-check"></i></span>
+                                        <span><%= amenity %></span>
+                                    <% } else { %>
+                                        <span><i class="<%= amenity.icon || 'fa-regular fa-check' %>"></i></span>
+                                        <span><%= amenity.text || amenity %></span>
+                                    <% } %>
                                 </li>
                             <% }); %>
                         <% } %>
                     </ul>
                 </div>
+                <% if (venue && venue.importantNotes && venue.importantNotes.length > 0) { %>
+                    <div class="cont mt-4">
+                        <h5>Important Notes</h5>
+                        <ul class="list">
+                            <% venue.importantNotes.forEach(note => { %>
+                                <li>
+                                    <span><i class="fa-regular fa-info-circle"></i></span>
+                                    <span><%= note %></span>
+                                </li>
+                            <% }); %>
+                        </ul>
+                    </div>
+                <% } %>
             </div>
         </div>
     </div>
@@ -109,6 +235,23 @@
         </div>
     </section>
 <% } %>
+
+<style>
+    /* Venue Detail Banner Image Styling */
+    .venue-detail-banner-img {
+        width: 586px;
+        height: 527px;
+        margin: 0 auto;
+    }
+    
+    @media (max-width: 768px) {
+        .venue-detail-banner-img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            height: auto;
+        }
+    }
+</style>
 
 <%- include('footer') %>
 

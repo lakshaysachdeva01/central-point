@@ -1,0 +1,212 @@
+<%- include('header'), {seoDetails} %>
+
+<% 
+  // Function to extract video ID from YouTube URL
+  function getYouTubeVideoId(url) {
+    if (!url) return '';
+    let videoId = '';
+    if (url.includes('youtu.be/')) {
+      videoId = url.split('youtu.be/')[1]?.split('?')[0];
+    } else if (url.includes('youtube.com/watch')) {
+      videoId = url.split('v=')[1]?.split('&')[0];
+    } else if (url.includes('youtube.com/embed/')) {
+      videoId = url.split('youtube.com/embed/')[1]?.split('?')[0];
+    }
+    return videoId;
+  }
+
+  // YouTube video URL
+  const youtubeUrl = 'https://www.youtube.com/watch?v=CFPk_JgcXyA';
+  const videoId = getYouTubeVideoId(youtubeUrl);
+  const hasYouTubeVideo = videoId && videoId !== '';
+%>
+
+<header class="header">
+    <div class="video-fullscreen-wrap">
+        <div class="video-fullscreen-video" data-overlay-dark="4">
+            <% if (hasYouTubeVideo) { %>
+                <!-- YouTube Video Embed -->
+                <div class="youtube-video-container" id="youtube-dining-video">
+                    <iframe 
+                        id="youtube-dining-iframe"
+                        class="youtube-banner-iframe"
+                        src="https://www.youtube.com/embed/<%= videoId %>?autoplay=1&mute=1&loop=1&playlist=<%= videoId %>&controls=0&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&disablekb=1&fs=0&playsinline=1&enablejsapi=1&origin=<%= typeof baseUrl !== 'undefined' ? encodeURIComponent(baseUrl) : '' %>"
+                        frameborder="0"
+                        allow="autoplay; encrypted-media"
+                        allowfullscreen="false"
+                        title="Hotel Restaurant"
+                        loading="eager">
+                    </iframe>
+                    <!-- Overlay to block all user interactions -->
+                    <div class="youtube-video-overlay"></div>
+                </div>
+            <% } else { %>
+                <!-- Fallback to banner image -->
+                <div style="background-image: url('img/banner/11.jpg'); background-size: cover; background-position: center; width: 100%; height: 100%;"></div>
+            <% } %>
+        </div>
+        <div class="v-middle">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 col-md-12 text-center">
+                        <h5>Address of taste</h5>
+                        <h1>Khana Khazana</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<% if (hasYouTubeVideo) { %>
+<script>
+  // Load YouTube IFrame API
+  var tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  var ytDiningPlayer;
+  
+  function onYouTubeIframeAPIReady() {
+    ytDiningPlayer = new YT.Player('youtube-dining-iframe', {
+      events: {
+        'onReady': onPlayerReady,
+        'onStateChange': onPlayerStateChange
+      }
+    });
+  }
+
+  function onPlayerReady(event) {
+    // Set video quality to highest available (2160p if available)
+    event.target.setPlaybackQuality('hd2160');
+    // Force quality if available, otherwise fallback to next highest
+    setTimeout(function() {
+      var quality = event.target.getPlaybackQuality();
+      if (quality !== 'hd2160') {
+        // Try to set to highest available quality
+        event.target.setPlaybackQuality('highres');
+      }
+    }, 1000);
+    
+    // Ensure video is playing and muted
+    event.target.mute();
+    event.target.playVideo();
+  }
+
+  function onPlayerStateChange(event) {
+    // Loop the video when it ends
+    if (event.data === YT.PlayerState.ENDED) {
+      event.target.playVideo();
+    }
+  }
+
+  // Expose function globally for YouTube API
+  window.onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;
+</script>
+<% } %>
+    <!-- Page Details -->
+    <section class="page-details section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-subtitle">Address of taste</div>
+                    <div class="section-title">About Restaurant</div>
+                </div>
+            </div>
+            <div class="row mb-30">
+                <div class="col-md-12">
+                    <p>Led by Chef de Micheal Martin, The Restaurant is celebrated for its excellent cuisine and unique ambience. The gorgeous dining room features three open studio kitchens, allowing you to enjoy the sights and sounds of the culinary artistry on display.</p>
+                    <p>The menu showcases both Asian and European influences, with a tempting selection of classic favorites and creative dishes for you to sample. Cheese connoisseurs will be drawn to the The Wine and Cheese Cellar, housed in five-meter-high glass walls, where our knowledgeable staff can introduce you to some of New York's greatest culinary treasures.</p>
+                </div>
+            </div>
+            <div class="row mb-30">
+                <div class="col-md-12">
+                    <h5>Hours</h5>
+                    <ul class="list-unstyled page-list">
+                        <li>
+                            <div class="page-list-icon"> <span class="ti-time"></span> </div>
+                            <div class="page-list-text">
+                                <p>Breakfast: 7.00 am – 11.00 am (daily)</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="page-list-icon"> <span class="ti-time"></span> </div>
+                            <div class="page-list-text">
+                                <p>Lunch: 12.00 noon – 2.00 pm (daily)</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="page-list-icon"> <span class="ti-time"></span> </div>
+                            <div class="page-list-text">
+                                <p>Dinner: open from 6.30 pm, last order at 10.00 pm (daily)</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row mb-30">
+                <div class="col-md-12">
+                    <h5>Dress Code</h5>
+                    <p>Smart casual (no shorts, hats, or sandals permitted).</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h5>Terrace</h5>
+                    <p>Open for drinks only.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Restaurant Menu -->
+   
+    <!-- Gallery Image -->
+    <section class="galleryscroll section-padding bg-lightbrown">
+        <div class="container-fluid p-0">
+            <div class="row justify-content-center">
+                <div class="col-md-12 text-center mb-20">
+                    <div class="section-subtitle">Image Gallery</div>
+                    <div class="section-title">Restaurant Gallery</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="owl-carousel owl-theme">
+                        <div class="item">
+                            <a href="/assets/img/Khanakhazana/0L4A6972.webp" title="" class="gallery-masonry-item-img-link img-zoom">
+                                <div class="img"> <img src="/assets/img/Khanakhazana/0L4A6972.webp" class="img-fluid mx-auto d-block" alt=""> </div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="/assets/img/Khanakhazana/0L4A6974.webp" title="" class="gallery-masonry-item-img-link img-zoom">
+                                <div class="img"> <img src="/assets/img/Khanakhazana/0L4A6974.webp" class="img-fluid mx-auto d-block" alt=""> </div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="/assets/img/Khanakhazana/0L4A6986.webp" title="" class="gallery-masonry-item-img-link img-zoom">
+                                <div class="img"> <img src="/assets/img/Khanakhazana/0L4A6986.webp" class="img-fluid mx-auto d-block" alt=""> </div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="/assets/img/Khanakhazana/0L4A6988.webp" title="" class="gallery-masonry-item-img-link img-zoom">
+                                <div class="img"> <img src="/assets/img/Khanakhazana/0L4A6988.webp" class="img-fluid mx-auto d-block" alt=""> </div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="/assets/img/Khanakhazana/0L4A7001.webp" title="" class="gallery-masonry-item-img-link img-zoom">
+                                <div class="img"> <img src="/assets/img/Khanakhazana/0L4A7001.webp" class="img-fluid mx-auto d-block" alt=""> </div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="/assets/img/Khanakhazana/0L4A7006.webp" title="" class="gallery-masonry-item-img-link img-zoom">
+                                <div class="img"> <img src="/assets/img/Khanakhazana/0L4A7006.webp" class="img-fluid mx-auto d-block" alt=""> </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<%- include('footer') %>

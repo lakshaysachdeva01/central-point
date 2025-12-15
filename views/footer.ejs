@@ -19,11 +19,9 @@
                 <div class="col-md-3 offset-md-1 mb-30">
                     <div class="item">
                         <h3>Contact us</h3>
-                        <p>0665 Broadway st.
-                            <br>10234 NY, USA
-                        </p>
-                        <div class="phone"><a href="tel:+410315520900">+1 123 567 8910</a></div>
-                        <div class="mail"><a href="mailto:hi@rixoshotel.com">hi@rixoshotel.com</a></div>
+                        <p><%= contactInfo ? contactInfo.address : 'Your Hotel Address, City, State, PIN Code' %></p>
+                        <div class="phone"><a href="tel:<%= contactInfo ? contactInfo.phone.replace(/\s/g, '') : '+919876543210' %>"><%= contactInfo ? contactInfo.phone : '+91 9876543210' %></a></div>
+                        <div class="mail"><a href="mailto:<%= contactInfo ? contactInfo.email : 'info@hotel.com' %>"><%= contactInfo ? contactInfo.email : 'info@hotel.com' %></a></div>
                     </div>
                 </div>
                 <div class="col-md-4 mb-30">

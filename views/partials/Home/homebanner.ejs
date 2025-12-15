@@ -1,16 +1,54 @@
 
 
+<% 
+  // Function to extract video ID from YouTube URL
+  function getYouTubeVideoId(url) {
+    if (!url) return '';
+    let videoId = '';
+    if (url.includes('youtu.be/')) {
+      videoId = url.split('youtu.be/')[1]?.split('?')[0];
+    } else if (url.includes('youtube.com/watch')) {
+      videoId = url.split('v=')[1]?.split('&')[0];
+    } else if (url.includes('youtube.com/embed/')) {
+      videoId = url.split('youtube.com/embed/')[1]?.split('?')[0];
+    }
+    return videoId;
+  }
 
+  // YouTube video URL
+  const youtubeUrl = 'https://www.youtube.com/watch?v=tPbmquY1P0M';
+  const videoId = getYouTubeVideoId(youtubeUrl);
+  const hasYouTubeVideo = videoId && videoId !== '';
+%>
 
   <!-- Header Video -->
   <header class="header">
     <div class="video-fullscreen-wrap">
         <!-- The opacity on the image is made with "data-overlay-dark="number". You can change it using the numbers 0-9. -->
         <div class="video-fullscreen-video" data-overlay-dark="4">
-            <video playsinline="" autoplay="" loop="" muted="">
-                <source src="/assets/property-1.mp4" type="video/mp4" autoplay="" loop="" muted="">
-                <source src="/assets/cpi.webp" type="video/webm" autoplay="" loop="" muted="">
-            </video>
+            <% if (hasYouTubeVideo) { %>
+                <!-- YouTube Video Embed -->
+                <div class="youtube-video-container" id="youtube-banner-video">
+                    <iframe 
+                        id="youtube-banner-iframe"
+                        class="youtube-banner-iframe"
+                        src="https://www.youtube.com/embed/<%= videoId %>?autoplay=1&mute=1&loop=1&playlist=<%= videoId %>&controls=0&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&disablekb=1&fs=0&playsinline=1&enablejsapi=1&origin=<%= typeof baseUrl !== 'undefined' ? encodeURIComponent(baseUrl) : '' %>"
+                        frameborder="0"
+                        allow="autoplay; encrypted-media"
+                        allowfullscreen="false"
+                        title=""
+                        loading="eager">
+                    </iframe>
+                    <!-- Overlay to block all user interactions -->
+                    <div class="youtube-video-overlay"></div>
+                </div>
+            <% } else { %>
+                <!-- Fallback to local video -->
+                <video playsinline="" autoplay="" loop="" muted="">
+                    <source src="/assets/property-1.mp4" type="video/mp4" autoplay="" loop="" muted="">
+                    <source src="/assets/cpi.webp" type="video/webm" autoplay="" loop="" muted="">
+                </video>
+            <% } %>
         </div>
         <div class="v-middle">
             <div class="container">
@@ -18,7 +56,7 @@
                     <div class="col-lg-8 col-md-12 text-center">
                       
                         <h5>Enjoy the Luxury</h5>
-                        <h1>Hotel Central Point</h1>
+                        <h1>Hotel Central Point International</h1>
                        
                       </div>
                 </div>
@@ -26,6 +64,54 @@
         </div>
     </div>
 </header>
+
+<% if (hasYouTubeVideo) { %>
+<script>
+  // Load YouTube IFrame API
+  var tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  var ytPlayer;
+  
+  function onYouTubeIframeAPIReady() {
+    ytPlayer = new YT.Player('youtube-banner-iframe', {
+      events: {
+        'onReady': onPlayerReady,
+        'onStateChange': onPlayerStateChange
+      }
+    });
+  }
+
+  function onPlayerReady(event) {
+    // Set video quality to highest available (2160p if available)
+    event.target.setPlaybackQuality('hd2160');
+    // Force quality if available, otherwise fallback to next highest
+    setTimeout(function() {
+      var quality = event.target.getPlaybackQuality();
+      if (quality !== 'hd2160') {
+        // Try to set to highest available quality
+        event.target.setPlaybackQuality('highres');
+      }
+    }, 1000);
+    
+    // Ensure video is playing and muted
+    event.target.mute();
+    event.target.playVideo();
+  }
+
+  function onPlayerStateChange(event) {
+    // Loop the video when it ends
+    if (event.data === YT.PlayerState.ENDED) {
+      event.target.playVideo();
+    }
+  }
+
+  // Expose function globally for YouTube API
+  window.onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;
+</script>
+<% } %>
 
 
        

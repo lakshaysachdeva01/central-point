@@ -7,6 +7,7 @@ const { getgallery,getLatestGalleryImages} = require('./controller/gallerycontro
 const { getProducts, getProductDetails, getProductsByCategory, getCategories ,getjobs,getjobdetails,getotherjobs} = require('./controller/productcontroller');
 const { getStays, getStayDetails } = require('./controller/staycontroller');
 const { getVenues, getVenueDetails } = require('./controller/venuecontroller');
+const { getContactInfo } = require('./controller/contactcontroller');
 const { CONTACT_ENQUIRY_DYNAMIC_FIELDS_KEYS ,JOB_ENQUIRY_DYNAMIC_FIELDS_KEYS , BOOKING_ENQUIRY_DYNAMIC_FIELDS_KEYS} = require('./config/config');
 
 const express = require('express');
@@ -23,16 +24,25 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Middleware to fetch categories and make them available to all routes
+// Middleware to fetch categories and contact info and make them available to all routes
 app.use(async (req, res, next) => {
     try {
         const categories = await getCategories();
         console.log('🔧 Middleware - Categories loaded:', categories ? categories.length : 0);
         res.locals.categories = categories;
+        
+        const contactInfo = await getContactInfo();
+        res.locals.contactInfo = contactInfo;
+        
         next();
     } catch (error) {
         console.error('❌ Middleware - Error fetching categories:', error);
         res.locals.categories = [];
+        res.locals.contactInfo = {
+            phone: "+91 9876543210",
+            email: "info@hotel.com",
+            address: "Your Hotel Address, City, State, PIN Code"
+        };
         next();
     }
 });
@@ -257,7 +267,7 @@ app.get('/job/:slug', async (req, res) => {
 // });
 
 
-app.get('/stays', async (req, res) => {
+app.get('/rooms', async (req, res) => {
     const baseUrl = req.protocol + '://' + req.get('Host');
     const stays = await getStays();
     
@@ -266,13 +276,27 @@ app.get('/stays', async (req, res) => {
         metaDescription: "",
         metaImage: `${baseUrl}/${metaLogoPath}`,
         keywords: "",
-        canonical: `${baseUrl}/stays`,
+        canonical: `${baseUrl}/rooms`,
     };
 
     res.render('stays', { body: "", stays, seoDetails });
 });
 
-app.get('/stay/:slug', async (req, res) => {
+app.get('/dining', async (req, res) => {
+    const baseUrl = req.protocol + '://' + req.get('Host');
+    
+    const seoDetails = {
+        title: "",
+        metaDescription: "",
+        metaImage: `${baseUrl}/${metaLogoPath}`,
+        keywords: "",
+        canonical: `${baseUrl}/rooms`,
+    };
+
+    res.render('dining', { body: "", seoDetails });
+});
+
+app.get('/room/:slug', async (req, res) => {
     const baseUrl = req.protocol + '://' + req.get('Host');
     const { slug } = req.params;
     const stay = await getStayDetails(slug);
@@ -358,45 +382,45 @@ app.get('/thankyou', async (req, res) => {
 
 
 
-// app.get('/blog/:slug', async (req, res) => {
-//     const baseUrl = req.protocol + '://' + req.get('Host');
-//     const { slug } = req.params; // Extract slug from params
-//     const blogDetails = await getBlogfull(slug);
-//     const testimonial = await gettestimonial();
-//     const websiteID = await getWebsiteID(); 
+app.get('/blog/:slug', async (req, res) => {
+    const baseUrl = req.protocol + '://' + req.get('Host');
+    const { slug } = req.params; // Extract slug from params
+    const blogDetails = await getBlogfull(slug);
+    const testimonial = await gettestimonial();
+    const websiteID = await getWebsiteID(); 
    
-//     const adbanner = await getAdBanner();
-//     const blogs = await getBlog();
-//     const latestblog = await getlatestblogs(slug);
-//     // Extract the first 50 words from the description
-//     const truncateToWords = (text, wordCount) => {
-//         if (!text) return '';
-//         return text.split(' ').slice(0, wordCount).join(' ') + '...';
-//     };
-//     const truncatedDescription = truncateToWords(blogDetails?.description, 25);
+    const adbanner = await getAdBanner();
+    const blogs = await getBlog();
+    const latestblog = await getlatestblogs(slug);
+    // Extract the first 50 words from the description
+    const truncateToWords = (text, wordCount) => {
+        if (!text) return '';
+        return text.split(' ').slice(0, wordCount).join(' ') + '...';
+    };
+    const truncatedDescription = truncateToWords(blogDetails?.description, 25);
 
-//     // Set the meta image dynamically
+    // Set the meta image dynamically
    
   
-//     const seoDetails = {
-//         title: "",
-//         metaDescription: "",
-//         metaImage: `${baseUrl}/${metaLogoPath}`,
-//         keywords: "",
-//         canonical:``,
-//     };
+    const seoDetails = {
+        title: "",
+        metaDescription: "",
+        metaImage: `${baseUrl}/${metaLogoPath}`,
+        keywords: "",
+        canonical:``,
+    };
 
-//     res.render('blogpost', {
-//         body: "",
-//        baseUrl,
-//        blogDetails,
-//         seoDetails,
-//         adbanner,
-//         latestblog,
-//         blogs,
-//        testimonial,websiteID,API_BASE_URL,WEBSITE_ID_KEY, BOOKING_ENQUIRY_DYNAMIC_FIELDS_KEYS
-//     });
-// });
+    res.render('blogpost', {
+        body: "",
+       baseUrl,
+       blogDetails,
+        seoDetails,
+        adbanner,
+        latestblog,
+        blogs,
+       testimonial,websiteID,API_BASE_URL,WEBSITE_ID_KEY, BOOKING_ENQUIRY_DYNAMIC_FIELDS_KEYS
+    });
+});
 
 
 // app.get('/product/:slug', async (req, res) => {
