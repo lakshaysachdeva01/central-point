@@ -14,7 +14,7 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const port = 8000;
-const metaLogoPath = "/assets/img/logos/meta.png";
+const metaLogoPath = "/assets/img/Logo/CPIMetaImage.jpg";
 // Set the view engine to EJS
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views')); // Define the views directory
@@ -59,10 +59,10 @@ app.get('/', async (req, res) => {
     const popupbanners = await getHomepopupBanner();
    const latestImages = await getLatestGalleryImages();
    const seoDetails = {
-    title: " ",
-    metaDescription: "",
+    title: "CPI Hotel - Luxury Accommodation & Event Venues",
+    metaDescription: "Experience luxury hospitality at CPI Hotel. Premium rooms, elegant banquet halls, and exceptional dining. Perfect for weddings, corporate events, and leisure stays.",
     metaImage: `${baseUrl}/${metaLogoPath}`,
-    keywords: "",
+    keywords: "luxury hotel, banquet hall, event venue, wedding venue, hotel rooms, accommodation, fine dining, CPI Hotel",
     canonical: `${baseUrl}`,
 };
 
@@ -74,10 +74,10 @@ app.get('/', async (req, res) => {
 app.get('/about', async (req, res) => {
     const baseUrl = req.protocol + '://' + req.get('Host');
     const seoDetails = {
-        title: "",
-        metaDescription: "",
+        title: "About Us - CPI Hotel | Our Story & Hospitality Excellence",
+        metaDescription: "Learn about CPI Hotel's commitment to luxury hospitality, exceptional service, and creating memorable experiences for guests and event organizers.",
         metaImage: `${baseUrl}/${metaLogoPath}`,
-        keywords: "",
+        keywords: "about CPI Hotel, hotel history, hospitality, luxury service, hotel team",
         canonical: `${baseUrl}/about`,
     };
     
@@ -92,10 +92,10 @@ app.get('/gallery', async (req, res) => {
     const gallery = await getgallery();
     
     const seoDetails = {
-        title: "",
-        metaDescription: "",
+        title: "Photo Gallery - CPI Hotel | Venues, Rooms & Events",
+        metaDescription: "Explore our photo gallery showcasing luxury rooms, elegant banquet halls, event venues, and memorable celebrations at CPI Hotel.",
         metaImage: `${baseUrl}/${metaLogoPath}`,
-        keywords: "",
+        keywords: "hotel gallery, venue photos, room photos, event photos, hotel images, banquet hall images",
         canonical: `${baseUrl}/gallery`,
     };
 
@@ -107,10 +107,10 @@ app.get('/gallery/:filter', async (req, res) => {
     const gallery = await getgallery();
 
     const seoDetails = {
-        title: "",
-        metaDescription: "",
+        title: `${filter.charAt(0).toUpperCase() + filter.slice(1)} Gallery - CPI Hotel`,
+        metaDescription: `View our ${filter} photo gallery showcasing luxury accommodations, elegant venues, and memorable events at CPI Hotel.`,
         metaImage: `${baseUrl}/${metaLogoPath}`,
-        keywords: "",
+        keywords: `${filter} gallery, hotel ${filter}, ${filter} photos, CPI Hotel ${filter}`,
         canonical: `${baseUrl}/gallery/${filter}`,
     };
 
@@ -125,10 +125,10 @@ app.get('/contact', async (req, res) => {
     const websiteID = await getWebsiteID(); 
     
     const seoDetails = {
-        title: "",
-        metaDescription: "",
+        title: "Contact Us - CPI Hotel | Book Your Stay or Event",
+        metaDescription: "Get in touch with CPI Hotel. Contact us for room bookings, event venue inquiries, or any questions. We're here to help make your stay or event perfect.",
         metaImage: `${baseUrl}/${metaLogoPath}`,
-        keywords: "",
+        keywords: "contact CPI Hotel, hotel booking, event booking, hotel inquiry, customer service",
         canonical: `${baseUrl}/contact`,
     };
 
@@ -158,11 +158,11 @@ app.get('/posts', async (req, res) => {
   
     const blogs = await getBlog();
     const seoDetails = {
-        title: "",
-        metaDescription: "",
+        title: "Blog & Articles - CPI Hotel | Latest News & Updates",
+        metaDescription: "Read our latest blog posts and articles about hospitality, events, travel tips, and updates from CPI Hotel.",
         metaImage: `${baseUrl}/${metaLogoPath}`,
-        keywords: "",
-        canonical: `${baseUrl}/blogs`,
+        keywords: "hotel blog, hospitality articles, travel tips, event planning, hotel news",
+        canonical: `${baseUrl}/posts`,
     };
 
     res.render('blogs', { body: "", blogs, baseUrl, seoDetails });
@@ -173,10 +173,10 @@ app.get('/jobs', async (req, res) => {
     const baseUrl = req.protocol + '://' + req.get('Host');
     const jobs = await getjobs();
     const seoDetails = {
-        title: "",
-        metaDescription: "",
+        title: "Careers - CPI Hotel | Join Our Team",
+        metaDescription: "Explore career opportunities at CPI Hotel. Join our hospitality team and be part of creating exceptional guest experiences.",
         metaImage: `${baseUrl}/${metaLogoPath}`,
-        keywords: "",
+        keywords: "hotel jobs, hospitality careers, hotel employment, CPI Hotel careers",
         canonical: `${baseUrl}/jobs`,
     };
     
@@ -272,10 +272,10 @@ app.get('/rooms', async (req, res) => {
     const stays = await getStays();
     
     const seoDetails = {
-        title: "",
-        metaDescription: "",
+        title: "Rooms & Suites - CPI Hotel | Luxury Accommodation",
+        metaDescription: "Discover our range of luxury rooms and suites at CPI Hotel. Premium amenities, comfortable accommodations, and exceptional service for a perfect stay.",
         metaImage: `${baseUrl}/${metaLogoPath}`,
-        keywords: "",
+        keywords: "hotel rooms, luxury suites, accommodation, deluxe rooms, hotel booking, CPI Hotel rooms",
         canonical: `${baseUrl}/rooms`,
     };
 
@@ -286,11 +286,11 @@ app.get('/dining', async (req, res) => {
     const baseUrl = req.protocol + '://' + req.get('Host');
     
     const seoDetails = {
-        title: "",
-        metaDescription: "",
+        title: "Dining & Restaurant - CPI Hotel | Fine Dining Experience",
+        metaDescription: "Experience exceptional dining at CPI Hotel's restaurant. Enjoy delicious cuisine, elegant ambiance, and impeccable service for breakfast, lunch, and dinner.",
         metaImage: `${baseUrl}/${metaLogoPath}`,
-        keywords: "",
-        canonical: `${baseUrl}/rooms`,
+        keywords: "hotel restaurant, fine dining, restaurant menu, hotel dining, CPI Hotel restaurant",
+        canonical: `${baseUrl}/dining`,
     };
 
     res.render('dining', { body: "", seoDetails });
@@ -304,21 +304,21 @@ app.get('/room/:slug', async (req, res) => {
     if (!stay) {
         return res.status(404).render('404', { 
             seoDetails: {
-                title: "",
-                metaDescription: "",
+                title: "Room Not Found - CPI Hotel",
+                metaDescription: "The requested room could not be found.",
                 metaImage: `${baseUrl}/${metaLogoPath}`,
-                keywords: "",
-                canonical: `${baseUrl}/stay/${slug}`,
+                keywords: "CPI Hotel, rooms",
+                canonical: `${baseUrl}/room/${slug}`,
             }
         });
     }
 
     const seoDetails = {
-        title: stay.title || "",
-        metaDescription: stay.listDescription || "",
+        title: `${stay.title} - CPI Hotel | ${stay.tagline || 'Luxury Accommodation'}`,
+        metaDescription: stay.listDescription || stay.description || `Experience luxury in our ${stay.title} at CPI Hotel. ${stay.stayDetails?.roomSize || ''} of comfort with premium amenities.`,
         metaImage: `${baseUrl}${stay.bannerImage}`,
-        keywords: "",
-        canonical: `${baseUrl}/stay/${slug}`,
+        keywords: `${stay.title}, hotel room, luxury accommodation, ${stay.stayDetails?.bedType || ''}, ${stay.stayDetails?.roomSize || ''}, CPI Hotel`,
+        canonical: `${baseUrl}/room/${slug}`,
     };
 
     res.render('staydetails', { body: "", stay, seoDetails });
@@ -329,10 +329,10 @@ app.get('/venues', async (req, res) => {
     const venues = await getVenues();
     
     const seoDetails = {
-        title: "",
-        metaDescription: "",
+        title: "Event Venues - CPI Hotel | Banquet Halls & Meeting Spaces",
+        metaDescription: "Discover our premium event venues and banquet halls at CPI Hotel. Perfect for weddings, corporate events, meetings, and celebrations of all sizes.",
         metaImage: `${baseUrl}/${metaLogoPath}`,
-        keywords: "",
+        keywords: "event venues, banquet halls, wedding venues, meeting spaces, corporate events, party venues, CPI Hotel venues",
         canonical: `${baseUrl}/venues`,
     };
 
@@ -347,20 +347,24 @@ app.get('/venue/:slug', async (req, res) => {
     if (!venue) {
         return res.status(404).render('404', { 
             seoDetails: {
-                title: "",
-                metaDescription: "",
+                title: "Venue Not Found - CPI Hotel",
+                metaDescription: "The requested venue could not be found.",
                 metaImage: `${baseUrl}/${metaLogoPath}`,
-                keywords: "",
+                keywords: "CPI Hotel, venues",
                 canonical: `${baseUrl}/venue/${slug}`,
             }
         });
     }
 
+    const capacity = venue.venueDetails?.capacity || '';
+    const area = venue.venueDetails?.area || '';
+    const suitableFor = venue.suitableFor?.join(', ') || '';
+    
     const seoDetails = {
-        title: venue.title || "",
-        metaDescription: venue.listDescription || "",
+        title: `${venue.title} - CPI Hotel | ${venue.tagline || 'Event Venue'}`,
+        metaDescription: venue.listDescription || venue.description || `Book ${venue.title} at CPI Hotel. ${capacity} capacity, ${area} of elegant space. Perfect for ${suitableFor || 'events'}.`,
         metaImage: `${baseUrl}${venue.bannerImage}`,
-        keywords: "",
+        keywords: `${venue.title}, ${venue.tagline}, event venue, banquet hall, ${capacity}, ${area}, ${suitableFor}, CPI Hotel`,
         canonical: `${baseUrl}/venue/${slug}`,
     };
 
@@ -370,11 +374,11 @@ app.get('/venue/:slug', async (req, res) => {
 app.get('/thankyou', async (req, res) => {
     const baseUrl = req.protocol + '://' + req.get('Host');
     const seoDetails = {
-        title: "",
-        metaDescription: "",
+        title: "Thank You - CPI Hotel",
+        metaDescription: "Thank you for contacting CPI Hotel. We'll get back to you soon.",
         metaImage: `${baseUrl}/${metaLogoPath}`,
-        keywords: "",
-        canonical: "",
+        keywords: "CPI Hotel, thank you",
+        canonical: `${baseUrl}/thankyou`,
     } 
     res.render('thankyou', {body: "",seoDetails});
 });
@@ -386,28 +390,43 @@ app.get('/blog/:slug', async (req, res) => {
     const baseUrl = req.protocol + '://' + req.get('Host');
     const { slug } = req.params; // Extract slug from params
     const blogDetails = await getBlogfull(slug);
+    
+    if (!blogDetails) {
+        return res.status(404).render('404', { 
+            seoDetails: {
+                title: "Blog Post Not Found - CPI Hotel",
+                metaDescription: "The requested blog post could not be found.",
+                metaImage: `${baseUrl}/${metaLogoPath}`,
+                keywords: "CPI Hotel, blog",
+                canonical: `${baseUrl}/blog/${slug}`,
+            }
+        });
+    }
+    
     const testimonial = await gettestimonial();
     const websiteID = await getWebsiteID(); 
    
     const adbanner = await getAdBanner();
     const blogs = await getBlog();
     const latestblog = await getlatestblogs(slug);
-    // Extract the first 50 words from the description
-    const truncateToWords = (text, wordCount) => {
-        if (!text) return '';
-        return text.split(' ').slice(0, wordCount).join(' ') + '...';
-    };
-    const truncatedDescription = truncateToWords(blogDetails?.description, 25);
+    
+    // Extract description for meta (remove HTML tags and limit to 160 chars)
+    const cleanDescription = blogDetails?.description 
+        ? blogDetails.description.replace(/<[^>]*>/g, '').substring(0, 160).trim() 
+        : '';
+    
+    // Get meta image from blog banner or use default
+    let metaImage = `${baseUrl}/${metaLogoPath}`;
+    if (blogDetails?.banner?.bannerType === 'IMAGE' && blogDetails?.banner?.image) {
+        metaImage = `${process.env.S3_BASE_URL || ''}${blogDetails.banner.image}`;
+    }
 
-    // Set the meta image dynamically
-   
-  
     const seoDetails = {
-        title: "",
-        metaDescription: "",
-        metaImage: `${baseUrl}/${metaLogoPath}`,
-        keywords: "",
-        canonical:``,
+        title: `${blogDetails.title || 'Blog Post'} - CPI Hotel`,
+        metaDescription: cleanDescription || `Read our latest article: ${blogDetails.title || 'Blog Post'} at CPI Hotel.`,
+        metaImage: metaImage,
+        keywords: blogDetails?.tags?.join(', ') || blogDetails?.title || "CPI Hotel, blog, hospitality",
+        canonical: `${baseUrl}/blog/${slug}`,
     };
 
     res.render('blogpost', {
@@ -456,11 +475,11 @@ app.get('/blog/:slug', async (req, res) => {
 app.use(async (req, res, next) => {
     const baseUrl = req.protocol + '://' + req.get('Host');
     const seoDetails = {
-        title: "",
-        metaDescription: "",
-        metaImage: `${baseUrl}/assets/images/icon/metalogo.png`, // Replace with correct path if needed
-        keywords: "",
-        canonical: baseUrl + req.originalUrl, // You can use the original URL for canonical
+        title: "Page Not Found - CPI Hotel",
+        metaDescription: "The page you are looking for could not be found.",
+        metaImage: `${baseUrl}/${metaLogoPath}`,
+        keywords: "CPI Hotel, 404, page not found",
+        canonical: baseUrl + req.originalUrl,
     };
     
 

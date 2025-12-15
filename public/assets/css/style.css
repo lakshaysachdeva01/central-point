@@ -1162,9 +1162,43 @@ blockquote cite:before {
     color: #BD945A !important;
 }
 /* logo */
+.logo-wrapper {
+    display: flex;
+    align-items: center;
+}
+.logo-wrapper .logo {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+}
+.logo-wrapper .logo-img {
+    width: 165px;
+    text-align: center;
+    vertical-align: middle;
+}
+.logo-wrapper .logo-white,
+.logo-wrapper .logo-black {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    vertical-align: middle;
+}
+.logo-wrapper .logo-white {
+    display: block;
+}
+.logo-wrapper .logo-black {
+    display: none;
+}
 .nav-scroll .logo-wrapper .logo-img {
     width: 130px;
     margin-bottom: 0px;
+}
+.nav-scroll .logo-wrapper .logo-white {
+    display: none !important;
+}
+.nav-scroll .logo-wrapper .logo-black {
+    display: block !important;
 }
 .nav-scroll .logo-wrapper {}
 .nav-scroll .logo-wrapper .logo h2 {
@@ -1183,10 +1217,6 @@ blockquote cite:before {
 }
 .logo-wrapper .logo {
     padding: 0;
-}
-.logo-wrapper .logo-img {
-    width: 130px;
-    text-align: center;
 }
 .logo-wrapper .logo h2 {
     font-family: "Gilda Display", serif;
