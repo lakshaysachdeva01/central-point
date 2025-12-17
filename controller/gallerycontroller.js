@@ -2,11 +2,38 @@ const { API_BASE_URL } = require('../config/config');
 const { getWebsiteID, fetchData } = require('../utils/helper');
 
 
-exports.getgallery = async (req, res) => {  
-    const websiteID = await getWebsiteID(); 
-    let data = await fetchData(`${API_BASE_URL}/website/gallery/get-all-galleries/${websiteID}`);
+exports.getgallery = async () => {  
+    try {
+        const websiteID = await getWebsiteID(); 
+        console.log('🔍 Fetching gallery for websiteID:', websiteID);
+        console.log('🔍 API URL:', `${API_BASE_URL}/website/gallery/get-all-galleries/${websiteID}`);
+        
+        let data = await fetchData(`${API_BASE_URL}/website/gallery/get-all-galleries/${websiteID}`);
+        
+        console.log('📦 Gallery data received:', {
+            isArray: Array.isArray(data),
+            length: Array.isArray(data) ? data.length : 'N/A',
+            type: typeof data,
+            data: data
+        });
 
-    return Array.isArray(data) ? data.reverse() : data || null;
+        if (!data) {
+            console.warn('⚠️ Gallery data is null or undefined');
+            return [];
+        }
+
+        if (Array.isArray(data)) {
+            console.log('✅ Returning gallery array with', data.length, 'items');
+            return data.reverse();
+        } else {
+            console.warn('⚠️ Gallery data is not an array:', typeof data, data);
+            return [];
+        }
+    } catch (error) {
+        console.error('❌ Error fetching gallery:', error);
+        console.error('❌ Error stack:', error.stack);
+        return [];
+    }
 };
 
 exports.getgalleryalbum = async (title) => {  

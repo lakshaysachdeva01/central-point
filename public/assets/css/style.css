@@ -1106,6 +1106,7 @@ blockquote cite:before {
 .navbar .navbar-toggler-icon,
 .navbar .icon-bar {
     color: #fff;
+    transition: color 0.3s ease;
 }
 .navbar .navbar-nav .nav-link {
     font-family: "Urbanist", sans-serif;
@@ -1154,6 +1155,7 @@ blockquote cite:before {
 .nav-scroll .navbar-toggler-icon,
 .nav-scroll .icon-bar {
     color: #141414;
+    transition: color 0.3s ease;
 }
 .nav-scroll .navbar-nav .nav-link {
     color: #141414;
@@ -1435,8 +1437,10 @@ blockquote cite:before {
         height: 90px;
     }
     .logo-wrapper {
-        float: left;
+        float: none;
         padding: 26px 15px;
+        order: 1;
+        flex-shrink: 0;
     }
     .nav-scroll .logo-wrapper {
         padding: 26px 15px;
@@ -1454,12 +1458,23 @@ blockquote cite:before {
         width: 130px;
         padding: 0;
     }
+    .navbar .container {
+        max-width: 100%;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
     .navbar button {
-        margin-right: 0px;
+        margin-right: 15px;
         outline: none !important;
         background: transparent;
-        margin-top: 10px;
+        margin-top: 0;
         border: none;
+        order: 2;
+        z-index: 1000;
+        padding: 10px;
     }
     .navbar button:hover {
         background: transparent;
@@ -1469,17 +1484,45 @@ blockquote cite:before {
     .navbar button:hover {
         background: transparent;
         outline: none;
-        color: transparent !important;
     }
-    .navbar .container {
-        max-width: 100%;
-        padding: 0;
+    .navbar button .navbar-toggler-icon {
+        color: #fff !important;
+        transition: color 0.3s ease !important;
+    }
+    .nav-scroll .navbar button .navbar-toggler-icon {
+        color: #141414 !important;
+        transition: color 0.3s ease !important;
+    }
+    .navbar button .navbar-toggler-icon i {
+        color: #fff;
+        transition: color 0.3s ease;
+    }
+    .nav-scroll .navbar button .navbar-toggler-icon i {
+        color: #141414 !important;
+        transition: color 0.3s ease !important;
     }
     .navbar .nav-link {
         margin: 0px auto !important;
     }
+    .navbar .navbar-nav {
+        padding: 20px 0;
+        width: 100%;
+    }
+    .navbar .navbar-nav .nav-item {
+        width: 100%;
+        padding-left: 30px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
     .navbar .navbar-nav .nav-link {
         color: #141414;
+        padding: 15px 20px;
+        font-size: 18px;
+        width: 100%;
+        display: block;
+    }
+    .navbar .navbar-nav .nav-link:hover {
+        background-color: rgba(189, 148, 90, 0.1);
+        color: #BD945A;
     }
     .nav-scroll .navbar-collapse .nav-link {
         color: #141414 !important;
@@ -1510,8 +1553,15 @@ blockquote cite:before {
         padding: 0;
         border-radius: 0;
         margin: 0;
-        background: #fff;
+        background: rgba(0, 0, 0, 0.02);
         box-shadow: none;
+        position: static;
+        float: none;
+        width: 100%;
+        display: none;
+    }
+    .navbar .dropdown.show .dropdown-menu {
+        display: block;
     }
     .navbar .dropdown-submenu .dropdown-menu {
         margin: 0;
@@ -1524,14 +1574,52 @@ blockquote cite:before {
         padding-right: 0px;
         padding-left: 0px;
     }
-    .navbar .navbar-nav {
-        padding: 20px;
-    }
     .navbar .navbar-collapse {
-        max-height: 500px;
-        overflow: auto;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100vh;
+        max-height: 100vh;
+        overflow-y: auto;
+        overflow-x: hidden;
         background: #fff;
         text-align: left;
+        z-index: 999;
+        padding-top: 90px;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .navbar .navbar-collapse.show {
+        transform: translateX(0);
+    }
+    /* Prevent body scroll when menu is open */
+    body.menu-open {
+        overflow: hidden;
+        position: fixed;
+        width: 100%;
+    }
+    
+    /* Backdrop overlay when menu is open */
+    .navbar .navbar-collapse.show::after {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 998;
+        pointer-events: all;
+    }
+    /* Ensure logo and button stay on top */
+    .navbar .logo-wrapper,
+    .navbar .navbar-toggler {
+        position: relative;
+        z-index: 1000;
     }
     .dropdown .nav-link i {
         color: #141414;

@@ -61,9 +61,74 @@ $(function () {
         }
     });
     
-    // Close navbar-collapse when a clicked
+    // Close navbar-collapse when a nav link is clicked (mobile)
+    $(document).on('click', '.navbar-nav .nav-link:not(.dropdown-toggle)', function () {
+        if ($(window).width() <= 991) {
+            $(".navbar-collapse").removeClass("show");
+            $("body").removeClass("menu-open");
+        }
+    });
+    
+    // Close navbar-collapse when dropdown item is clicked
     $(".navbar-nav .dropdown-item a").on('click', function () {
         $(".navbar-collapse").removeClass("show");
+        $("body").removeClass("menu-open");
+    });
+    
+    // Handle mobile menu open/close - prevent body scroll
+    $(".navbar-toggler").on('click', function () {
+        setTimeout(function() {
+            if ($(".navbar-collapse").hasClass("show")) {
+                $("body").addClass("menu-open");
+            } else {
+                $("body").removeClass("menu-open");
+            }
+        }, 100);
+    });
+    
+    // Close menu when clicking outside menu content (on backdrop)
+    $(document).on('click', function(e) {
+        if ($(window).width() <= 991) {
+            if ($(".navbar-collapse").hasClass("show")) {
+                // If clicking outside the navbar-nav (the actual menu content)
+                if (!$(e.target).closest('.navbar-nav').length && 
+                    !$(e.target).closest('.navbar-toggler').length &&
+                    !$(e.target).closest('.logo-wrapper').length) {
+                    $(".navbar-collapse").removeClass("show");
+                    $("body").removeClass("menu-open");
+                }
+            }
+        }
+    });
+    
+    // Fix dropdown navigation - handle dropdown toggle clicks
+    $(document).on('click', '.navbar-nav .dropdown-toggle', function (e) {
+        var $toggle = $(this);
+        var $dropdown = $toggle.closest('.dropdown');
+        var $menu = $toggle.next('.dropdown-menu');
+        var href = $toggle.attr('href');
+        var isOpen = $menu.hasClass('show') || $dropdown.hasClass('show');
+        
+        // If dropdown is already open, navigate instead of toggling
+        if (isOpen && href && href !== '#' && href !== '') {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            window.location.href = href;
+            return false;
+        }
+    });
+    
+    // Ensure dropdown items can navigate properly
+    $(document).on('click', '.navbar-nav .dropdown-item a', function (e) {
+        var href = $(this).attr('href');
+        if (href && href !== '#' && href !== '') {
+            // Close mobile menu
+            $(".navbar-collapse").removeClass("show");
+            // Allow navigation - don't let Bootstrap interfere
+            window.location.href = href;
+            e.stopPropagation();
+            return false;
+        }
     });
     
     /* Custom owl-nav */

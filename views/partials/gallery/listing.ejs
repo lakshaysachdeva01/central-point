@@ -200,17 +200,19 @@ border: 1px solid rgb(0, 0, 0) !important;
         <div class="filter-tabs-scroll">
             <div class="filter-tabs-inner" style="display: flex; justify-content: center; flex-wrap: wrap; gap: 10px;">
                 <button onclick="filterGallery('all')" class="gallery-tab active" data-filter="all">All</button>
-                <% gallery.forEach((album) => { %>
-                    <% if (album.mediaDetails.mediaType === "IMAGE") { %>
-                        <button onclick="filterGallery('<%= album.title.toLowerCase() %>')" class="gallery-tab" data-filter="<%= album.title.toLowerCase() %>"><%= album.title %></button>
+                <% if (gallery && Array.isArray(gallery)) { %>
+                    <% gallery.forEach((album) => { %>
+                        <% if (album && album.mediaDetails && album.mediaDetails.mediaType === "IMAGE") { %>
+                            <button onclick="filterGallery('<%= album.title ? album.title.toLowerCase() : '' %>')" class="gallery-tab" data-filter="<%= album.title ? album.title.toLowerCase() : '' %>"><%= album.title || 'Untitled' %></button>
+                        <% } %>
+                    <% }); %>
+                    <% 
+                    // Check if there are any videos
+                    const hasVideos = gallery.some(album => album && album.mediaDetails && album.mediaDetails.mediaType === "VIDEO" && album.mediaDetails.videoLink);
+                    if (hasVideos) { 
+                    %>
+                        <button onclick="filterGallery('videos')" class="gallery-tab" data-filter="videos">Videos</button>
                     <% } %>
-                <% }); %>
-                <% 
-                // Check if there are any videos
-                const hasVideos = gallery.some(album => album.mediaDetails.mediaType === "VIDEO" && album.mediaDetails.videoLink);
-                if (hasVideos) { 
-                %>
-                    <button onclick="filterGallery('videos')" class="gallery-tab" data-filter="videos">Videos</button>
                 <% } %>
             </div>
         </div>
@@ -248,40 +250,47 @@ border: 1px solid rgb(0, 0, 0) !important;
             <div class="rows">
                 <!-- Gallery Container -->
                 <div class="gallery-container state-gallery">
-                    <% gallery.slice().reverse().forEach((album) => { %>
-                        <% if (album.mediaDetails.mediaType === "IMAGE" && album.mediaDetails.images.length > 0) { %>
-                            <% album.mediaDetails.images.slice().reverse().forEach((image) => { %>
-                                <div class="gallery-thumb image-item popup-trigger" data-type="image" data-src="https://technolitics-s3-bucket.s3.ap-south-1.amazonaws.com/websitebuilder-s3-bucket/<%= image %>" data-title="<%= album.title.toLowerCase() %>">
-                                    <img src="https://technolitics-s3-bucket.s3.ap-south-1.amazonaws.com/websitebuilder-s3-bucket/<%= image %>" 
-                                         alt="<%= album.title %>" style="width: 100%;" />
-                                </div>
-                            <% }); %>
-                        <% } %>
-                        <% if (album.mediaDetails.mediaType === "VIDEO" && album.mediaDetails.videoLink) { 
-                            function convertToEmbedUrl(url) {
-                                let videoId = "";
-                                if (url.includes("youtu.be")) {
-                                    videoId = url.split("youtu.be/")[1]?.split("?")[0];
-                                } else if (url.includes("youtube.com/watch")) {
-                                    videoId = url.split("v=")[1]?.split("&")[0];
-                                }
-                                return videoId ? `https://www.youtube.com/embed/${videoId}` : "";
-                            }
-                            const embedUrl = convertToEmbedUrl(album.mediaDetails.videoLink);
-                        %>
-                            <% if (embedUrl) { %>
-                                <div class="gallery-thumb video-item popup-trigger" data-type="video" data-src="<%= embedUrl %>" data-title="videos" style="margin-bottom: 20px; display:flex; flex-direction:column">
-                                    <div class="thumbnail-container">
-                                        <img src="https://img.youtube.com/vi/<%= embedUrl.split('/').pop() %>/0.jpg" 
-                                             alt="<%= album.title %>" class="thumbnail-image" />
-                                        <div class="play-button">▶</div>
-                                    </div>
-                                </div>
-                            <% } else { %>
-                                <p>Invalid YouTube URL provided.</p>
+                    <% if (gallery && Array.isArray(gallery) && gallery.length > 0) { %>
+                        <% gallery.slice().reverse().forEach((album) => { %>
+                            <% if (album && album.mediaDetails && album.mediaDetails.mediaType === "IMAGE" && Array.isArray(album.mediaDetails.images) && album.mediaDetails.images.length > 0) { %>
+                                <% album.mediaDetails.images.slice().reverse().forEach((image) => { %>
+                                    <% if (image) { %>
+                                        <div class="gallery-thumb image-item popup-trigger" data-type="image" data-src="https://technolitics-s3-bucket.s3.ap-south-1.amazonaws.com/websitebuilder-s3-bucket/<%= image %>" data-title="<%= album.title ? album.title.toLowerCase() : '' %>">
+                                            <img src="https://technolitics-s3-bucket.s3.ap-south-1.amazonaws.com/websitebuilder-s3-bucket/<%= image %>" 
+                                                 alt="<%= album.title || 'Gallery Image' %>" style="width: 100%;" />
+                                        </div>
+                                    <% } %>
+                                <% }); %>
                             <% } %>
-                        <% } %>
-                    <% }); %>
+                            <% if (album && album.mediaDetails && album.mediaDetails.mediaType === "VIDEO" && album.mediaDetails.videoLink) { 
+                                function convertToEmbedUrl(url) {
+                                    if (!url) return "";
+                                    let videoId = "";
+                                    if (url.includes("youtu.be")) {
+                                        videoId = url.split("youtu.be/")[1]?.split("?")[0];
+                                    } else if (url.includes("youtube.com/watch")) {
+                                        videoId = url.split("v=")[1]?.split("&")[0];
+                                    }
+                                    return videoId ? `https://www.youtube.com/embed/${videoId}` : "";
+                                }
+                                const embedUrl = convertToEmbedUrl(album.mediaDetails.videoLink);
+                            %>
+                                <% if (embedUrl) { %>
+                                    <div class="gallery-thumb video-item popup-trigger" data-type="video" data-src="<%= embedUrl %>" data-title="videos" style="margin-bottom: 20px; display:flex; flex-direction:column">
+                                        <div class="thumbnail-container">
+                                            <img src="https://img.youtube.com/vi/<%= embedUrl.split('/').pop() %>/0.jpg" 
+                                                 alt="<%= album.title || 'Gallery Video' %>" class="thumbnail-image" />
+                                            <div class="play-button">▶</div>
+                                        </div>
+                                    </div>
+                                <% } %>
+                            <% } %>
+                        <% }); %>
+                    <% } else { %>
+                        <div style="text-align: center; padding: 40px;">
+                            <p>No gallery items available at the moment.</p>
+                        </div>
+                    <% } %>
                 </div>
             </div>
         </div>

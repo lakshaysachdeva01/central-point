@@ -88,33 +88,58 @@ app.get('/about', async (req, res) => {
 
 
 app.get('/gallery', async (req, res) => {
-    const baseUrl = req.protocol + '://' + req.get('Host');
-    const gallery = await getgallery();
-    
-    const seoDetails = {
-        title: "Photo Gallery - CPI Hotel | Venues, Rooms & Events",
-        metaDescription: "Explore our photo gallery showcasing luxury rooms, elegant banquet halls, event venues, and memorable celebrations at CPI Hotel.",
-        metaImage: `${baseUrl}/${metaLogoPath}`,
-        keywords: "hotel gallery, venue photos, room photos, event photos, hotel images, banquet hall images",
-        canonical: `${baseUrl}/gallery`,
-    };
+    try {
+        const baseUrl = req.protocol + '://' + req.get('Host');
+        console.log('🎨 Gallery route called');
+        const gallery = await getgallery() || [];
+        
+        console.log('🎨 Gallery data in route:', {
+            isArray: Array.isArray(gallery),
+            length: Array.isArray(gallery) ? gallery.length : 'N/A',
+            type: typeof gallery,
+            firstItem: Array.isArray(gallery) && gallery.length > 0 ? gallery[0] : 'No items'
+        });
+        
+        const seoDetails = {
+            title: "Photo Gallery - CPI Hotel | Venues, Rooms & Events",
+            metaDescription: "Explore our photo gallery showcasing luxury rooms, elegant banquet halls, event venues, and memorable celebrations at CPI Hotel.",
+            metaImage: `${baseUrl}/${metaLogoPath}`,
+            keywords: "hotel gallery, venue photos, room photos, event photos, hotel images, banquet hall images",
+            canonical: `${baseUrl}/gallery`,
+        };
 
-    res.render('gallery', { body: "", gallery, seoDetails });
+        res.render('gallery', { body: "", gallery, seoDetails });
+    } catch (error) {
+        console.error('❌ Error in /gallery route:', error);
+        console.error('❌ Error stack:', error.stack);
+        res.status(500).render('404', { 
+            error: 'Internal Server Error',
+            message: 'Unable to load gallery. Please try again later.'
+        });
+    }
 });
 app.get('/gallery/:filter', async (req, res) => {
-    const baseUrl = req.protocol + '://' + req.get('Host');
-    const { filter } = req.params;
-    const gallery = await getgallery();
+    try {
+        const baseUrl = req.protocol + '://' + req.get('Host');
+        const { filter } = req.params;
+        const gallery = await getgallery() || [];
 
-    const seoDetails = {
-        title: `${filter.charAt(0).toUpperCase() + filter.slice(1)} Gallery - CPI Hotel`,
-        metaDescription: `View our ${filter} photo gallery showcasing luxury accommodations, elegant venues, and memorable events at CPI Hotel.`,
-        metaImage: `${baseUrl}/${metaLogoPath}`,
-        keywords: `${filter} gallery, hotel ${filter}, ${filter} photos, CPI Hotel ${filter}`,
-        canonical: `${baseUrl}/gallery/${filter}`,
-    };
+        const seoDetails = {
+            title: `${filter.charAt(0).toUpperCase() + filter.slice(1)} Gallery - CPI Hotel`,
+            metaDescription: `View our ${filter} photo gallery showcasing luxury accommodations, elegant venues, and memorable events at CPI Hotel.`,
+            metaImage: `${baseUrl}/${metaLogoPath}`,
+            keywords: `${filter} gallery, hotel ${filter}, ${filter} photos, CPI Hotel ${filter}`,
+            canonical: `${baseUrl}/gallery/${filter}`,
+        };
 
-    res.render('gallery', { body: "", gallery, seoDetails });
+        res.render('gallery', { body: "", gallery, seoDetails });
+    } catch (error) {
+        console.error('Error in /gallery/:filter route:', error);
+        res.status(500).render('404', { 
+            error: 'Internal Server Error',
+            message: 'Unable to load gallery. Please try again later.'
+        });
+    }
 });
 
 
