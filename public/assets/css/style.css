@@ -2089,8 +2089,8 @@ blockquote cite:before {
 }
 @media screen and (max-width: 991px) {
     .video-fullscreen-wrap h1 {
-        font-size: 45px;
-        line-height: 55px;
+        font-size: 30px;
+        line-height: 45px;
     }
 }
 
@@ -3739,7 +3739,7 @@ blockquote cite:before {
 }
 .offers1 .item .con .title {
     font-family: "Gilda Display", serif;
-    font-size: 27px;
+    font-size: 18px;
     font-weight: 400;
     color: #fff;
 }

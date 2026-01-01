@@ -1,4 +1,38 @@
 <footer class="footer">
+    <style>
+        .footer .item ul li a,
+        .footer .item .phone a,
+        .footer .item .mail a,
+        .footer .item p a {
+            color: #ffffff99 !important;
+            transition: color 0.3s ease;
+        }
+        .footer .item ul li a:hover,
+        .footer .item .phone a:hover,
+        .footer .item .mail a:hover,
+        .footer .item p a:hover {
+            color: #b98e44 !important;
+        }
+        
+        .footer-links-col {
+            padding-left: 6rem;
+        }
+        
+        .footer-links-wrapper {
+            display: flex;
+            gap: 8rem;
+        }
+        
+        @media (max-width: 768px) {
+            .footer-links-col {
+                padding-left: 0 !important;
+            }
+            
+            .footer-links-wrapper {
+                gap: 2rem;
+            }
+        }
+    </style>
     <!-- top -->
     <div class="top">
         <div class="container">
@@ -6,36 +40,60 @@
                 <div class="col-md-4 mb-30">
                     <div class="item">
                         <div class="logo"><img src="/assets/img/Logo/Logoverticlewhite.png" alt=""></div>
-                        <p>Lorem ipsum is simply dummy text of the printe and type setting industry in the fermen.</p>
+                        <p>Central Point International Hotel, a heritage of hospitality since 1959. Elegant accommodations, premium banquet halls, and exceptional dining in Bilaspur.</p>
                         <div class="social-icons">
                             <ul class="list-inline">
-                                <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-                                <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+                                <li><a href="https://www.instagram.com/central_point_international?utm_source=qr&igsh=YnN3bnAzY29zbmV3"><i class="fa-brands fa-instagram"></i></a></li>
+                                <li><a href="https://www.facebook.com/share/1BRv9ZvdCW/"><i class="fa-brands fa-facebook-f"></i></a></li>
+                                <li><a href="https://www.youtube.com/@CentralPointinternational"><i class="fa-brands fa-youtube"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-30 footer-links-col">
+                    <div class="item">
+                        <div class="footer-links-wrapper">
+                            <ul style="padding-left: 0;">
+                                <li><a href="/">Home</a></li>
+                                <li><a href="/about">About</a></li>
+                                <li><a href="/rooms">Rooms</a></li>
+                                <li><a href="/venues">Venues</a></li>
+                            
+                            </ul>
+                            <ul style="padding-left: 0;">
+                                <li><a href="/dining">Dinning</a></li>
+                                <li><a href="/blog">Blog</a></li>
+                                <li><a href="careers">Careers</a></li>
+                                <li><a href="/contact">Contact</a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-3 offset-md-1 mb-30">
                     <div class="item">
-                        <h3>Contact us</h3>
-                        <p><%= contactInfo ? contactInfo.address : 'Your Hotel Address, City, State, PIN Code' %></p>
-                        <div class="phone"><a href="tel:<%= contactInfo ? contactInfo.phone.replace(/\s/g, '') : '+919876543210' %>"><%= contactInfo ? contactInfo.phone : '+91 9876543210' %></a></div>
+                        <p><a href="https://www.google.com/maps/place/Hotel+Central+Point+International/@21.948769,81.983523,13z/data=!4m10!1m2!2m1!1sHotel+Central+Point+International!3m6!1s0x3a2873145dbcb40d:0xbfdaa09df140cc4f!8m2!3d21.948769!4d81.983523!15sCiFIb3RlbCBDZW50cmFsIFBvaW50IEludGVybmF0aW9uYWySARBob3RlbJIBBWhvdGVs4AEA!16s%2Fg%2F11v2j1t7kj?entry=ttu" target="_blank" style="text-decoration: none;"><%= contactInfo ? contactInfo.address : 'Your Hotel Address, City, State, PIN Code' %></a></p>
+                        <% if (contactInfo && contactInfo.phones && Array.isArray(contactInfo.phones) && contactInfo.phones.length > 0) { %>
+                            <div class="phone">
+                                <% contactInfo.phones.forEach((phoneNum, index) => { %>
+                                    <% if (index === 0) { %>
+                                        <a href="tel:<%= phoneNum %>" style="text-decoration: none; display: inline-block; margin-right: 10px;"><%= phoneNum %></a>
+                                    <% } else if (index === 1) { %>
+                                        <a href="tel:<%= phoneNum %>" style="text-decoration: none; display: inline-block;"><%= phoneNum %></a>
+                                    <% } else { %>
+                                        <br><a href="tel:<%= phoneNum %>" style="text-decoration: none; display: inline-block;"><%= phoneNum %></a>
+                                    <% } %>
+                                <% }); %>
+                            </div>
+                        <% } else if (contactInfo && contactInfo.phone) { %>
+                            <div class="phone"><a href="tel:<%= contactInfo.phone.replace(/\s/g, '') %>"><%= contactInfo.phone %></a></div>
+                        <% } else { %>
+                            <div class="phone"><a href="tel:+919876543210">+91 9876543210</a></div>
+                        <% } %>
                         <div class="mail"><a href="mailto:<%= contactInfo ? contactInfo.email : 'info@hotel.com' %>"><%= contactInfo ? contactInfo.email : 'info@hotel.com' %></a></div>
                     </div>
                 </div>
-                <div class="col-md-4 mb-30">
-                    <div class="item">
-                        <h3>Subscribe</h3>
-                        <p>Want to be notified about our services. Just sign up and we'll send you a notification by email.</p>
-                        <div class="newsletter">
-                            <form action="#">
-                                <input type="email" placeholder="Email Address" required>
-                                <button type="submit"><i class="fa-light fa-arrow-right"></i></button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+               
             </div>
         </div>
     </div>
@@ -44,19 +102,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-md-12">
-                    <div class="links">
-                        <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="about.html">About</a></li>
-                            <li><a href="services.html">Services</a></li>
-                            <li><a href="rooms1.html">Rooms</a></li>
-                            <li><a href="blog1.html">Blog</a></li>
-                            <li><a href="contact.html">Contact</a></li>
-                        </ul>
-                    </div>
+                    <p>Copyright <%= new Date().getFullYear() %> by <a href="/">Central Point International</a></p>
                 </div>
                 <div class="col-lg-4 col-md-12 text-end">
-                    <p>Copyright 2025 by <a href="#">DuruThemes</a></p>
+                    <p>Made with <i class="fa-solid fa-heart" style="color: #fff; margin: 0 5px;"></i>  by <a href="https://www.technolitics.com" target="_blank">Technolitics</a></p>
                 </div>
             </div>
         </div>

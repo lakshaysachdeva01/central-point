@@ -253,6 +253,7 @@ $(function () {
         }
     });
     
+    
     // Testimonials owlCarousel
     $('.testimonials .owl-carousel').owlCarousel({
         loop: true
@@ -278,9 +279,38 @@ $(function () {
         }
     });
     
+    // Offers 1 owlCarousel
+    $('.offers1 .owl-carousel').owlCarousel({
+        loop: true
+        , items: 4
+        , margin: 20
+        , mouseDrag: true
+        , autoplay: true
+        , autoplayTimeout: 5000
+        , dots: false
+        , autoplayHoverPause: true
+        , nav: true
+        , navText: ["<span class='fa-light fa-angle-left'></span>", "<span class='fa-light fa-angle-right'></span>"]
+        , responsiveClass: true
+        , responsive: {
+            0: {
+                items: 1
+            , }
+            , 600: {
+                items: 2
+            , }
+            , 1000: {
+                items: 3
+            , }
+            , 1200: {
+                items: 4
+            , }
+        }
+    });
+    
     // Rooms 1 owlCarousel
     $('.rooms1 .owl-carousel').owlCarousel({
-        loop: true
+        loop: false
         , items: 2 
         , margin: 20
         , mouseDrag: true

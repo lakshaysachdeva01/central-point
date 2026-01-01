@@ -57,17 +57,18 @@ app.get('/', async (req, res) => {
     const products = await getProducts();
     const clients = await getclientle();
     const popupbanners = await getHomepopupBanner();
-   const latestImages = await getLatestGalleryImages();
-   const seoDetails = {
-    title: "CPI Hotel - Luxury Accommodation & Event Venues",
-    metaDescription: "Experience luxury hospitality at CPI Hotel. Premium rooms, elegant banquet halls, and exceptional dining. Perfect for weddings, corporate events, and leisure stays.",
-    metaImage: `${baseUrl}/${metaLogoPath}`,
-    keywords: "luxury hotel, banquet hall, event venue, wedding venue, hotel rooms, accommodation, fine dining, CPI Hotel",
-    canonical: `${baseUrl}`,
-};
+    const latestImages = await getLatestGalleryImages();
+    const venues = await getVenues();
+    const stays = await getStays();
+    const seoDetails = {
+        title: "CPI Hotel - Luxury Accommodation & Event Venues",
+        metaDescription: "Experience luxury hospitality at CPI Hotel. Premium rooms, elegant banquet halls, and exceptional dining. Perfect for weddings, corporate events, and leisure stays.",
+        metaImage: `${baseUrl}/${metaLogoPath}`,
+        keywords: "luxury hotel, banquet hall, event venue, wedding venue, hotel rooms, accommodation, fine dining, CPI Hotel",
+        canonical: `${baseUrl}`,
+    };
 
-   
-    res.render('index', {body: "",baseUrl,latestImages, products, websiteID,popupbanners,testimonial,blogs,gallery,clients, API_BASE_URL,WEBSITE_ID_KEY, seoDetails,banners});
+    res.render('index', {body: "",baseUrl,latestImages, products, websiteID,popupbanners,testimonial,blogs,gallery,clients, API_BASE_URL,WEBSITE_ID_KEY, seoDetails,banners,venues,stays});
 });
 
 

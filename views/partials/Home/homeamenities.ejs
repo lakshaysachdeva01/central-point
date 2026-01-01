@@ -1,0 +1,245 @@
+<!-- Amenities -->
+<section class="amenities section-padding bg-lightbrown">
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-lg-4 col-md-12 mb-30">
+                <div class="section-subtitle">Hotel Services</div>
+                <div class="section-title">Amenities</div>
+                <p class="mb-25">Experience exceptional comfort and convenience with our comprehensive range of modern amenities designed to enhance your stay. From climate-controlled environments to round-the-clock services, we ensure every aspect of your visit is seamless and enjoyable.</p>
+            </div>
+            <div class="col-lg-8 col-md-12">
+                <% 
+                var amenitiesData = [
+                    { icon: 'fa-snowflake', title: 'AC', description: 'Enjoy climate-controlled comfort across the property.' },
+                    { icon: 'fa-wifi', title: 'Internet Wi-Fi', description: 'Stay connected with high-speed wireless internet.' },
+                    { icon: 'fa-wheelchair', title: 'Accessible Washroom', description: 'Washrooms designed for easy accessibility for all guests.' },
+                    { icon: 'fa-faucet-drip', title: '24×7 Hot & Cold Water', description: 'Uninterrupted hot and cold water supply round the clock.' },
+                    { icon: 'fa-circle-parking', title: 'Ample Parking', description: 'Spacious parking area accommodating 300+ cars.' },
+                    { icon: 'fa-car', title: 'Valet Parking', description: 'Enjoy hassle-free arrivals with dedicated valet service.' },
+                    { icon: 'fa-arrow-up', title: 'Lift', description: 'Guest elevators with capacity of up to 8 persons.' },
+                    { icon: 'fa-bolt', title: '04 DG Generator Backup', description: 'Power backup with a total capacity of 2000+ kVA.' },
+                    { icon: 'fa-fire-extinguisher', title: 'Fire Extinguishing System', description: 'Advanced fire safety and extinguishing systems installed.' },
+                    { icon: 'fa-shield-halved', title: '24×7 Security & CCTV Surveillance', description: 'Round-the-clock security supported by CCTV monitoring.' },
+                    { icon: 'fa-key', title: 'Electronic Key Access', description: 'Secure electronic key access for rooms and restricted areas.' },
+                    { icon: 'fa-shirt', title: 'Laundry & Dry Cleaning', description: 'Professional laundry and dry-cleaning services available.' },
+                    { icon: 'fa-universal-access', title: 'Physically Disabled Friendly', description: 'Infrastructure designed for differently-abled guest convenience.' },
+                    { icon: 'fa-vacuum', title: '24×7 Room Service', description: 'Prompt room service available any time of the day.' },
+                    { icon: 'fa-briefcase', title: 'Business Center', description: 'Well-equipped business center for meetings and work needs.' }
+                ];
+                %>
+                <div class="amenities-scroll-container">
+                    <!-- Top row - scrolling right -->
+                    <div class="amenities-scroll-row amenities-scroll-top">
+                        <div class="amenities-scroll-wrapper">
+                            <% amenitiesData.forEach(function(amenity) { %>
+                                <div class="amenity-item hover-box mb-25">
+                                    <div class="cont up">
+                                        <div class="icon"> <i class="fa-thin <%= amenity.icon %>"></i> </div>
+                                        <div class="text">
+                                            <h5><%= amenity.title %></h5>
+                                            <p><%= amenity.description %></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            <% }); %>
+                            <!-- Duplicate for seamless loop -->
+                            <% amenitiesData.forEach(function(amenity) { %>
+                                <div class="amenity-item hover-box mb-25">
+                                    <div class="cont up">
+                                        <div class="icon"> <i class="fa-thin <%= amenity.icon %>"></i> </div>
+                                        <div class="text">
+                                            <h5><%= amenity.title %></h5>
+                                            <p><%= amenity.description %></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            <% }); %>
+                        </div>
+                    </div>
+                    
+                    <!-- Bottom row - scrolling left -->
+                    <div class="amenities-scroll-row amenities-scroll-bottom">
+                        <div class="amenities-scroll-wrapper">
+                            <% amenitiesData.slice().reverse().forEach(function(amenity) { %>
+                                <div class="amenity-item hover-box mb-25">
+                                    <div class="cont up">
+                                        <div class="icon"> <i class="fa-thin <%= amenity.icon %>"></i> </div>
+                                        <div class="text">
+                                            <h5><%= amenity.title %></h5>
+                                            <p><%= amenity.description %></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            <% }); %>
+                            <!-- Duplicate for seamless loop -->
+                            <% amenitiesData.slice().reverse().forEach(function(amenity) { %>
+                                <div class="amenity-item hover-box mb-25">
+                                    <div class="cont up">
+                                        <div class="icon"> <i class="fa-thin <%= amenity.icon %>"></i> </div>
+                                        <div class="text">
+                                            <h5><%= amenity.title %></h5>
+                                            <p><%= amenity.description %></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            <% }); %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .amenities-scroll-container {
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+    }
+    
+    .amenities-scroll-row {
+        display: flex;
+        overflow: hidden;
+        width: 100%;
+        position: relative;
+    }
+    
+    .amenities-scroll-wrapper {
+        display: flex;
+        gap: 20px;
+        width: fit-content;
+    }
+    
+    .amenities-scroll-top .amenities-scroll-wrapper {
+        animation: scroll-right 60s linear infinite;
+    }
+    
+    .amenities-scroll-bottom .amenities-scroll-wrapper {
+        animation: scroll-left 60s linear infinite;
+    }
+    
+    @keyframes scroll-right {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(calc(-50%));
+        }
+    }
+    
+    @keyframes scroll-left {
+        0% {
+            transform: translateX(calc(-50%));
+        }
+        100% {
+            transform: translateX(0);
+        }
+    }
+    
+    .amenities-scroll-row .amenity-item {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-box-align: center;
+        border-radius: 6px !important;
+        -webkit-transition: all 350ms cubic-bezier(.37, 0, .63, 1);
+        transition: all 350ms cubic-bezier(.37, 0, .63, 1);
+        background-color: #fff;
+        flex-shrink: 0;
+        width: 300px;
+        min-width: 300px;
+        box-sizing: border-box;
+    }
+    
+    @media (min-width: 992px) {
+        .col-lg-8 .amenities-scroll-row .amenity-item {
+            width: 200px;
+        }
+    }
+    
+    .amenities-scroll-row .amenity-item .cont {
+        padding-left: 10% !important;
+        padding-bottom: 13% !important;
+        padding-right: 10% !important;
+        padding-top: 13% !important;
+    }
+    
+    .amenities-scroll-row .amenity-item .cont .icon i {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        margin-bottom: 15px;
+        font-size: 50px;
+        color: #BD945A;
+        justify-content: center !important;
+    }
+    
+    .amenities-scroll-row .amenity-item .cont .text h5 {
+        display: inline-block !important;
+        font-size: 21px;
+        font-weight: 400;
+        color: #141414;
+        margin-bottom: 10px;
+    }
+    
+    .amenities-scroll-row .amenity-item .cont .text p {
+        font-family: "Urbanist", sans-serif;
+        font-size: 17px;
+        line-height: 1.5em;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.6);
+        margin-bottom: 0;
+        padding: 0 0;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+    }
+    
+    .amenities-scroll-row .amenity-item .cont.up {
+        will-change: transform;
+        -webkit-transform: translateY(30px);
+        transform: translateY(30px);
+    }
+    
+    .amenities-scroll-row .amenity-item.hover-box * {
+        -webkit-transition: all .5s cubic-bezier(.5, 1, .89, 1);
+        transition: all .5s cubic-bezier(.5, 1, .89, 1);
+        will-change: transform;
+    }
+    
+    .amenities-scroll-row .amenity-item:hover {
+        background: #BD945A;
+    }
+    
+    .amenities-scroll-row .amenity-item:hover .cont h5,
+    .amenities-scroll-row .amenity-item:hover .cont .icon i {
+        color: #fff
+    }
+    
+    .amenities-scroll-row .amenity-item:hover .cont.up {
+        -webkit-transform: translateY(0);
+        transform: translateY(0)
+    }
+    
+    .amenities-scroll-row .amenity-item:hover .cont .text p {
+        opacity: 1;
+    }
+    
+    @media (max-width: 768px) {
+        .amenities-scroll-row .amenity-item {
+            width: 110px;
+        }
+    }
+</style>

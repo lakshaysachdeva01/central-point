@@ -82,13 +82,7 @@ function convertToEmbedUrl(url) {
                                     <div style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; line-clamp: 3; overflow: hidden; text-overflow: ellipsis; margin-bottom: 15px;">
                                         <%- item.description.replace(/<span[^>]*>/g, '').replace(/<\/span>/g, '').replace(/\n/g, ' ') %>
                                     </div>
-                                    <div>
-                                        <div>
-                                            <h5 style="font-family: Urbanist, sans-serif; font-size: 17px; font-weight: 400; margin-bottom: 0; color: #141414;">
-                                                <%= item.postDate %>
-                                            </h5>
-                                        </div>
-                                    </div>
+                                
                                 </div>
                             </div>
                         <% }); %>
@@ -117,37 +111,66 @@ setTimeout(function() {
             homeBlogCarousel.find('.owl-stage-outer').children().unwrap();
         }
         
-        // Reinitialize with loop disabled if 3 or fewer items
-        homeBlogCarousel.addClass('owl-carousel owl-theme').owlCarousel({
-            loop: blogCount > 3,
+        // Determine loop settings - NO LOOP when items <= visible count
+        const shouldLoopDesktop = blogCount > 3;
+        const shouldLoopTablet = blogCount > 2;
+        const shouldLoopMobile = blogCount > 1;
+        
+        // Initialize carousel with loop disabled
+        const carousel = homeBlogCarousel.addClass('owl-carousel owl-theme').owlCarousel({
+            loop: false,
             margin: 20,
-            mouseDrag: true,
+            mouseDrag: shouldLoopDesktop,
             autoplay: false,
             autoplayTimeout: 5000,
-            dots: false,
+            dots: shouldLoopDesktop,
             autoplayHoverPause: true,
-            nav: true,
+            nav: shouldLoopDesktop,
             navText: ["<span class='fa-light fa-angle-left'></span>", "<span class='fa-light fa-angle-right'></span>"],
             responsiveClass: true,
             responsive: {
                 0: {
                     items: 1,
                     nav: false,
-                    dots: true,
-                    loop: false
+                    dots: shouldLoopMobile,
+                    loop: false,
+                    mouseDrag: shouldLoopMobile
                 },
                 600: {
                     items: 2,
                     nav: false,
-                    dots: true,
-                    loop: false
+                    dots: shouldLoopTablet,
+                    loop: false,
+                    mouseDrag: shouldLoopTablet
                 },
                 1000: {
                     items: 3,
-                    loop: blogCount > 3
+                    loop: false,
+                    nav: shouldLoopDesktop,
+                    mouseDrag: shouldLoopDesktop,
+                    dots: shouldLoopDesktop
                 }
             }
         });
+        
+        // Multiple checks to remove cloned items
+        function removeClones() {
+            const clonedItems = homeBlogCarousel.find('.owl-item.cloned');
+            if (clonedItems.length > 0) {
+                clonedItems.remove();
+                homeBlogCarousel.trigger('refresh.owl.carousel');
+            }
+        }
+        
+        // Remove clones immediately and after delays
+        removeClones();
+        setTimeout(removeClones, 100);
+        setTimeout(removeClones, 300);
+        setTimeout(removeClones, 500);
+        
+        // Also remove clones on carousel events
+        homeBlogCarousel.on('initialized.owl.carousel', removeClones);
+        homeBlogCarousel.on('refreshed.owl.carousel', removeClones);
     }
 }, 100);
 </script>

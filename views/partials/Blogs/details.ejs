@@ -1,15 +1,12 @@
 <!--   Banner of blog    -->
   <!-- Header Banner -->
-  <section class="banner-header full-height valign bg-img" data-overlay-dark="5" data-background="/assets/img/blog/1.jpg">
+  <section class="banner-header full-height valign bg-img" data-overlay-dark="5" data-background="<%= blogDetails?.coverImage ? process.env.S3_BASE_URL + blogDetails.coverImage : '/assets/img/blog/1.jpg' %>">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-lg-8 col-md-12 text-center">
-                <div class="subtitle">Hotel Articles</div>
+            <div class="col-lg-12 col-md-12 text-center">
+                
                 <h1 class="title"><%= blogDetails.title %></h1>
-                <div class="post">
-                   
-                    <div class="date-comment"> <i class="fa-light fa-calendar"></i> <%= blogDetails.postDate %></div>
-                </div>
+                
             </div>
         </div>
     </div>
@@ -43,7 +40,9 @@ function convertToEmbedUrl(url) {
                 </iframe>
                 <% } else if (blogDetails?.banner?.bannerType === "IMAGE" && blogDetails?.banner?.image) { %>
                 <!-- Render image if the banner type is IMAGE and image URL exists -->
-                <img src="<%= process.env.S3_BASE_URL + blogDetails.banner.image %>" class="rounded-2 img-fluid" alt="blog_banner">
+                <div class="popup-trigger" data-type="image" data-src="<%= process.env.S3_BASE_URL + blogDetails.banner.image %>">
+                    <img src="<%= process.env.S3_BASE_URL + blogDetails.banner.image %>" class="rounded-2 img-fluid" alt="blog_banner">
+                </div>
                 <% } %>
                 
              
@@ -66,9 +65,11 @@ function convertToEmbedUrl(url) {
 
                         <!-- Single Image -->
                         <% if (item?.singleImage?.image) { %>
-                            <img src="<%= process.env.S3_BASE_URL + item.singleImage.image %>" 
-                                class="rounded-2 img-fluid mb-30" 
-                                alt="<%= item.singleImage.altTag || 'Image' %>">
+                            <div class="popup-trigger" data-type="image" data-src="<%= process.env.S3_BASE_URL + item.singleImage.image %>">
+                                <img src="<%= process.env.S3_BASE_URL + item.singleImage.image %>" 
+                                    class="rounded-2 img-fluid mb-30" 
+                                    alt="<%= item.singleImage.altTag || 'Image' %>">
+                            </div>
                         <% } %>
 
                         <!-- Multiple Images with Bootstrap grid -->
@@ -90,10 +91,12 @@ function convertToEmbedUrl(url) {
                         %>
                             <div class="row">
                                 <% item.multipleImages.forEach((image, imgIndex) => { %>
-                                    <div class="<%= colClass %>">
-                                        <img src="<%= process.env.S3_BASE_URL + image %>" 
-                                            class="mb-30 rounded-2 img-fluid" 
-                                            alt="Image <%= imgIndex + 1 %>">
+                                    <div class="<%= colClass %>  h-full">
+                                        <div class="popup-trigger h-full" data-type="image" data-src="<%= process.env.S3_BASE_URL + image %>">
+                                            <img src="<%= process.env.S3_BASE_URL + image %>" 
+                                                class="mb-30 rounded-2 img-fluid" 
+                                                alt="Image <%= imgIndex + 1 %>">
+                                        </div>
                                     </div>
                                 <% }) %>
                             </div>
@@ -128,7 +131,7 @@ function convertToEmbedUrl(url) {
                             const embedUrl = convertToEmbedUrl(item.youtube);
                             if (embedUrl) { %>
                                 <div class="mb-30">
-                                    <iframe width="100%" height="433" 
+                                    <iframe width="100%" height="550" 
                                         src="<%= embedUrl %>" title="YouTube video player" frameborder="0"
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                         referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
@@ -271,6 +274,20 @@ function convertToEmbedUrl(url) {
 </script>
 
 <style>
+    /* Banner title styles */
+    .banner-header .title {
+        font-size: 46px !important;
+        line-height: 68px !important;
+        margin-bottom: -50px !important;
+    }
+    
+    @media (max-width: 768px) {
+        .banner-header .title {
+            font-size: 28px;
+            line-height: 36px;
+        }
+    }
+    
     /* Table styles */
     table {
         width: 100%;
@@ -282,7 +299,19 @@ function convertToEmbedUrl(url) {
         margin: 1.5rem 0;
         border: 1px solid #dddee1 !important;
     }
+   
+     .h-full{
+        height: 100% !important;
+     }
 
+
+    .h-full img{
+        height: 100%;
+        object-fit: cover;
+       
+    }
+    
+  
     table th {
         padding: 0.75rem 1rem;
         text-align: left;
